@@ -1,0 +1,491 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+const title = "Ken Pham — Director";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0b0b0b" />
+    <title>{title}</title>
+    <meta name="description" content="Portfolio of director Ken Pham: branded films, shorts, and documentary work." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://www.kenpham.ca/" />
+    
+    <!-- Plausible Analytics -->
+    <script defer data-domain="www.kenpham.ca" src="https://plausible.io/js/script.js"></script>
+    
+    <!-- Open Graph / Twitter -->
+    <meta property="og:site_name" content="Ken Pham" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ken Pham — Director" />
+    <meta property="og:description" content="Portfolio of director Ken Pham: branded films, shorts, and documentary work." />
+    <meta property="og:url" content="https://www.kenpham.ca/" />
+    <meta property="og:image" content="https://www.kenpham.ca/images/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ken Pham — Director" />
+    <meta name="twitter:description" content="Portfolio of director Ken Pham: branded films, shorts, and documentary work." />
+    <meta name="twitter:image" content="https://www.kenpham.ca/images/og-image.jpg" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      :root { 
+        color-scheme: dark;
+        --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      }
+      
+      html, body { 
+        margin: 0; 
+        background: #0b0b0b; 
+        font-family: var(--font-primary); 
+        -webkit-font-smoothing: antialiased;
+        position: relative;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0b0b0b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 6px;
+        border: 2px solid #0b0b0b;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #444;
+      }
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #333 #0b0b0b;
+      }
+      
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #f2f2f2;
+        color: #0b0b0b;
+        padding: 8px 16px;
+        text-decoration: none;
+        font-weight: 600;
+        z-index: 100;
+      }
+      .skip-link:focus {
+        top: 0;
+      }
+      
+      .wrap { max-width:1200px; margin:0 auto; padding:16px; }
+      .portfolio-grid { display:grid; grid-template-columns:1fr; gap:14px; }
+      @media (min-width:768px){ .portfolio-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+      @media (min-width:900px){ .portfolio-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+
+      .tile{ display:block; text-decoration:none; color:inherit; transition:transform .2s ease; opacity:0; animation:fadeInUp 0.6s ease forwards; }
+      .tile:nth-child(1) { animation-delay:0.05s; }
+      .tile:nth-child(2) { animation-delay:0.1s; }
+      .tile:nth-child(3) { animation-delay:0.15s; }
+      .tile:nth-child(4) { animation-delay:0.2s; }
+      .tile:nth-child(5) { animation-delay:0.25s; }
+      .tile:nth-child(6) { animation-delay:0.3s; }
+      .tile:nth-child(7) { animation-delay:0.35s; }
+      .tile:nth-child(8) { animation-delay:0.4s; }
+      .tile:nth-child(9) { animation-delay:0.45s; }
+      .tile:nth-child(10) { animation-delay:0.5s; }
+      .tile:nth-child(11) { animation-delay:0.55s; }
+      .tile:nth-child(12) { animation-delay:0.6s; }
+      .tile:nth-child(13) { animation-delay:0.65s; }
+      .tile:nth-child(14) { animation-delay:0.7s; }
+      .tile:nth-child(15) { animation-delay:0.75s; }
+      
+      @keyframes fadeInUp {
+        from { opacity:0; transform:translateY(20px); }
+        to { opacity:1; transform:translateY(0); }
+      }
+      
+      .tile.loaded {
+        opacity: 1;
+        animation: none;
+      }
+      
+      .tile:active { transform:scale(0.98); }
+      .hover-media{ position:relative; aspect-ratio:16/9; overflow:hidden; border-radius:14px; background:#111; }
+      .hover-media picture,
+      .hover-media img.static,
+      .hover-media video.gif{ width:100%; height:100%; object-fit:cover; display:block; }
+
+      .hover-media picture { position:relative; }
+      .hover-media img.static { opacity:0; transition:opacity .35s ease; font-size:0; color:transparent; }
+      .hover-media img.static[data-loaded="true"] { opacity:1; }
+
+      .hover-media video.gif { position:absolute; top:0; left:0; }
+
+      @media (hover:hover){
+        .tile:hover {
+          transform: translateY(-4px);
+        }
+        .hover-media .gif { opacity:0; transition:opacity .25s ease; }
+        .tile:hover .hover-media .gif { opacity:1; }
+        .tile:hover .hover-media .static { opacity:0; }
+      }
+
+      .caption{ margin-top:6px; color:#f2f2f2; }
+      .overlay{ pointer-events:none; color:#fff; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .25s ease; background:rgba(0,0,0,0.7); }
+      @media (hover:hover){
+        .tile.has-overlay:hover .overlay{ opacity:1; }
+      }
+      .overlay p{ margin:0; font-size:12px; font-weight:600; letter-spacing:1px; text-align:center; padding:0 20px; }
+      
+      .tile:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 4px;
+        border-radius: 4px;
+        transform: translateY(-4px);
+      }
+      
+      /* View Transitions API */
+      @view-transition {
+        navigation: auto;
+      }
+      
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 0.3s;
+      }
+      
+      img, video{ user-select:none; -webkit-user-drag:none; pointer-events:auto; box-sizing:border-box; }
+      h3{ margin:0; font-size:14px; font-weight:600; letter-spacing:.2px; }
+      h3 span{ opacity:.7; font-weight:500; }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ken Pham",
+      "jobTitle": "Director",
+      "url": "https://www.kenpham.ca",
+      "sameAs": [
+        "https://www.imdb.com/name/nm9444848/",
+        "https://www.instagram.com/kennethpham/"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Independent"
+      },
+      "knowsAbout": ["Film Direction", "Documentary", "Commercial Production", "Short Films"]
+    }
+    </script>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <div class="wrap">
+      <SiteHeader />
+      
+      <main id="main-content">
+      <div class="portfolio-grid">
+
+        <!-- ========== TILES ========== -->
+
+        <a class="tile" href="/that-which-is-heard" aria-label="View That Which Is Heard documentary project">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/twih_static.webp" type="image/webp" />
+              <img class="static" src="/media/twih_static.jpg" alt="That Which Is Heard" width="1280" height="720" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="metadata" poster="/media/twih_static.jpg">
+              <source src="/media/twih_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>That Which Is Heard <span>– Documentary</span></h3></div>
+        </a>
+
+        <div class="tile has-overlay" aria-label="Hit And Run short film - currently in post-production">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/hitandrun_static.webp" type="image/webp" />
+              <img class="static" src="/media/hitandrun_static.jpg" alt="Hit And Run" width="1280" height="720" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <div class="overlay"><p>CURRENTLY IN POST-PRODUCTION</p></div>
+          </div>
+          <div class="caption"><h3>Hit And Run <span>– Short Film</span></h3></div>
+        </div>
+
+        <a class="tile" href="/the-hall-pass" aria-label="View The Hall Pass short film project">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/hallpass_static.webp" type="image/webp" />
+              <img class="static" src="/media/hallpass_static.jpg" alt="Hall Pass" width="1280" height="720" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="metadata" poster="/media/hallpass_static.jpg">
+              <source src="/media/hallpass_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>The Hall Pass <span>– Short Film</span></h3></div>
+        </a>
+
+        <div class="tile">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/pckw_static.webp" type="image/webp" />
+              <img class="static" src="/media/pckw_static.jpg" alt="PCKW Opening" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/pckw_static.jpg">
+              <source src="/media/pckw_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>PCKW Opening <span>– Commercial</span></h3></div>
+        </div>
+
+        <div class="tile">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/bmwm4gt4_static.webp" type="image/webp" />
+              <img class="static" src="/media/bmwm4gt4_static.jpg" alt="BMW M4 GT4" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/bmwm4gt4_static.jpg">
+              <source src="/media/bmwm4gt4_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>BMW M4 GT4 <span>– Commercial</span></h3></div>
+        </div>
+
+        <div class="tile">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/halfwaybroken_static.webp" type="image/webp" />
+              <img class="static" src="/media/halfwaybroken_static.jpg" alt="Halfway Broken" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/halfwaybroken_static.jpg">
+              <source src="/media/halfwaybroken_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>Halfway Broken <span>– Music Video</span></h3></div>
+        </div>
+
+        <div class="tile">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/offonanisland_static.webp" type="image/webp" />
+              <img class="static" src="/media/offonanisland_static.jpg" alt="Off On An Island" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/offonanisland_static.jpg">
+              <source src="/media/offonanisland_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>Off On An Island <span>– Music Video</span></h3></div>
+        </div>
+
+        <div class="tile">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/cayenne2024_static.webp" type="image/webp" />
+              <img class="static" src="/media/cayenne2024_static.jpg" alt="Porsche Cayenne 2024" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/cayenne2024_static.jpg">
+              <source src="/media/cayenne2024_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>Porsche Cayenne 2024 <span>– Commercial</span></h3></div>
+        </div>
+
+        <div class="tile">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/pecdakar_static.webp" type="image/webp" />
+              <img class="static" src="/media/pecdakar_static.jpg" alt="PEC Porsche 911 Dakar" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/pecdakar_static.jpg">
+              <source src="/media/pecdakar_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>PEC Porsche 911 Dakar <span>– Commercial</span></h3></div>
+        </div>
+
+        <div class="tile">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/myporscheapp_static.webp" type="image/webp" />
+              <img class="static" src="/media/myporscheapp_static.jpg" alt="My Porsche App" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/myporscheapp_static.jpg">
+              <source src="/media/myporscheapp_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>My Porsche App <span>– Commercial</span></h3></div>
+        </div>
+
+        <div class="tile">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/pcv_static.webp" type="image/webp" />
+              <img class="static" src="/media/pcv_static.jpg" alt="Porsche Taycan EV Roadtrip" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/pcv_static.jpg">
+              <source src="/media/pcv_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>Porsche Taycan EV Roadtrip <span>– Commercial</span></h3></div>
+        </div>
+
+        <div class="tile">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/driveyourownpath_static.webp" type="image/webp" />
+              <img class="static" src="/media/driveyourownpath_static.jpg" alt="Drive Your Own Path" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/driveyourownpath_static.jpg">
+              <source src="/media/driveyourownpath_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>Drive Your Own Path <span>– Commercial</span></h3></div>
+        </div>
+
+        <div class="tile">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/volvoawareness_static.webp" type="image/webp" />
+              <img class="static" src="/media/volvoawareness_static.jpg" alt="Volvo Awareness Campaign" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/volvoawareness_static.jpg">
+              <source src="/media/volvoawareness_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>Volvo Awareness Campaign <span>– Branded Content</span></h3></div>
+        </div>
+
+        <div class="tile">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/teachplay_static.webp" type="image/webp" />
+              <img class="static" src="/media/teachplay_static.jpg" alt="Teach, Play" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/teachplay_static.jpg">
+              <source src="/media/teachplay_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>Teach, Play <span>– Documentary</span></h3></div>
+        </div>
+
+        <div class="tile">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/vinfast_static.webp" type="image/webp" />
+              <img class="static" src="/media/vinfast_static.jpg" alt="VinFast Boundless Together" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/vinfast_static.jpg">
+              <source src="/media/vinfast_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>VinFast Boundless Together <span>– Commercial</span></h3></div>
+        </div>
+
+      </div>
+      </main>
+      
+      <SiteFooter />
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('contextmenu', e => {
+          if (e.target.closest('.portfolio-grid')) e.preventDefault();
+        });
+        document.querySelectorAll('.portfolio-grid img, .portfolio-grid video').forEach(el => {
+          el.setAttribute('draggable','false');
+          el.setAttribute('oncontextmenu','return false');
+          if (el.tagName === 'VIDEO') {
+            el.setAttribute('controlslist','nodownload');
+            el.setAttribute('disablepictureinpicture','');
+          }
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const isTouch = matchMedia("(hover: none) and (pointer: coarse)").matches;
+        const vids = document.querySelectorAll('.portfolio-grid video.gif');
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(({ isIntersecting, target }) => {
+            if (!isIntersecting) return;
+            if (target.preload !== 'metadata') target.preload = 'metadata';
+            if (target.readyState < 2) target.load();
+          });
+        }, { rootMargin: '300px 0px' });
+
+        vids.forEach(v => { v.muted = true; v.defaultMuted = true; v.setAttribute('muted',''); v.setAttribute('playsinline',''); io.observe(v); });
+
+        if (!isTouch) {
+          vids.forEach(v => {
+            const tile = v.closest('.tile');
+            tile.addEventListener('mouseenter', () => v.play().catch(()=>{}));
+            tile.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+          });
+        } else {
+          // Mobile double-tap: first tap shows hover, second tap navigates
+          let activeTile = null;
+          document.querySelectorAll('.tile').forEach(tile => {
+            const link = tile.tagName === 'A' ? tile : null;
+            const video = tile.querySelector('video.gif');
+            
+            tile.addEventListener('click', (e) => {
+              // If this tile is already active, allow navigation
+              if (activeTile === tile) {
+                if (video) {
+                  video.pause();
+                  video.currentTime = 0;
+                }
+                activeTile = null;
+                return; // Let the link navigate
+              }
+              
+              // First tap: prevent navigation and activate
+              if (link) e.preventDefault();
+              
+              // Reset previous active tile
+              if (activeTile && activeTile !== tile) {
+                const prevVideo = activeTile.querySelector('video.gif');
+                if (prevVideo) {
+                  prevVideo.pause();
+                  prevVideo.currentTime = 0;
+                }
+              }
+              
+              // Activate this tile
+              activeTile = tile;
+              if (video) video.play().catch(()=>{});
+              
+              // Auto-reset after 3 seconds
+              setTimeout(() => {
+                if (activeTile === tile) {
+                  if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                  }
+                  activeTile = null;
+                }
+              }, 3000);
+            });
+          });
+        }
+        
+        // Remove animation after it completes to allow hover transform
+        document.querySelectorAll('.tile').forEach((tile, index) => {
+          const delay = (index + 1) * 50; // 0.05s per tile
+          const animationDuration = 600; // 0.6s
+          setTimeout(() => {
+            tile.classList.add('loaded');
+          }, delay + animationDuration);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+const title = "Ken Pham — About";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0b0b0b" />
+    <title>{title}</title>
+    <meta name="description" content="Ken Pham is a director whose latest film, That Which Is Heard will have its World Premiere at DOC NYC 2025" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://www.kenpham.ca/about" />
+    <!-- Plausible Analytics -->
+    <script defer data-domain="www.kenpham.ca" src="https://plausible.io/js/script.js"></script>
+    
+    <!-- Open Graph / Twitter -->
+    <meta property="og:site_name" content="Ken Pham" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ken Pham — About" />
+    <meta property="og:description" content="Ken Pham is a director whose latest film, That Which Is Heard will have its World Premiere at DOC NYC 2025" />
+    <meta property="og:url" content="https://www.kenpham.ca/about" />
+    <meta property="og:image" content="https://www.kenpham.ca/images/about-kenpham.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ken Pham — About" />
+    <meta name="twitter:description" content="Ken Pham is a director whose latest film, That Which Is Heard will have its World Premiere at DOC NYC 2025" />
+    <meta name="twitter:image" content="https://www.kenpham.ca/images/about-kenpham.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      :root { 
+        --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      }
+      
+      html, body { 
+        margin: 0; 
+        background: #0b0b0b;
+        color: #f2f2f2;
+        font-family: var(--font-primary);
+        -webkit-font-smoothing: antialiased;
+        position: relative;
+        min-height: 100vh;
+      }
+      
+      /* Film grain background with reverse parallax */
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('/background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.3;
+        z-index: 0;
+        will-change: transform;
+        transform: translateY(var(--bg-offset, 0px));
+        pointer-events: none;
+      }
+      
+      .wrap { 
+        max-width:1200px; 
+        margin:0 auto; 
+        padding:16px;
+        position: relative;
+        z-index: 1;
+      }
+      
+      @media (max-width: 768px) {
+        .wrap { padding: 24px; }
+      }
+
+      .about-content {
+        margin-top: 48px;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 64px;
+        align-items: start;
+      }
+
+      @media (max-width: 768px) {
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+      }
+
+      .about-text {
+        font-size: 16px;
+        line-height: 1.8;
+        color: rgba(242, 242, 242, 0.9);
+      }
+
+      .about-text p {
+        margin-bottom: 24px;
+      }
+
+      .about-image {
+        position: sticky;
+        top: 32px;
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      @media (max-width: 768px) {
+        .about-image {
+          position: static;
+          order: -1;
+        }
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .skip-link:focus {
+        position: fixed;
+        left: 16px;
+        top: 16px;
+        width: auto;
+        height: auto;
+        padding: 10px 14px;
+        background: #fff;
+        color: #000;
+        border-radius: 4px;
+        z-index: 1000;
+        text-decoration: none;
+        border: 1px solid #0002;
+        box-shadow: 0 2px 8px #0006;
+      }
+      
+      /* View Transitions API */
+      @view-transition {
+        navigation: auto;
+      }
+      
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <div class="wrap">
+      <SiteHeader />
+
+      <main id="main-content" class="about-content">
+        <div class="about-text">
+          <section>
+            <p>
+              Ken Pham is a director whose latest film, That Which Is Heard will have its World Premiere at DOC NYC 2025. Before transitioning into filmmaking, Ken built an extensive career as a choreographer and dancer, with credits including Star Trek: Strange New Worlds, SEE (Seasons 2 & 3, Apple TV+), Julie and the Phantoms, Jupiter's Legacy, Murdoch Mysteries, How to Die Alone, The Magicians, Work It, and What We Do in the Shadows.
+            </p>
+            <p>
+              His time working across major film and television productions inspired a passion for storytelling through movement and visual language. Ken further honed his craft while assisting the director and producer of The Changeling (Apple TV+), deepening his transition into directing. He has since directed work for commercial clients such as Porsche, Volkswagen, Volvo, and the Michelin Guide.
+            </p>
+            <p>
+              Ken's debut short film, The Hall Pass, was an official selection at the 2025 Toronto Short Film Festival, a Finalist at Canada Shorts, and a Semi-Finalist at the New Orleans International Film Awards.
+            </p>
+          </section>
+        </div>
+
+        <div class="about-image">
+          <picture>
+            <source srcset="/images/about-kenpham.webp" type="image/webp" />
+            <img src="/images/about-kenpham.jpg" alt="Ken Pham" width="2033" height="2544" loading="lazy" />
+          </picture>
+        </div>
+      </main>
+      
+      <SiteFooter />
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle functionality handled by SiteHeader
+      });
+    </script>
+  </body>
+  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#181818cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
+    ↑
+  </button>
+  <style>
+    #backToTop:focus { outline: 2px solid #fff; }
+    #backToTop[hidden] { display: none !important; }
+  </style>
+  <script>
+    // Back to Top button logic
+    (function(){
+      const btn = document.getElementById('backToTop');
+      function toggleBtn() {
+        if(window.scrollY > 300) { btn.style.display = 'flex'; btn.style.opacity = '1'; } else { btn.style.opacity = '0'; setTimeout(()=>{btn.style.display='none';},200); }
+      }
+      window.addEventListener('scroll', toggleBtn);
+      btn.addEventListener('click', ()=>{ window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); });
+      btn.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); }});
+    })();
+  </script>
+</html>

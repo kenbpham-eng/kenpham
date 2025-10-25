@@ -1,0 +1,403 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+const title = "Ken Pham — Contact";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0b0b0b" />
+    <title>{title}</title>
+    <meta name="description" content="Ken Pham - Contact & Representation" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://www.kenpham.ca/contact" />
+    <!-- Plausible Analytics -->
+    <script defer data-domain="www.kenpham.ca" src="https://plausible.io/js/script.js"></script>
+    
+    <!-- Open Graph / Twitter -->
+    <meta property="og:site_name" content="Ken Pham" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ken Pham — Contact" />
+    <meta property="og:description" content="Ken Pham - Contact & Representation" />
+    <meta property="og:url" content="https://www.kenpham.ca/contact" />
+    <meta property="og:image" content="https://www.kenpham.ca/images/about-kenpham.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ken Pham — Contact" />
+    <meta name="twitter:description" content="Ken Pham - Contact & Representation" />
+    <meta name="twitter:image" content="https://www.kenpham.ca/images/about-kenpham.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      :root { 
+        --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      }
+      
+      html, body { 
+        margin: 0; 
+        background: #0b0b0b;
+        color: #f2f2f2;
+        font-family: var(--font-primary);
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap { max-width:1200px; margin:0 auto; padding:16px; }
+      
+      @media (max-width: 768px) {
+        .wrap { padding: 24px; }
+      }
+
+      .contact-content {
+        margin-top: 48px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 64px;
+        align-items: start;
+      }
+
+      @media (max-width: 768px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+      }
+
+      .contact-info h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0 0 32px 0;
+        letter-spacing: 0.5px;
+      }
+
+      .contact-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .contact-card h4 {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #f2f2f2;
+        margin: 0;
+      }
+
+      .contact-card h4:not(:first-child) {
+        margin-top: 10px;
+      }
+
+      .contact-card p {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #f2f2f2;
+      }
+
+      .contact-card a {
+        color: #f2f2f2;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .contact-card a:hover {
+        opacity: 0.7;
+        text-decoration: underline;
+      }
+
+      .contact-card a:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+        border-radius: 2px;
+        text-decoration: underline;
+      }
+
+      .contact-form-wrap {
+        background: #0b0b0b;
+        border-radius: 8px;
+        padding: 40px;
+      }
+
+      @media (max-width: 768px) {
+        .contact-form-wrap {
+          padding: 32px 24px;
+        }
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .field label {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(242, 242, 242, 0.9);
+        letter-spacing: 0.3px;
+      }
+
+      .field input,
+      .field textarea {
+        background: #1a1a1a;
+        border: 1px solid #2a2a2a;
+        border-radius: 6px;
+        padding: 12px 16px;
+        font-size: 15px;
+        color: #f2f2f2;
+        font-family: var(--font-primary);
+        transition: border-color 0.2s ease;
+      }
+
+      .field input:focus,
+      .field textarea:focus {
+        outline: none;
+        border-color: #4a4a4a;
+      }
+
+      .field input:focus-visible,
+      .field textarea:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+        border-color: #fff;
+      }
+
+      .field textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .actions {
+        margin-top: 8px;
+      }
+
+      .send-btn {
+        background: #f2f2f2;
+        color: #0b0b0b;
+        border: none;
+        border-radius: 6px;
+        padding: 14px 32px;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: var(--font-primary);
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+      }
+
+      .send-btn:hover {
+        opacity: 0.9;
+      }
+
+      .send-btn:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 4px;
+      }
+
+      .send-btn:active {
+        transform: scale(0.98);
+      }
+
+      .form-message {
+        padding: 16px 20px;
+        border-radius: 6px;
+        font-size: 14px;
+        margin-top: 16px;
+        display: none;
+        animation: slideIn 0.3s ease;
+      }
+
+      .form-message.success {
+        background: #1a4d1a;
+        color: #90ee90;
+        border: 1px solid #2d7a2d;
+        display: block;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .skip-link:focus {
+        position: fixed;
+        left: 16px;
+        top: 16px;
+        width: auto;
+        height: auto;
+        padding: 10px 14px;
+        background: #fff;
+        color: #000;
+        border-radius: 4px;
+        z-index: 1000;
+        text-decoration: none;
+        border: 1px solid #0002;
+        box-shadow: 0 2px 8px #0006;
+      }
+      
+      /* View Transitions API */
+      @view-transition {
+        navigation: auto;
+      }
+      
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <div class="wrap">
+      <SiteHeader />
+
+      <main id="main-content" class="contact-content">
+        <div class="contact-grid">
+          <aside class="contact-info" aria-labelledby="representation-heading">
+            <div class="contact-section">
+              <h3 id="representation-heading">REPRESENTATION</h3>
+            </div>
+            <div class="contact-card">
+              <h4>DANCE & CHOREOGRAPHY AGENT - TALENT</h4>
+              <p>da Costa Talent Agency</p>
+              <p>Peter da Costa</p>
+              <p><a href="mailto:peter@dacostatalent.com">peter@dacostatalent.com</a></p>
+              <p><a href="tel:+14163226554">+1 (416) 322-6554</a></p>
+
+              <h4>TV & FILM AGENT - TALENT</h4>
+              <p>da Costa Talent Agency</p>
+              <p>Frank da Costa</p>
+              <p><a href="mailto:frank@dacostatalent.com">frank@dacostatalent.com</a></p>
+              <p><a href="tel:+19059998350">+1 (905) 999-8350</a></p>
+
+              <h4>KEN'S DIRECT CONTACT - NARRATIVE/OTHER</h4>
+              <p><a href="mailto:kenbpham@icloud.com">kenbpham@icloud.com</a></p>
+              <p><a href="tel:+16477701309">+1 (647) 770-1309</a></p>
+            </div>
+          </aside>
+
+          <section class="contact-form-wrap">
+            <form class="contact-form" id="contactForm" autocomplete="on">
+              <div class="field">
+                <label for="firstName">First Name</label>
+                <input id="firstName" name="firstName" type="text" autocomplete="given-name" />
+              </div>
+
+              <div class="field">
+                <label for="lastName">Last Name</label>
+                <input id="lastName" name="lastName" type="text" autocomplete="family-name" />
+              </div>
+
+              <div class="field">
+                <label for="email">Email<span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" required autocomplete="email" />
+              </div>
+
+              <div class="field">
+                <label for="subject">Subject<span aria-hidden="true">*</span></label>
+                <input id="subject" name="subject" type="text" required />
+              </div>
+
+              <div class="field">
+                <label for="message">Message<span aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+
+              <div class="actions">
+                <button type="submit" class="send-btn">Submit</button>
+              </div>
+
+              <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+            </form>
+          </section>
+        </div>
+      </main>
+      
+      <SiteFooter />
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        
+        if (form && formMessage) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstName = (document.getElementById('firstName') as HTMLInputElement)?.value || '';
+            const lastName = (document.getElementById('lastName') as HTMLInputElement)?.value || '';
+            const email = (document.getElementById('email') as HTMLInputElement)?.value || '';
+            const subject = (document.getElementById('subject') as HTMLInputElement)?.value || 'Contact from website';
+            const message = (document.getElementById('message') as HTMLTextAreaElement)?.value || '';
+            
+            const fullName = `${firstName} ${lastName}`.trim() || '(not provided)';
+            const body = `Name: ${fullName}
+Email: ${email}
+
+${message}`;
+            
+            const mailtoLink = `mailto:kenbpham@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Show success message
+            formMessage.textContent = 'Message sent.';
+            formMessage.className = 'form-message success';
+            
+            // Open mailto link
+            window.location.href = mailtoLink;
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+              formMessage.className = 'form-message';
+            }, 5000);
+          });
+        }
+      });
+    </script>
+  </body>
+  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#181818cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
+    ↑
+  </button>
+  <style>
+    #backToTop:focus { outline: 2px solid #fff; }
+    #backToTop[hidden] { display: none !important; }
+  </style>
+  <script>
+    // Back to Top button logic
+    (function(){
+      const btn = document.getElementById('backToTop');
+      function toggleBtn() {
+        if(window.scrollY > 300) { btn.style.display = 'flex'; btn.style.opacity = '1'; } else { btn.style.opacity = '0'; setTimeout(()=>{btn.style.display='none';},200); }
+      }
+      window.addEventListener('scroll', toggleBtn);
+      btn.addEventListener('click', ()=>{ window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); });
+      btn.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); }});
+    })();
+  </script>
+</html>

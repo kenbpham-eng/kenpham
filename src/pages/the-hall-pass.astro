@@ -1,0 +1,904 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+const title = "The Hall Pass — Ken Pham";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0b" />
+    <title>{title}</title>
+    <meta name="description" content="The Hall Pass - A short film by Ken Pham. Official selection at multiple film festivals." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://www.kenpham.ca/the-hall-pass" />
+  <!-- Plausible Analytics -->
+  <script defer data-domain="www.kenpham.ca" src="https://plausible.io/js/script.js"></script>
+    
+  <!-- Open Graph / Twitter -->
+  <meta property="og:site_name" content="Ken Pham" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Hall Pass — Ken Pham" />
+  <meta property="og:description" content="The Hall Pass - A short film by Ken Pham. Official selection at multiple film festivals." />
+  <meta property="og:url" content="https://www.kenpham.ca/the-hall-pass" />
+  <meta property="og:image" content="https://www.kenpham.ca/media/hallpass_static.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Hall Pass — Ken Pham" />
+  <meta name="twitter:description" content="The Hall Pass - A short film by Ken Pham. Official selection at multiple film festivals." />
+  <meta name="twitter:image" content="https://www.kenpham.ca/media/hallpass_static.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      :root { 
+        --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      }
+      
+      html, body { 
+        margin: 0; 
+        background: #0b0b0b;
+        color: #f2f2f2;
+        font-family: var(--font-primary);
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0b0b0b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 6px;
+        border: 2px solid #0b0b0b;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #444;
+      }
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #333 #0b0b0b;
+      }
+      
+      /* Reading progress bar */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+        width: 0%;
+        z-index: 1000;
+        transition: width 0.1s ease;
+      }
+      
+      .wrap { max-width:1200px; margin:0 auto; padding:16px; }
+      
+      @media (max-width: 768px) {
+        .wrap { padding: 24px; }
+      }
+      .site-header { 
+        text-align: left;
+        margin-bottom: 48px;
+        padding: 32px 0;
+        position: relative;
+      }
+      
+      .menu-toggle {
+        display: none;
+        position: absolute;
+        top: 32px;
+        right: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 100;
+      }
+      
+      .menu-toggle span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: #f2f2f2;
+        margin: 5px 0;
+        transition: 0.3s;
+      }
+      
+      .main-nav {
+        position: absolute;
+        top: 42px;
+        right: 0;
+        display: flex;
+        gap: 32px;
+        align-items: center;
+      }
+      .main-nav a {
+        color: rgba(242, 242, 242, 0.6);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        transition: color 0.2s ease;
+        text-transform: lowercase;
+      }
+      .main-nav a:hover {
+        color: #fff;
+        text-decoration: underline;
+        text-underline-offset: 6px;
+        outline: none;
+      }
+      .main-nav a:focus {
+        color: #fff;
+        text-decoration: underline;
+        text-underline-offset: 6px;
+        outline: none;
+      }
+      .main-nav a.active {
+        color: #f2f2f2;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+      .site-header h1 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #f2f2f2;
+      }
+      .site-header h1 a {
+        color: #f2f2f2;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+      }
+      .site-header h1 a:hover {
+        opacity: 0.7;
+      }
+      .header-title {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .social-icons {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .social-icons a {
+        color: rgba(242, 242, 242, 0.7);
+        transition: color 0.2s ease;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      .social-icons a.imdb-link {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        border: 1px solid rgba(242, 242, 242, 0.7);
+        border-radius: 3px;
+        padding: 1px 5px;
+        line-height: 1.2;
+        transition: all 0.2s ease;
+      }
+      .social-icons a.imdb-link:hover {
+        border-color: #f2f2f2;
+      }
+      .social-icons a:hover {
+        color: #fff;
+        outline: none;
+        filter: drop-shadow(0 0 2px #fff2);
+      }
+      .social-icons a:focus {
+        color: #fff;
+        outline: none;
+        filter: drop-shadow(0 0 2px #fff2);
+      }
+      .social-icons svg {
+        width: 20px;
+        height: 20px;
+      }
+      .site-header h2 {
+        margin: 8px 0 0 0;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+        color: #f2f2f2;
+      }
+      
+      @media (max-width: 768px) {
+        .site-header {
+          text-align: center;
+          padding: 24px 0;
+          margin-bottom: 32px;
+        }
+        
+        .site-header h1 {
+          font-size: 24px;
+        }
+        
+        .site-header h2 {
+          font-size: 13px;
+        }
+        
+        .header-title {
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+        
+        .social-icons {
+          gap: 16px;
+        }
+        
+        .menu-toggle {
+          display: block;
+        }
+        
+        .main-nav {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 70%;
+          height: 100vh;
+          background: #1a1a1a;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 32px;
+          transition: right 0.3s ease;
+          z-index: 99;
+        }
+        
+        .main-nav.active {
+          right: 0;
+        }
+        
+        .main-nav a {
+          font-size: 18px;
+        }
+        
+        .project-hero {
+          flex-direction: column;
+          gap: 32px;
+          margin-bottom: 48px;
+        }
+        
+        .project-hero-content {
+          order: 1;
+        }
+        
+        .project-hero-poster {
+          order: 2;
+          width: 100%;
+        }
+
+        .project-hero h2 {
+          font-size: 36px;
+          margin-bottom: 12px;
+        }
+        
+        .project-meta {
+          font-size: 14px;
+          margin-bottom: 24px;
+        }
+
+        .project-synopsis {
+          font-size: 15px;
+          line-height: 1.7;
+          margin-bottom: 32px;
+        }
+        
+        .project-synopsis p {
+          margin-bottom: 16px;
+        }
+        
+        .laurels {
+          margin-bottom: 32px;
+        }
+        
+        .laurels img {
+          max-width: 120px;
+        }
+        
+        .project-credits {
+          margin-bottom: 48px;
+        }
+        
+        .project-credits h3 {
+          font-size: 28px;
+          margin-bottom: 32px;
+        }
+        
+        .credits-list {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        
+        .site-footer {
+          margin-top: 64px;
+          padding: 32px 0;
+        }
+      }
+
+      .project-hero {
+        margin-bottom: 64px;
+        display: flex;
+        gap: 48px;
+        align-items: start;
+      }
+
+      .project-hero-content {
+        flex: 1;
+      }
+
+      .project-hero-poster {
+        flex-shrink: 0;
+        width: 360px;
+      }
+
+      .project-hero-poster img {
+        width: 100%;
+        height: auto;
+      }
+        height: auto;
+      }
+
+      .project-hero h2 {
+        font-size: 48px;
+        font-weight: 700;
+        margin: 0 0 16px 0;
+        letter-spacing: -1px;
+      }
+
+      .project-meta {
+        font-size: 16px;
+        color: rgba(242, 242, 242, 0.7);
+        margin-bottom: 32px;
+      }
+
+      .project-synopsis {
+        font-size: 16px;
+        line-height: 1.8;
+        margin-bottom: 6px;
+        max-width: 800px;
+      }
+
+      .project-synopsis p {
+        margin-bottom: 20px;
+        color: rgba(242, 242, 242, 0.9);
+      }
+
+      .laurels {
+        margin-bottom: 48px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .laurels img {
+        max-width: 160px;
+        height: auto;
+      }
+
+      .project-cast {
+        margin-top: 6px;
+        margin-bottom: 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .cast-label {
+        color: rgba(242, 242, 242, 0.6);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .cast-names {
+        color: #f2f2f2;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      
+      @media (max-width: 768px) {
+        .laurels {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 12px;
+          justify-items: center;
+        }
+        
+        .laurels img {
+          max-width: 100%;
+          width: 100%;
+          height: auto;
+        }
+        
+        .laurels img:nth-child(n+5) {
+          display: none;
+        }
+      }
+
+      .project-credits {
+        margin-bottom: 64px;
+      }
+
+      .project-credits h3 {
+        font-size: 32px;
+        font-weight: 700;
+        margin: 0 0 48px 0;
+        letter-spacing: 0.5px;
+        text-align: left;
+      }
+
+      .credits-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 12px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .credit-item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .credit-role {
+        color: rgba(242, 242, 242, 0.6);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .credit-name {
+        color: #f2f2f2;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .project-gallery {
+        margin-bottom: 64px;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+      }
+      
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+      }
+
+      .gallery-grid img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: opacity 0.3s;
+      }
+
+      .gallery-grid img:hover {
+        opacity: 0.9;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(242, 242, 242, 0.7);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 32px;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+
+      .back-link:hover {
+        color: #fff;
+        transform: translateX(-4px);
+      }
+
+      .back-link:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 4px;
+        border-radius: 4px;
+        color: #fff;
+      }
+      
+      /* Lightbox styles */
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .lightbox.active {
+        display: flex;
+      }
+      .lightbox img {
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 4px;
+      }
+      .lightbox-close,
+      .lightbox-prev,
+      .lightbox-next {
+        position: fixed;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+      }
+      .lightbox-close:hover,
+      .lightbox-prev:hover,
+      .lightbox-next:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .lightbox-close {
+        top: 20px;
+        right: 20px;
+      }
+      .lightbox-prev {
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .lightbox-next {
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .gallery-grid img {
+        cursor: pointer;
+      }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus {
+      position: fixed;
+      left: 16px;
+      top: 16px;
+      width: auto;
+      height: auto;
+      padding: 10px 14px;
+      background: #fff;
+      color: #000;
+      border-radius: 4px;
+      z-index: 1000;
+      text-decoration: none;
+      border: 1px solid #0002;
+      box-shadow: 0 2px 8px #0006;
+    }
+    
+    /* View Transitions API */
+    @view-transition {
+      navigation: auto;
+    }
+    
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 0.3s;
+    }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "name": "The Hall Pass",
+      "genre": ["Drama", "Thriller"],
+      "description": "In a chance encounter, a ride-share driver struggling to navigate jealousy in his relationship, picks up his partner's celebrity hall pass as a passenger.",
+      "duration": "PT11M",
+      "director": {
+        "@type": "Person",
+        "name": "Ken Pham",
+        "url": "https://www.kenpham.ca"
+      },
+      "actor": [
+        {"@type": "Person", "name": "Marc Donato"},
+        {"@type": "Person", "name": "Rebecca Kwan"},
+        {"@type": "Person", "name": "Noah Zulfikar"},
+        {"@type": "Person", "name": "Demi Oliver"}
+      ],
+      "image": "https://www.kenpham.ca/portfolio/thehallpass/The Hall Pass - Poster.jpeg",
+      "thumbnailUrl": "https://www.kenpham.ca/media/hallpass_static.jpg"
+    }
+    </script>
+  </head>
+  <body>
+    <div id="progress-bar"></div>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <div class="wrap">
+      <SiteHeader />
+
+  <main id="main-content">
+        <a href="/" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back to Portfolio
+        </a>
+        
+        <section class="project-hero">
+          <div class="project-hero-content">
+            <h2>THE HALL PASS</h2>
+            <div class="project-meta">Short Film | 11 Minutes | Drama/Thriller | Colour</div>
+            <div class="project-synopsis">
+              <p>In a chance encounter, a ride-share driver struggling to navigate jealousy in his relationship, picks up his partner's celebrity hall pass as a passenger.</p>
+            </div>
+            <div class="project-cast">
+              <div class="cast-label">CAST</div>
+              <div class="cast-names">Marc Donato, Rebecca Kwan, Noah Zulfikar and Demi Oliver</div>
+            </div>
+            <div class="laurels">
+              <img src="/portfolio/thehallpass/Toronto_Laurels_2025_White.png" alt="Toronto International Shorts Film Festival 2025" loading="lazy" />
+              <img src="/portfolio/thehallpass/OFFICIALSELECTION-TorontoShortFilmFestival-2025 (1).png" alt="Toronto Short Film Festival 2025 Official Selection" loading="lazy" />
+              <img src="/portfolio/thehallpass/FINALIST - Canada Shorts - Canadian  International Short Film Fest. - 2024-2.png" alt="Canada Shorts 2024 Finalist" loading="lazy" />
+              <img src="/portfolio/thehallpass/SEMI-FINALIST - New Orleans International Film Awards - 2024-2.png" alt="New Orleans International Film Awards 2024 Semi-Finalist" loading="lazy" />
+            </div>
+          </div>
+          <div class="project-hero-poster">
+            <picture>
+              <source srcset="/portfolio/thehallpass/The Hall Pass - Poster.webp" type="image/webp" />
+              <img src="/portfolio/thehallpass/The Hall Pass - Poster.jpeg" alt="The Hall Pass Poster" loading="lazy" />
+            </picture>
+          </div>
+        </section>
+
+        <section class="project-credits">
+          <h3>CREDITS</h3>
+          <div class="credits-list">
+            <div class="credit-item">
+              <span class="credit-role">Executive Producer</span>
+              <span class="credit-name">Ken Pham</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Producer</span>
+              <span class="credit-name">Lee J. Poichuck</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Co-Producers</span>
+              <span class="credit-name">Kirthiga Rajanayagam, Rebecca Kwan</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">1st Assistant Director</span>
+              <span class="credit-name">Ian Simon</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Director of Photography</span>
+              <span class="credit-name">Alessandro Lanzillotta</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Production Designer</span>
+              <span class="credit-name">Serena Nguyen</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Co-Writers</span>
+              <span class="credit-name">Rebecca Kwan, Kirthiga Rajanayagam</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Music Composer</span>
+              <span class="credit-name">Patrick Lawrence Zappia</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Key Rigging Grip</span>
+              <span class="credit-name">Nick Julian</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Costume Designer</span>
+              <span class="credit-name">Lucy Wong</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Costume Assistant</span>
+              <span class="credit-name">Aaron Scott</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Editor</span>
+              <span class="credit-name">Ken Pham</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Sound Editors</span>
+              <span class="credit-name">David Machado Gómez, Jack Rudman, Patrick Lawrence Zappia</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Mix Mastering</span>
+              <span class="credit-name">David Machado Gómez</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Sound Recordists</span>
+              <span class="credit-name">David Machado Gómez, Ian Reynolds</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Colourist</span>
+              <span class="credit-name">Grant McNair</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Visual Effects Editor</span>
+              <span class="credit-name">Samuel Armin</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Hair & Make Up Artist</span>
+              <span class="credit-name">Shaniqua Gittens</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">BTS Photographer</span>
+              <span class="credit-name">Alexander Panetta</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">BTS Videographer</span>
+              <span class="credit-name">Anton Iakovenko</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-role">Production Assistants</span>
+              <span class="credit-name">Millie Tam, Tony Wu</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="project-gallery">
+          <div class="gallery-grid">
+            <picture>
+              <source srcset="/portfolio/thehallpass/1. The Hall Pass - Screenshot.webp" type="image/webp" />
+              <img src="/portfolio/thehallpass/1. The Hall Pass - Screenshot.png" alt="The Hall Pass - Screenshot 1" loading="lazy" />
+            </picture>
+            <picture>
+              <source srcset="/portfolio/thehallpass/2. The Hall Pass - Screenshot.webp" type="image/webp" />
+              <img src="/portfolio/thehallpass/2. The Hall Pass - Screenshot.png" alt="The Hall Pass - Screenshot 2" loading="lazy" />
+            </picture>
+            <picture>
+              <source srcset="/portfolio/thehallpass/3. The Hall Pass - Screenshot.webp" type="image/webp" />
+              <img src="/portfolio/thehallpass/3. The Hall Pass - Screenshot.png" alt="The Hall Pass - Screenshot 3" loading="lazy" />
+            </picture>
+            <picture>
+              <source srcset="/portfolio/thehallpass/4. The Hall Pass - Screenshot.webp" type="image/webp" />
+              <img src="/portfolio/thehallpass/4. The Hall Pass - Screenshot.png" alt="The Hall Pass - Screenshot 4" loading="lazy" />
+            </picture>
+            <picture>
+              <source srcset="/portfolio/thehallpass/5. The Hall Pass - Screenshot.webp" type="image/webp" />
+              <img src="/portfolio/thehallpass/5. The Hall Pass - Screenshot.jpg" alt="The Hall Pass - Screenshot 5" loading="lazy" />
+            </picture>
+            <picture>
+              <source srcset="/portfolio/thehallpass/6. The Hall Pass - Screenshot.webp" type="image/webp" />
+              <img src="/portfolio/thehallpass/6. The Hall Pass - Screenshot.png" alt="The Hall Pass - Screenshot 6" loading="lazy" />
+            </picture>
+          </div>
+        </section>
+      </main>
+
+      <SiteFooter />
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+      <button class="lightbox-close" aria-label="Close lightbox">✕</button>
+      <button class="lightbox-prev" aria-label="Previous image">‹</button>
+      <button class="lightbox-next" aria-label="Next image">›</button>
+      <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <!-- Menu toggle handled inside SiteHeader component -->
+  </body>
+  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#181818cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
+    ↑
+  </button>
+  <style>
+    #backToTop:focus { outline: 2px solid #fff; }
+    #backToTop[hidden] { display: none !important; }
+  </style>
+  <script>
+    // Back to Top button logic
+    (function(){
+      const btn = document.getElementById('backToTop');
+      function toggleBtn() {
+        if(window.scrollY > 300) { btn.style.display = 'flex'; btn.style.opacity = '1'; } else { btn.style.opacity = '0'; setTimeout(()=>{btn.style.display='none';},200); }
+      }
+      window.addEventListener('scroll', toggleBtn);
+      btn.addEventListener('click', ()=>{ window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); });
+      btn.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); }});
+    })();
+    
+    // Reading progress bar
+    (function(){
+      const progressBar = document.getElementById('progress-bar');
+      function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        progressBar.style.width = progress + '%';
+      }
+      window.addEventListener('scroll', updateProgress);
+      updateProgress();
+    })();
+    
+    // Lightbox gallery
+    (function(){
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeBtn = document.querySelector('.lightbox-close');
+      const prevBtn = document.querySelector('.lightbox-prev');
+      const nextBtn = document.querySelector('.lightbox-next');
+      const galleryImages = document.querySelectorAll('.gallery-grid img');
+      let currentIndex = 0;
+      
+      function openLightbox(index) {
+        currentIndex = index;
+        const img = galleryImages[index];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+        openLightbox(currentIndex);
+      }
+      
+      function showNext() {
+        currentIndex = (currentIndex + 1) % galleryImages.length;
+        openLightbox(currentIndex);
+      }
+      
+      galleryImages.forEach((img, index) => {
+        img.addEventListener('click', () => openLightbox(index));
+      });
+      
+      closeBtn.addEventListener('click', closeLightbox);
+      prevBtn.addEventListener('click', showPrev);
+      nextBtn.addEventListener('click', showNext);
+      
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'ArrowRight') showNext();
+      });
+    })();
+  </script>
+</html>

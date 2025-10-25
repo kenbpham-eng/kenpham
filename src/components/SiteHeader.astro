@@ -1,0 +1,220 @@
+---
+// Shared site header component
+---
+<header class="site-header">
+  <button class="menu-toggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav class="main-nav">
+    <a href="/">portfolio</a>
+    <a href="/about">about</a>
+    <a href="/press">press</a>
+    <a href="/contact">contact</a>
+  </nav>
+  <div class="header-title">
+    <h1><a href="/">KEN PHAM</a></h1>
+    <div class="social-icons">
+      <a href="mailto:kenbpham@icloud.com" aria-label="Email">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m2 7 10 7 10-7"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/iamkenpham" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="18" cy="6" r="1"/>
+        </svg>
+      </a>
+      <a href="https://www.imdb.com/name/nm7730137/" target="_blank" rel="noopener noreferrer" aria-label="IMDb" class="imdb-link">
+        IMDb
+      </a>
+    </div>
+  </div>
+  <h2>Director & Filmmaker</h2>
+</header>
+
+<style>
+  .site-header { 
+    text-align: left;
+    margin-bottom: 48px;
+    padding: 32px 0;
+    position: relative;
+  }
+  .menu-toggle {
+    display: none;
+    position: absolute;
+    top: 32px;
+    right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 100;
+  }
+  .menu-toggle:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #f2f2f2;
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  .main-nav {
+    position: absolute;
+    top: 42px;
+    right: 0;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+  .main-nav a {
+    color: rgba(242, 242, 242, 0.6);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    transition: color 0.2s ease;
+    text-transform: lowercase;
+  }
+  .main-nav a:hover,
+  .main-nav a:focus-visible {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    outline: none;
+  }
+  .main-nav a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+  .main-nav a.active {
+    color: #f2f2f2;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .site-header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #f2f2f2;
+  }
+  .site-header h1 a {
+    color: #f2f2f2;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  .site-header h1 a:hover { opacity: 0.7; }
+  .site-header h1 a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+  .header-title { display: flex; align-items: center; gap: 16px; }
+  .social-icons { display: flex; gap: 12px; align-items: center; }
+  .social-icons a { color: rgba(242, 242, 242, 0.7); transition: color 0.2s ease; display: flex; align-items: center; text-decoration: none; }
+  .social-icons a:hover, .social-icons a:focus { color:#fff; outline:none; filter: drop-shadow(0 0 2px #fff2); }
+  .social-icons a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+  .social-icons a.imdb-link { font-size: 11px; font-weight: 700; letter-spacing: 0.2px; border: 1px solid rgba(242, 242, 242, 0.7); border-radius: 3px; padding: 1px 5px; line-height: 1.2; transition: all 0.2s ease; }
+  .social-icons a.imdb-link:hover { border-color: #f2f2f2; }
+  .social-icons a.imdb-link:focus-visible {
+    border-color: #fff;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+  .social-icons svg { width: 20px; height: 20px; }
+  .site-header h2 { margin: 8px 0 0 0; font-size: 14px; font-weight: 400; letter-spacing: 0.2px; color: #f2f2f2; }
+
+  @media (max-width: 768px) {
+    .site-header { text-align: center; padding: 24px 0; margin-bottom: 32px; }
+    .site-header h1 { font-size: 24px; }
+    .site-header h2 { font-size: 13px; }
+    .header-title { justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .social-icons { gap: 16px; }
+    .menu-toggle { display: block; }
+    .main-nav { 
+      position: fixed; 
+      top: 0; 
+      right: -100%; 
+      width: 70%; 
+      height: 100vh; 
+      background: #1a1a1a; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      gap: 32px; 
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+      z-index: 99;
+      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.5);
+    }
+    .main-nav.active { right: 0; }
+    .main-nav a { 
+      font-size: 18px;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s ease;
+    }
+    .main-nav.active a {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .main-nav.active a:nth-child(1) { transition-delay: 0.1s; }
+    .main-nav.active a:nth-child(2) { transition-delay: 0.15s; }
+    .main-nav.active a:nth-child(3) { transition-delay: 0.2s; }
+    .main-nav.active a:nth-child(4) { transition-delay: 0.25s; }
+  }
+</style>
+
+<script is:inline>
+  // Mobile menu toggle (scoped to this component)
+  (function(){
+    const root = document.currentScript?.closest('.site-header') || document.querySelector('.site-header');
+    if (!root) return;
+    const menuToggle = root.querySelector('.menu-toggle');
+    const nav = root.querySelector('.main-nav');
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', (e) => {
+        // Prevent any other click listeners on this element from running (avoids double-toggles if a page script also binds)
+        if (e && typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+        nav.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.site-header')) {
+          nav.classList.remove('active');
+          menuToggle.classList.remove('active');
+        }
+      });
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          menuToggle.classList.remove('active');
+        });
+      });
+    }
+  })();
+</script>
