@@ -93,6 +93,16 @@ const title = "Ken Pham — About";
         width: 100%;
         height: auto;
         border-radius: 8px;
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+        animation: fadeInScale 0.8s ease forwards 0.3s;
+      }
+      
+      @keyframes fadeInScale {
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
       }
 
       @media (max-width: 768px) {
