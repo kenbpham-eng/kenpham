@@ -13,28 +13,32 @@
     <a href="/press"><span class="underline"></span>press</a>
     <a href="/contact"><span class="underline"></span>contact</a>
   </nav>
-  <div class="header-title">
-    <h1><a href="/">KEN PHAM</a></h1>
-    <div class="social-icons">
-      <a href="mailto:kenbpham@icloud.com" aria-label="Email">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <path d="m2 7 10 7 10-7"/>
-        </svg>
-      </a>
-      <a href="https://www.instagram.com/iamkenpham" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="2" y="2" width="20" height="20" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="18" cy="6" r="1"/>
-        </svg>
-      </a>
-      <a href="https://www.imdb.com/name/nm7730137/" target="_blank" rel="noopener noreferrer" aria-label="IMDb" class="imdb-link">
-        IMDb
-      </a>
+  <div class="header-content">
+    <div class="name-section">
+      <h1><a href="/">KEN PHAM</a></h1>
+      <h2>Director & Filmmaker</h2>
+    </div>
+    <div class="social-section">
+      <div class="social-icons">
+        <a href="mailto:kenbpham@icloud.com" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m2 7 10 7 10-7"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/iamkenpham" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="18" cy="6" r="1"/>
+          </svg>
+        </a>
+        <a href="https://www.imdb.com/name/nm7730137/" target="_blank" rel="noopener noreferrer" aria-label="IMDb" class="imdb-link">
+          IMDb
+        </a>
+      </div>
     </div>
   </div>
-  <h2>Director & Filmmaker</h2>
 </header>
 
 <style>
@@ -146,7 +150,9 @@
     outline-offset: 4px;
     border-radius: 4px;
   }
-  .header-title { display: flex; align-items: center; gap: 16px; }
+  .header-content { display: flex; align-items: center; justify-content: flex-start; gap: 32px; }
+  .name-section { display: flex; flex-direction: column; }
+  .social-section { }
   .social-icons { display: flex; gap: 12px; align-items: center; }
   .social-icons a { color: rgba(242, 242, 242, 0.7); transition: color 0.2s ease; display: flex; align-items: center; text-decoration: none; }
   .social-icons a:hover, .social-icons a:focus { color:#fff; outline:none; filter: drop-shadow(0 0 2px #fff2); }
@@ -169,7 +175,7 @@
     .site-header { text-align: center; padding: 24px 0; margin-bottom: 32px; }
     .site-header h1 { font-size: 24px; }
     .site-header h2 { font-size: 13px; }
-    .header-title { justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .header-content { flex-direction: column; gap: 16px; }
     .social-icons { gap: 16px; }
     .menu-toggle { display: block; }
     .main-nav { 
