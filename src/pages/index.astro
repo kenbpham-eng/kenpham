@@ -588,4 +588,23 @@ const title = "Ken Pham — Director";
       });
     </script>
   </body>
+  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#181818cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
+    ↑
+  </button>
+  <style>
+    #backToTop:focus { outline: 2px solid #fff; }
+    #backToTop[hidden] { display: none !important; }
+  </style>
+  <script>
+    // Back to Top button logic
+    (function(){
+      const btn = document.getElementById('backToTop');
+      function toggleBtn() {
+        if(window.scrollY > 300) { btn.style.display = 'flex'; btn.style.opacity = '1'; } else { btn.style.opacity = '0'; setTimeout(()=>{btn.style.display='none';},200); }
+      }
+      window.addEventListener('scroll', toggleBtn);
+      btn.addEventListener('click', ()=>{ window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); });
+      btn.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); }});
+    })();
+  </script>
 </html>

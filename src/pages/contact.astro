@@ -44,6 +44,19 @@ const title = "Ken Pham — Contact";
         font-family: var(--font-primary);
         -webkit-font-smoothing: antialiased;
       }
+      
+      /* Reading progress bar */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+        width: 0%;
+        z-index: 1000;
+        transition: width 0.1s ease;
+      }
+      
       .wrap { max-width:1200px; margin:0 auto; padding:16px; }
       
       @media (max-width: 768px) {
@@ -273,6 +286,7 @@ const title = "Ken Pham — Contact";
     </style>
   </head>
   <body>
+    <div id="progress-bar"></div>
     <a href="#main-content" class="skip-link">Skip to content</a>
     <div class="wrap">
       <SiteHeader />
@@ -378,6 +392,17 @@ ${message}`;
             }, 5000);
           });
         }
+        
+        // Reading progress bar
+        const progressBar = document.getElementById('progress-bar');
+        function updateProgress() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = (scrollTop / docHeight) * 100;
+          progressBar.style.width = progress + '%';
+        }
+        window.addEventListener('scroll', updateProgress);
+        updateProgress();
       });
     </script>
   </body>
