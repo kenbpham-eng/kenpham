@@ -47,25 +47,6 @@ const title = "Ken Pham — About";
         min-height: 100vh;
       }
       
-      /* Film grain background with reverse parallax */
-      body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: url('/background.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 0.3;
-        z-index: 0;
-        will-change: transform;
-        transform: translateY(var(--bg-offset, 0px));
-        pointer-events: none;
-      }
-      
       .wrap { 
         max-width:1200px; 
         margin:0 auto; 

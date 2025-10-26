@@ -68,6 +68,18 @@ const title = "Ken Pham — Director";
         scrollbar-color: #333 #0b0b0b;
       }
       
+      /* Reading progress bar */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+        width: 0%;
+        z-index: 1000;
+        transition: width 0.1s ease;
+      }
+      
       .skip-link {
         position: absolute;
         top: -40px;
@@ -88,26 +100,45 @@ const title = "Ken Pham — Director";
       @media (min-width:768px){ .portfolio-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
       @media (min-width:900px){ .portfolio-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
 
-      .tile{ display:block; text-decoration:none; color:inherit; transition:transform .2s ease; opacity:0; animation:fadeInUp 0.6s ease forwards; }
-      .tile:nth-child(1) { animation-delay:0.05s; }
-      .tile:nth-child(2) { animation-delay:0.1s; }
-      .tile:nth-child(3) { animation-delay:0.15s; }
-      .tile:nth-child(4) { animation-delay:0.2s; }
-      .tile:nth-child(5) { animation-delay:0.25s; }
-      .tile:nth-child(6) { animation-delay:0.3s; }
-      .tile:nth-child(7) { animation-delay:0.35s; }
-      .tile:nth-child(8) { animation-delay:0.4s; }
-      .tile:nth-child(9) { animation-delay:0.45s; }
-      .tile:nth-child(10) { animation-delay:0.5s; }
-      .tile:nth-child(11) { animation-delay:0.55s; }
-      .tile:nth-child(12) { animation-delay:0.6s; }
-      .tile:nth-child(13) { animation-delay:0.65s; }
-      .tile:nth-child(14) { animation-delay:0.7s; }
-      .tile:nth-child(15) { animation-delay:0.75s; }
+      .tile{ display:block; text-decoration:none; color:inherit; transition:transform .2s ease; opacity:1; position: relative; }
+      .tile .hover-media {
+        position: relative;
+      }
+      .tile .hover-media::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0b0b0b;
+        z-index: 5;
+        border-radius: 14px;
+        animation: curtainReveal 0.8s ease forwards;
+      }
+      .tile:nth-child(1) .hover-media::before { animation-delay:0.05s; }
+      .tile:nth-child(2) .hover-media::before { animation-delay:0.1s; }
+      .tile:nth-child(3) .hover-media::before { animation-delay:0.15s; }
+      .tile:nth-child(4) .hover-media::before { animation-delay:0.2s; }
+      .tile:nth-child(5) .hover-media::before { animation-delay:0.25s; }
+      .tile:nth-child(6) .hover-media::before { animation-delay:0.3s; }
+      .tile:nth-child(7) .hover-media::before { animation-delay:0.35s; }
+      .tile:nth-child(8) .hover-media::before { animation-delay:0.4s; }
+      .tile:nth-child(9) .hover-media::before { animation-delay:0.45s; }
+      .tile:nth-child(10) .hover-media::before { animation-delay:0.5s; }
+      .tile:nth-child(11) .hover-media::before { animation-delay:0.55s; }
+      .tile:nth-child(12) .hover-media::before { animation-delay:0.6s; }
+      .tile:nth-child(13) .hover-media::before { animation-delay:0.65s; }
+      .tile:nth-child(14) .hover-media::before { animation-delay:0.7s; }
+      .tile:nth-child(15) .hover-media::before { animation-delay:0.75s; }
       
-      @keyframes fadeInUp {
-        from { opacity:0; transform:translateY(20px); }
-        to { opacity:1; transform:translateY(0); }
+      @keyframes curtainReveal {
+        from { 
+          transform: translateY(0);
+        }
+        to { 
+          transform: translateY(-100%);
+        }
       }
       
       .tile.loaded {
@@ -116,7 +147,7 @@ const title = "Ken Pham — Director";
       }
       
       .tile:active { transform:scale(0.98); }
-      .hover-media{ position:relative; aspect-ratio:16/9; overflow:visible; border-radius:14px; background:#111; }
+      .hover-media{ position:relative; aspect-ratio:16/9; overflow:hidden; border-radius:14px; background:#111; }
       .hover-media picture,
       .hover-media img.static,
       .hover-media video.gif{ width:100%; height:100%; object-fit:cover; display:block; border-radius:14px; }
@@ -148,7 +179,7 @@ const title = "Ken Pham — Director";
         position: absolute;
         top: -30px;
         right: 20px;
-        background: rgba(50, 50, 50, 0.9);
+        background: rgba(20, 20, 20, 0.95);
         color: #f2f2f2;
         padding: 10px 18px 16px 18px;
         border-radius: 4px 4px 0 0;
@@ -159,7 +190,7 @@ const title = "Ken Pham — Director";
         opacity: 0;
         transform: translate(12px, 0);
         transition: opacity 0.8s ease, transform 0.8s ease;
-        z-index: -1;
+        z-index: 0;
         box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
       }
       
@@ -170,11 +201,19 @@ const title = "Ken Pham — Director";
         left: 0;
         right: 0;
         height: 6px;
-        background: rgba(50, 50, 50, 0.9);
+        background: rgba(20, 20, 20, 0.95);
       }
       
       @media (hover:hover){
         .tile:hover .view-project-badge {
+          opacity: 1;
+          transform: translate(0, -2px);
+        }
+      }
+      
+      /* Mobile: show badge on active state */
+      @media (hover:none){
+        .tile.mobile-active .view-project-badge {
           opacity: 1;
           transform: translate(0, -2px);
         }
@@ -189,6 +228,8 @@ const title = "Ken Pham — Director";
       
       .tile:focus-visible .view-project-badge {
         opacity: 1;
+        transform: translate(0, -2px);
+      }
         transform: translate(0, -2px);
       }
       
@@ -227,6 +268,7 @@ const title = "Ken Pham — Director";
     </script>
   </head>
   <body>
+    <div id="progress-bar"></div>
     <a href="#main-content" class="skip-link">Skip to content</a>
     <div class="wrap">
       <SiteHeader />
@@ -237,8 +279,8 @@ const title = "Ken Pham — Director";
         <!-- ========== TILES ========== -->
 
         <a class="tile" href="/that-which-is-heard" aria-label="View That Which Is Heard documentary project">
+          <span class="view-project-badge">Open Project</span>
           <div class="hover-media">
-            <span class="view-project-badge">Open Project</span>
             <picture>
               <source srcset="/media/twih_static.webp" type="image/webp" />
               <img class="static" src="/media/twih_static.jpg" alt="That Which Is Heard" width="1280" height="720" onload="this.setAttribute('data-loaded','true')">
@@ -262,8 +304,8 @@ const title = "Ken Pham — Director";
         </div>
 
         <a class="tile" href="/the-hall-pass" aria-label="View The Hall Pass short film project">
+          <span class="view-project-badge">Open Project</span>
           <div class="hover-media">
-            <span class="view-project-badge">Open Project</span>
             <picture>
               <source srcset="/media/hallpass_static.webp" type="image/webp" />
               <img class="static" src="/media/hallpass_static.jpg" alt="Hall Pass" width="1280" height="720" onload="this.setAttribute('data-loaded','true')">
@@ -501,10 +543,12 @@ const title = "Ken Pham — Director";
                   prevVideo.pause();
                   prevVideo.currentTime = 0;
                 }
+                activeTile.classList.remove('mobile-active');
               }
               
               // Activate this tile
               activeTile = tile;
+              tile.classList.add('mobile-active');
               if (video) video.play().catch(()=>{});
               
               // Auto-reset after 3 seconds
@@ -514,6 +558,7 @@ const title = "Ken Pham — Director";
                     video.pause();
                     video.currentTime = 0;
                   }
+                  tile.classList.remove('mobile-active');
                   activeTile = null;
                 }
               }, 3000);
@@ -529,6 +574,17 @@ const title = "Ken Pham — Director";
             tile.classList.add('loaded');
           }, delay + animationDuration);
         });
+        
+        // Reading progress bar
+        const progressBar = document.getElementById('progress-bar');
+        function updateProgress() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = (scrollTop / docHeight) * 100;
+          progressBar.style.width = progress + '%';
+        }
+        window.addEventListener('scroll', updateProgress);
+        updateProgress();
       });
     </script>
   </body>
