@@ -448,6 +448,41 @@ const title = "That Which Is Heard — Ken Pham";
         font-size: 14px;
       }
 
+      .press-link {
+        color: rgba(242, 242, 242, 0.6);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        transition: color 0.2s ease;
+        text-transform: none;
+        position: relative;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: none;
+        max-width: 100%;
+      }
+
+      .press-link .underline {
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: #fff;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+        width: 100%;
+        pointer-events: none;
+      }
+      .press-link:hover .underline,
+      .press-link:focus-visible .underline {
+        transform: scaleX(1);
+      }
+
       .project-gallery {
         margin-bottom: 64px;
       }
@@ -756,6 +791,16 @@ const title = "That Which Is Heard — Ken Pham";
               <span class="credit-role">Pianist</span>
               <span class="credit-name">Danny Provider</span>
             </div>
+          </div>
+        </section>
+
+        <section class="project-credits">
+          <h3>PRESS</h3>
+          <div class="credits-list">
+            <a href="https://variety.com/2025/film/news/doc-nyc-film-lineup-1236541355/" target="_blank" rel="noopener noreferrer" class="press-link">
+              VARIETY - DOC NYC UNVEILS 16TH ANNUAL FILM LINEUP (EXCLUSIVE)
+              <span class="underline"></span>
+            </a>
           </div>
         </section>
 
