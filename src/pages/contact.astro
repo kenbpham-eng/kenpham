@@ -8,7 +8,7 @@ const title = "Ken Pham — Contact";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#0b0b0b" />
+    <meta name="theme-color" content="#000000" />
     <title>{title}</title>
     <meta name="description" content="Ken Pham - Contact & Representation" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -39,24 +39,11 @@ const title = "Ken Pham — Contact";
       
       html, body { 
         margin: 0; 
-        background: #0b0b0b;
+        background: #000000;
         color: #f2f2f2;
         font-family: var(--font-primary);
         -webkit-font-smoothing: antialiased;
-      }
-      
-      /* Reading progress bar */
-      #progress-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.7) 100%);
-        width: 0%;
-        z-index: 1000;
-        transition: width 0.1s ease;
-      }
-      
+      }      
       .wrap { max-width:1200px; margin:0 auto; padding:16px; }
       
       @media (max-width: 768px) {
@@ -133,7 +120,7 @@ const title = "Ken Pham — Contact";
       }
 
       .contact-form-wrap {
-        background: #0b0b0b;
+        background: #000000;
         border-radius: 8px;
         padding: 40px;
       }
@@ -165,7 +152,7 @@ const title = "Ken Pham — Contact";
 
       .field input,
       .field textarea {
-        background: #1a1a1a;
+        background: #000000;
         border: 1px solid #2a2a2a;
         border-radius: 6px;
         padding: 12px 16px;
@@ -199,7 +186,7 @@ const title = "Ken Pham — Contact";
 
       .send-btn {
         background: #f2f2f2;
-        color: #0b0b0b;
+        color: #000000;
         border: none;
         border-radius: 6px;
         padding: 14px 32px;
@@ -268,7 +255,7 @@ const title = "Ken Pham — Contact";
         background: #fff;
         color: #000;
         border-radius: 4px;
-        z-index: 1000;
+        z-index: 100;
         text-decoration: none;
         border: 1px solid #0002;
         box-shadow: 0 2px 8px #0006;
@@ -285,7 +272,7 @@ const title = "Ken Pham — Contact";
       
       ::view-transition-new(root) {
         animation: fadeIn 0.3s ease;
-        background: #0b0b0b;
+        background: #000000;
       }
       
       @keyframes fadeOut {
@@ -299,7 +286,6 @@ const title = "Ken Pham — Contact";
     </style>
   </head>
   <body>
-    <div id="progress-bar"></div>
     <a href="#main-content" class="skip-link">Skip to content</a>
     <div class="wrap">
       <SiteHeader />
@@ -419,7 +405,7 @@ ${message}`;
       });
     </script>
   </body>
-  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#181818cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
+  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#000000cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
     ↑
   </button>
   <style>

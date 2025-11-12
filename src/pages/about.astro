@@ -8,7 +8,7 @@ const title = "Ken Pham — About";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#0b0b0b" />
+    <meta name="theme-color" content="#000000" />
     <title>{title}</title>
     <meta name="description" content="Ken Pham is a director whose latest film, That Which Is Heard will have its World Premiere at DOC NYC 2025" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -39,7 +39,7 @@ const title = "Ken Pham — About";
       
       html, body { 
         margin: 0; 
-        background: #0b0b0b;
+        background: #000000;
         color: #f2f2f2;
         font-family: var(--font-primary);
         -webkit-font-smoothing: antialiased;
@@ -47,24 +47,10 @@ const title = "Ken Pham — About";
         min-height: 100vh;
       }
       
-      /* Reading progress bar */
-      #progress-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.7) 100%);
-        width: 0%;
-        z-index: 1000;
-        transition: width 0.1s ease;
-      }
-      
       .wrap { 
         max-width:1200px; 
         margin:0 auto; 
         padding:16px;
-        position: relative;
-        z-index: 1;
       }
       
       @media (max-width: 768px) {
@@ -105,7 +91,7 @@ const title = "Ken Pham — About";
         left: 0;
         width: 100%;
         height: 100%;
-        background: #0b0b0b;
+        background: #000000;
         z-index: 1;
         animation: textCurtainReveal 0.7s ease forwards;
       }
@@ -125,11 +111,7 @@ const title = "Ken Pham — About";
 
       .about-image {
         position: sticky;
-        top: 32px;
-      }
-
-      .about-image {
-        position: relative;
+        top: 144px;
         overflow: hidden;
         border-radius: 8px;
       }
@@ -141,7 +123,7 @@ const title = "Ken Pham — About";
         left: 0;
         width: 100%;
         height: 100%;
-        background: #0b0b0b;
+        background: #000000;
         z-index: 1;
         border-radius: 8px;
         animation: curtainRevealPhoto 0.8s ease forwards 0.2s;
@@ -153,6 +135,7 @@ const title = "Ken Pham — About";
         }
         to { 
           transform: translateY(-100%);
+          opacity: 0;
         }
       }
 
@@ -187,7 +170,7 @@ const title = "Ken Pham — About";
         background: #fff;
         color: #000;
         border-radius: 4px;
-        z-index: 1000;
+        z-index: 100;
         text-decoration: none;
         border: 1px solid #0002;
         box-shadow: 0 2px 8px #0006;
@@ -204,7 +187,7 @@ const title = "Ken Pham — About";
       
       ::view-transition-new(root) {
         animation: fadeIn 0.3s ease;
-        background: #0b0b0b;
+        background: #000000;
       }
       
       @keyframes fadeOut {
@@ -218,7 +201,6 @@ const title = "Ken Pham — About";
     </style>
   </head>
   <body>
-    <div id="progress-bar"></div>
     <a href="#main-content" class="skip-link">Skip to content</a>
     <div class="wrap">
       <SiteHeader />
@@ -246,22 +228,8 @@ const title = "Ken Pham — About";
       <SiteFooter />
     </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Reading progress bar
-        const progressBar = document.getElementById('progress-bar');
-        function updateProgress() {
-          const scrollTop = window.scrollY;
-          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const progress = (scrollTop / docHeight) * 100;
-          progressBar.style.width = progress + '%';
-        }
-        window.addEventListener('scroll', updateProgress);
-        updateProgress();
-      });
-    </script>
   </body>
-  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#181818cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
+  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#000000cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
     ↑
   </button>
   <style>

@@ -8,6 +8,9 @@
     <span></span>
   </button>
   <nav class="main-nav">
+    <button class="menu-close" aria-label="Close menu">
+      <span>×</span>
+    </button>
     <a href="/"><span class="underline"></span>portfolio</a>
     <a href="/about"><span class="underline"></span>about</a>
     <a href="/press"><span class="underline"></span>press</a>
@@ -44,9 +47,14 @@
 <style>
   .site-header { 
     text-align: left;
-    margin-bottom: 48px;
-    padding: 32px 0;
-    position: relative;
+    margin-bottom: 62.4px;
+    padding: 41.6px 0;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    transition: opacity 0.3s ease;
   }
   .menu-toggle {
     display: none;
@@ -82,13 +90,38 @@
   .menu-toggle.active span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
   }
+  .menu-close {
+    display: none;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #f2f2f2;
+    font-size: 40px;
+    line-height: 1;
+    transition: color 0.2s ease;
+    z-index: 102;
+  }
+  .menu-close:hover {
+    color: #fff;
+  }
+  .menu-close:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
   .main-nav {
     position: absolute;
-    top: 42px;
+    top: 50%;
+    transform: translateY(-50%);
     right: 0;
     display: flex;
     gap: 32px;
     align-items: center;
+    z-index: 100;
   }
   .main-nav a {
     color: rgba(242, 242, 242, 0.6);
@@ -150,8 +183,10 @@
     outline-offset: 4px;
     border-radius: 4px;
   }
-  .header-content { display: flex; align-items: center; justify-content: flex-start; gap: 32px; }
+  .header-content { display: flex; align-items: baseline; justify-content: flex-start; gap: 32px; }
   .name-section { display: flex; flex-direction: column; }
+  .name-section h1 { margin: 0; }
+  .name-section h2 { margin: 8px 0 0 0; font-size: 14px; font-weight: 400; letter-spacing: 0.2px; color: #f2f2f2; }
   .social-section { }
   .social-icons { display: flex; gap: 12px; align-items: center; }
   .social-icons a { color: rgba(242, 242, 242, 0.7); transition: color 0.2s ease; display: flex; align-items: center; text-decoration: none; }
@@ -169,40 +204,56 @@
     outline-offset: 2px;
   }
   .social-icons svg { width: 20px; height: 20px; }
-  .site-header h2 { margin: 8px 0 0 0; font-size: 14px; font-weight: 400; letter-spacing: 0.2px; color: #f2f2f2; }
 
   @media (max-width: 768px) {
-    .site-header { text-align: center; padding: 24px 0; margin-bottom: 32px; }
-    .site-header h1 { font-size: 24px; }
-    .site-header h2 { font-size: 13px; }
-    .header-content { flex-direction: column; gap: 16px; }
+    .site-header { text-align: center; padding: 24px 16px; margin-bottom: 32px; }
+    .site-header h1 { font-size: 24px; margin: 0; text-align: left; }
+    .site-header h2 { font-size: 13px; margin: 4px 0 0 0; text-align: left; }
+    .header-content { 
+      flex-direction: column; 
+      gap: 12px; 
+      margin: 0; 
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .name-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .social-section {
+      display: flex;
+      align-items: center;
+    }
     .social-icons { gap: 16px; }
     .menu-toggle { display: block; }
+    .menu-close { display: block; }
     .main-nav { 
       position: fixed; 
       top: 0; 
       right: -100%; 
       width: 70%; 
       height: 100vh; 
-      background: rgba(26, 26, 26, 0.7); 
+      background: rgba(40, 40, 40, 0.85); 
       backdrop-filter: blur(10px);
       flex-direction: column; 
       justify-content: center; 
       align-items: center; 
-      gap: 32px; 
+      gap: 40px; 
       transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
-      z-index: 99;
+      z-index: 101;
       box-shadow: -4px 0 24px rgba(0, 0, 0, 0.5);
+      transform: none;
     }
     .main-nav.active { right: 0; }
     .main-nav a { 
-      font-size: 18px;
+      font-size: 20px;
       opacity: 0;
       transform: translateX(20px);
       transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s ease;
     }
-    .main-nav.active a {
-      opacity: 1;
+    .main-nav.active a { 
+      opacity: 1; 
       transform: translateX(0);
     }
     .main-nav.active a:nth-child(1) { transition-delay: 0.1s; }
@@ -218,6 +269,7 @@
     const root = document.currentScript?.closest('.site-header') || document.querySelector('.site-header');
     if (!root) return;
     const menuToggle = root.querySelector('.menu-toggle');
+    const menuClose = root.querySelector('.menu-close');
     const nav = root.querySelector('.main-nav');
     if (menuToggle && nav) {
       menuToggle.addEventListener('click', (e) => {
@@ -225,6 +277,18 @@
         if (e && typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
         nav.classList.toggle('active');
         menuToggle.classList.toggle('active');
+      });
+      if (menuClose) {
+        menuClose.addEventListener('click', () => {
+          nav.classList.remove('active');
+          menuToggle.classList.remove('active');
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('active')) {
+          nav.classList.remove('active');
+          menuToggle.classList.remove('active');
+        }
       });
       document.addEventListener('click', (e) => {
         if (!e.target.closest('.site-header')) {
@@ -239,5 +303,19 @@
         });
       });
     }
+  })();
+
+  // Highlight active navigation link
+  (function() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.main-nav a');
+    
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      // Check if current page matches the link (exact match or starts with for subpages)
+      if (href === currentPath || (href !== '/' && currentPath.startsWith(href))) {
+        link.classList.add('active');
+      }
+    });
   })();
 </script>
