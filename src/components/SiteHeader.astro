@@ -168,9 +168,10 @@
   .site-header h1 {
     margin: 0;
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0.5px;
     color: #f2f2f2;
+    font-family: var(--font-heading);
   }
   .site-header h1 a {
     color: #f2f2f2;
@@ -186,7 +187,7 @@
   .header-content { display: flex; align-items: baseline; justify-content: flex-start; gap: 32px; }
   .name-section { display: flex; flex-direction: column; }
   .name-section h1 { margin: 0; }
-  .name-section h2 { margin: 8px 0 0 0; font-size: 14px; font-weight: 400; letter-spacing: 0.2px; color: #f2f2f2; }
+  .name-section h2 { margin: 8px 0 0 0; font-size: 14px; font-weight: 400; letter-spacing: 0.2px; color: #f2f2f2; font-family: var(--font-heading); }
   .social-section { }
   .social-icons { display: flex; gap: 12px; align-items: center; }
   .social-icons a { color: rgba(242, 242, 242, 0.7); transition: color 0.2s ease; display: flex; align-items: center; text-decoration: none; }
@@ -204,6 +205,10 @@
     outline-offset: 2px;
   }
   .social-icons svg { width: 20px; height: 20px; }
+  :global(h1), :global(h2), :global(h3), :global(h4), :global(h5), :global(h6) {
+    font-family: var(--font-heading);
+    font-weight: 400;
+  }
 
   @media (max-width: 768px) {
     .site-header { text-align: center; padding: 24px 16px; margin-bottom: 32px; }
