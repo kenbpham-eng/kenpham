@@ -1,55 +1,27 @@
-/* Main styles */
+/* Shared font variables */
 :root {
-    --primary-color: #333;
-    --secondary-color: #666;
-    --background-color: #fff;
-    --accent-color: #007bff;
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    --font-heading: 'Work Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
 }
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 1.6;
-    color: var(--primary-color);
-    background-color: var(--background-color);
+html, body {
+    font-family: var(--font-primary);
+    -webkit-font-smoothing: antialiased;
+    background: #000 !important;
+    color: #f2f2f2 !important;
 }
-
-header {
-    padding: 2rem;
-    background-color: var(--primary-color);
-    color: white;
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #111111; border-radius: 6px; border: 2px solid #000000; }
+::-webkit-scrollbar-thumb:hover { background: #222222; }
+* { scrollbar-width: thin; scrollbar-color: #111111 #000000; }
+/* Skip link */
+.skip-link {
+    position: absolute; top: -40px; left: 0; background: #f2f2f2; color: #000; padding: 8px 16px;
+    text-decoration: none; font-weight: 600; z-index: 100;
 }
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 2rem;
+.skip-link:focus {
+    top: 16px; left: 16px; background: #fff; color: #000; border-radius: 4px; padding: 10px 14px;
+    border: 1px solid #0002; box-shadow: 0 2px 8px #0006; position: fixed; width: auto; height: auto;
 }
-
-nav a {
-    color: white;
-    text-decoration: none;
-}
-
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-section {
-    margin-bottom: 4rem;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--primary-color);
-    color: white;
-}
+/* ...existing code... */

@@ -6,6 +6,7 @@ const title = "The Hall Pass — Ken Pham";
 <!doctype html>
 <html lang="en">
   <head>
+      <link rel="stylesheet" href="/styles/main.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#000000" />
@@ -33,38 +34,7 @@ const title = "The Hall Pass — Ken Pham";
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-      :root { 
-        --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-        --font-heading: 'Work Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-      }
-      
-      html, body { 
-        margin: 0; 
-        background: #000000;
-        color: #f2f2f2;
-        font-family: var(--font-primary);
-        -webkit-font-smoothing: antialiased;
-      }
-      
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 12px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #000000;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #111111;
-        border-radius: 6px;
-        border: 2px solid #000000;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #222222;
-      }
-      * {
-        scrollbar-width: thin;
-        scrollbar-color: #111111 #000000;
-      }      
+      /* ...existing code... */
       .wrap { max-width:100%; margin:0 auto; padding:32px; }
       
       @media (max-width: 768px) {
@@ -665,83 +635,10 @@ const title = "The Hall Pass — Ken Pham";
     #backToTop:focus { outline: 2px solid #fff; }
     #backToTop[hidden] { display: none !important; }
   </style>
-  <script>
-    // Back to Top button logic
-    (function(){
-      const btn = document.getElementById('backToTop');
-      function toggleBtn() {
-        if(window.scrollY > 300) { btn.style.display = 'flex'; btn.style.opacity = '1'; } else { btn.style.opacity = '0'; setTimeout(()=>{btn.style.display='none';},200); }
-      }
-      window.addEventListener('scroll', toggleBtn);
-      btn.addEventListener('click', ()=>{ window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); });
-      btn.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); }});
-    })();
-    
-    // Reading progress bar
-    (function(){
-      const progressBar = document.getElementById('progress-bar');
-      function updateProgress() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
-        progressBar.style.width = progress + '%';
-      }
-      window.addEventListener('scroll', updateProgress);
-      updateProgress();
-    })();
-    
-    // Lightbox gallery
-    (function(){
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      const closeBtn = document.querySelector('.lightbox-close');
-      const prevBtn = document.querySelector('.lightbox-prev');
-      const nextBtn = document.querySelector('.lightbox-next');
-      const galleryImages = document.querySelectorAll('.gallery-grid img');
-      let currentIndex = 0;
-      
-      function openLightbox(index) {
-        currentIndex = index;
-        const img = galleryImages[index];
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-      
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      
-      function showPrev() {
-        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-        openLightbox(currentIndex);
-      }
-      
-      function showNext() {
-        currentIndex = (currentIndex + 1) % galleryImages.length;
-        openLightbox(currentIndex);
-      }
-      
-      galleryImages.forEach((img, index) => {
-        img.addEventListener('click', () => openLightbox(index));
-      });
-      
-      closeBtn.addEventListener('click', closeLightbox);
-      prevBtn.addEventListener('click', showPrev);
-      nextBtn.addEventListener('click', showNext);
-      
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-      
-      document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') showPrev();
-        if (e.key === 'ArrowRight') showNext();
-      });
-    })();
+  <script type="module">
+    import { initBackToTop, initProgressBar, initLightbox } from '/scripts/shared.js';
+    initBackToTop();
+    initProgressBar();
+    initLightbox();
   </script>
 </html>

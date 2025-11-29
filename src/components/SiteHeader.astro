@@ -17,29 +17,83 @@
     <a href="/press"><span class="underline"></span>PRESS</a>
     <a href="/contact"><span class="underline"></span>CONTACT</a>
   </nav>
-  <div class="header-content">
-    <div class="name-section">
-      <h1><a href="/">KEN PHAM</a></h1>
-      <h2>DIRECTOR & FILMMAKER</h2>
+  <div class="projects-overlay"></div>
+  <nav class="projects-nav">
+    <button class="projects-close" aria-label="Close projects menu">
+      <span>×</span>
+    </button>
+    <div style="height: 48px;"></div>
+    <div class="projects-content">
+      <div class="projects-section">
+        <h3>SHORT FILMS - NARRATIVE</h3>
+        <a href="#" data-video="hitandrun_hover.mp4" data-overlay="CURRENTLY IN POST PRODUCTION">Hit And Run <span class="status">(Post-Production)</span></a>
+        <a href="/the-hall-pass" data-video="hallpass_hover.mp4">The Hall Pass <span class="status">(2024)</span></a>
+      </div>
+      <div class="projects-section">
+        <h3>SHORT FILMS - DOCUMENTARY</h3>
+        <a href="/that-which-is-heard" data-video="twih_hover.mp4">That Which Is Heard <span class="status">(2025)</span></a>
+        <a href="#" data-video="teachplay_hover.mp4">Teach, Play <span class="status">(2023)</span></a>
+      </div>
+      <div class="projects-section">
+        <h3>MUSIC VIDEOS</h3>
+        <a href="/halfway-broken" data-video="halfwaybroken_hover.mp4">Halfway Broken by Luna Elle <span class="status">(2024)</span></a>
+        <a href="#" data-video="offonanisland_hover.mp4">Off On An Island by Cooper <span class="status">(2023)</span></a>
+      </div>
+      <div class="projects-section">
+        <h3>COMMERCIAL</h3>
+        <a href="#" data-video="bmwm4gt4_hover.mp4">BMW M4 GT4 <span class="status">(2025)</span></a>
+        <a href="#" data-video="cayenne2024_hover.mp4">Porsche Cayenne Campaign <span class="status">(2024)</span></a>
+        <a href="#" data-video="driveyourownpath_hover.mp4">Policaro Group Drive Your Own Path <span class="status">(2024)</span></a>
+        <a href="#" data-video="pckw_hover.mp4">Porsche PCKW Opening <span class="status">(2023)</span></a>
+        <a href="#" data-video="pecdakar_hover.mp4">PEC Porsche 911 Dakar <span class="status">(2023)</span></a>
+        <a href="#" data-video="myporscheapp_hover.mp4">My Porsche App <span class="status">(2023)</span></a>
+        <a href="#" data-video="driveyourownpath_hover.mp4">Porsche Taycan EV Roadtrip <span class="status">(2023)</span></a>
+        <a href="#" data-video="volvoawareness_hover.mp4">Volvo Awareness Campaign <span class="status">(2023)</span></a>
+        <a href="#" data-video="vinfast_hover.mp4">VinFast Boundless Together <span class="status">(2022)</span></a>
+      </div>
+      <div class="projects-section">
+        <h3>LINKS</h3>
+        <a href="https://www.imdb.com/name/nm7730137/" target="_blank" rel="noopener noreferrer">IMDB</a>
+      </div>
+      <div id="project-video-preview" style="display:none;position:fixed;top:0;right:0;height:100vh;z-index:9999;justify-content:center;align-items:center;background:transparent;pointer-events:none;transition:opacity 0.2s;">
+        <div id="project-video-bg" style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);"></div>
+        <div id="project-video-inner" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+          <video id="project-hover-video" style="max-width:40vw;max-height:80vh;border-radius:12px;background:#000;display:none;box-shadow:0 8px 32px #000a;" muted loop></video>
+          <div id="project-hover-overlay" style="display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;background:rgba(0,0,0,0.7);padding:18px 32px;border-radius:8px;font-size:1.3rem;font-weight:600;letter-spacing:1px;text-align:center;z-index:10;pointer-events:none;"></div>
+        </div>
+      </div>
     </div>
-    <div class="social-section">
-      <div class="social-icons">
-        <a href="mailto:kenbpham@icloud.com" aria-label="Email">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="4" width="20" height="16" rx="2"/>
-            <path d="m2 7 10 7 10-7"/>
-          </svg>
-        </a>
-        <a href="https://www.instagram.com/iamkenpham" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="2" width="20" height="20" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="18" cy="6" r="1"/>
-          </svg>
-        </a>
-        <a href="https://www.imdb.com/name/nm7730137/" target="_blank" rel="noopener noreferrer" aria-label="IMDb" class="imdb-link">
-          IMDb
-        </a>
+  </nav>
+  <div class="header-content">
+    <div class="header-row">
+      <div class="name-section">
+        <h1><a href="/">KEN PHAM</a></h1>
+        <h2>DIRECTOR & FILMMAKER</h2>
+      </div>
+      <div class="social-section">
+        <div class="social-icons">
+          <a href="mailto:kenbpham@icloud.com" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m2 7 10 7 10-7"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/iamkenpham" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="18" cy="6" r="1"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="projects-toggle-row">
+      <button class="projects-toggle" aria-label="Toggle projects menu">
+        + VIEW PROJECT LIST
+      </button>
+    </div>
+  </div>
       </div>
     </div>
   </div>
@@ -148,7 +202,7 @@
   }
   .main-nav a:hover,
   .main-nav a:focus-visible {
-    color: #fff;
+    color: #555555;
     outline: none;
   }
   .main-nav a:hover .underline,
@@ -165,6 +219,15 @@
   }
   .main-nav a.active .underline {
     transform: scaleX(1);
+  }
+  
+  @media (max-width: 768px) {
+    .main-nav a.active {
+      color: #000000;
+    }
+    .main-nav a.active .underline {
+      background: #000000;
+    }
   }
   .site-header h1 {
     margin: 0;
@@ -185,25 +248,24 @@
     outline-offset: 4px;
     border-radius: 4px;
   }
-  .header-content { display: flex; align-items: baseline; justify-content: flex-start; gap: 32px; }
+  .header-content { display: flex; flex-direction: column; align-items: flex-start; gap: 0; width: 100%; }
+  .header-row { display: flex; flex-direction: row; align-items: center; width: 100%; gap: 32px; }
+  .name-section { display: flex; flex-direction: column; }
+  .social-section { display: flex; align-items: center; }
+  .projects-toggle-row { display: flex; width: 100%; margin-top: 8px; justify-content: flex-start; }
+  .projects-toggle { margin-left: 0; }
   .name-section { display: flex; flex-direction: column; }
   .name-section h1 { margin: 0; }
-  .name-section h2 { margin: 8px 0 0 0; font-weight: 400; letter-spacing: 0.2px; color: #f2f2f2; font-family: var(--font-heading); font-size: 0.9rem; }
+  .name-section h2 { margin: 8px 0 0 0; font-weight: 400; letter-spacing: 0.2px; color: #f2f2f2; font-family: var(--font-heading); font-size: inherit; }
   .social-section { }
   .social-icons { display: flex; gap: 12px; align-items: center; }
-  .social-icons a { color: rgba(242, 242, 242, 0.7); transition: color 0.2s ease; display: flex; align-items: center; text-decoration: none; }
+  .social-icons a, .social-icons svg { color: rgba(242, 242, 242, 0.6); }
   .social-icons a:hover, .social-icons a:focus { color:#fff; outline:none; filter: drop-shadow(0 0 2px #fff2); }
+  .social-icons a:hover svg, .social-icons a:focus svg { color: #fff; }
   .social-icons a:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 4px;
     border-radius: 4px;
-  }
-  .social-icons a.imdb-link { font-size: 11px; font-weight: 700; letter-spacing: 0.2px; border: 1px solid rgba(242, 242, 242, 0.7); border-radius: 3px; padding: 1px 5px; line-height: 1.2; transition: all 0.2s ease; }
-  .social-icons a.imdb-link:hover { border-color: #f2f2f2; }
-  .social-icons a.imdb-link:focus-visible {
-    border-color: #fff;
-    outline: 2px solid #fff;
-    outline-offset: 2px;
   }
   .social-icons svg { width: 20px; height: 20px; }
   :global(h1), :global(h2), :global(h3), :global(h4), :global(h5), :global(h6) {
@@ -291,6 +353,184 @@
     .main-nav.active a:nth-child(3) { transition-delay: 0.2s; }
     .main-nav.active a:nth-child(4) { transition-delay: 0.25s; }
   }
+
+  /* Projects Drawer Styles */
+  .projects-toggle {
+    background: none;
+    border: none;
+    color: rgba(242, 242, 242, 0.6);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    padding: 0;
+    text-transform: lowercase;
+    transition: color 0.2s ease;
+    display: block;
+  }
+
+  .projects-toggle:hover,
+  .projects-toggle:focus-visible {
+    color: #fff;
+    outline: none;
+  }
+
+  .projects-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    max-width: 340px;
+    height: 100vh;
+    background: #ffffff;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    z-index: 101;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 60px;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .projects-nav.active {
+    left: 0;
+  }
+
+  .projects-close {
+    display: none;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #000000;
+    font-size: 40px;
+    line-height: 1;
+    transition: color 0.2s ease;
+    z-index: 102;
+  }
+
+  .projects-nav.active .projects-close {
+    display: block;
+  }
+
+  .projects-content {
+    width: 100%;
+    padding: 0 24px 48px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projects-section {
+    margin-bottom: 32px;
+  }
+
+  .projects-section h3 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin: 0 0 12px 0;
+    text-align: left;
+  }
+
+  .projects-section a {
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.4;
+    transition: opacity 0.2s ease;
+    margin-bottom: 3px;
+    text-align: left;
+  }
+
+  .projects-section a:hover {
+    opacity: 0.6;
+    text-decoration: underline;
+  }
+
+  .projects-section a .status {
+    opacity: 0.6;
+    font-size: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .projects-toggle {
+      /* No override: always visible, consistent style */
+    }
+
+    .projects-toggle:hover,
+    .projects-toggle:focus-visible {
+      color: #555555;
+    }
+
+    .projects-close {
+      display: block;
+    }
+  }
+  #project-video-preview {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    height: 100vh;
+    z-index: 9999;
+    background: transparent;
+    transition: opacity 0.2s;
+  }
+  #project-video-bg {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: auto;
+    z-index: 1;
+  }
+  #project-video-inner {
+    pointer-events: none;
+    z-index: 2;
+  }
+  #project-hover-video {
+    pointer-events: none;
+  }
+  #project-video-inner video {
+    box-shadow: 0 8px 32px #000a;
+  }
+  #project-video-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  #project-hover-video {
+    max-width: 40vw;
+    max-height: 80vh;
+    border-radius: 12px;
+    background: #000;
+    display: none;
+    pointer-events: none;
+  }
 </style>
 
 <script is:inline>
@@ -346,6 +586,137 @@
       if (href === currentPath || (href !== '/' && currentPath.startsWith(href))) {
         link.classList.add('active');
       }
+    });
+  })();
+
+  // Projects drawer toggle
+  (function(){
+    const root = document.currentScript?.closest('.site-header') || document.querySelector('.site-header');
+    if (!root) return;
+    const projectsToggle = root.querySelector('.projects-toggle');
+    const projectsToggleSubtitle = root.querySelector('.projects-toggle-subtitle');
+    const projectsClose = root.querySelector('.projects-close');
+    const projectsNav = root.querySelector('.projects-nav');
+    const projectsOverlay = root.querySelector('.projects-overlay');
+
+    function openProjectsDrawer() {
+      projectsNav.classList.add('active');
+      if (projectsOverlay) projectsOverlay.classList.add('active');
+    }
+    function closeProjectsDrawer() {
+      projectsNav.classList.remove('active');
+      if (projectsOverlay) projectsOverlay.classList.remove('active');
+    }
+
+    if (projectsToggle && projectsNav) {
+      projectsToggle.addEventListener('click', openProjectsDrawer);
+    }
+    if (projectsToggleSubtitle && projectsNav) {
+      projectsToggleSubtitle.addEventListener('click', openProjectsDrawer);
+    }
+    if (projectsClose && projectsNav) {
+      projectsClose.addEventListener('click', closeProjectsDrawer);
+    }
+    if (projectsOverlay) {
+      projectsOverlay.addEventListener('click', closeProjectsDrawer);
+    }
+    if (projectsNav) {
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && projectsNav.classList.contains('active')) {
+          closeProjectsDrawer();
+        }
+      });
+      projectsNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeProjectsDrawer);
+      });
+    }
+  })();
+  // Project video preview background always visible when drawer is open; video only on hover
+  (function() {
+    const projectsNav = document.querySelector('.projects-nav');
+    const videoPreview = document.getElementById('project-video-preview');
+    const videoEl = document.getElementById('project-hover-video');
+    const videoInner = document.getElementById('project-video-inner');
+    const videoBg = document.getElementById('project-video-bg');
+    if (!projectsNav || !videoPreview || !videoEl || !videoInner || !videoBg) return;
+    function getDrawerWidth() {
+      const drawer = document.querySelector('.projects-nav');
+      if (!drawer) return 0;
+      return drawer.getBoundingClientRect().width;
+    }
+    function positionPreview() {
+      const drawerWidth = getDrawerWidth();
+      videoPreview.style.left = drawerWidth + 'px';
+      videoPreview.style.right = '0';
+      videoPreview.style.width = `calc(100vw - ${drawerWidth}px)`;
+    }
+    // Show/hide preview background with drawer
+    function showPreviewBg() {
+      positionPreview();
+      videoPreview.style.display = 'flex';
+      videoPreview.style.opacity = '1';
+    }
+    function hidePreviewBg() {
+      videoPreview.style.display = 'none';
+      videoPreview.style.opacity = '0';
+      videoEl.pause();
+      videoEl.removeAttribute('src');
+      videoEl.load();
+      videoEl.style.display = 'none';
+    }
+    // Listen for drawer open/close
+    const observer = new MutationObserver(() => {
+      if (projectsNav.classList.contains('active')) {
+        showPreviewBg();
+      } else {
+        hidePreviewBg();
+      }
+    });
+    observer.observe(projectsNav, { attributes: true, attributeFilter: ['class'] });
+    window.addEventListener('resize', positionPreview);
+    // Video on hover only
+    let lastHoveredLink = null;
+    const hoverOverlay = document.getElementById('project-hover-overlay');
+    projectsNav.querySelectorAll('a[data-video]').forEach(link => {
+      const videoFile = link.getAttribute('data-video');
+      const overlayText = link.getAttribute('data-overlay');
+      if (!videoFile) return;
+      link.addEventListener('mouseenter', () => {
+        if (lastHoveredLink !== link) {
+          videoEl.pause();
+          videoEl.removeAttribute('src');
+          videoEl.load();
+        }
+        videoEl.src = `/media/${videoFile}`;
+        videoEl.currentTime = 0;
+        videoEl.play();
+        videoEl.style.display = 'block';
+        if (overlayText) {
+          hoverOverlay.textContent = overlayText;
+          hoverOverlay.style.display = 'block';
+        } else {
+          hoverOverlay.style.display = 'none';
+        }
+        lastHoveredLink = link;
+      });
+      link.addEventListener('mouseleave', () => {
+        videoEl.pause();
+        videoEl.removeAttribute('src');
+        videoEl.load();
+        videoEl.style.display = 'none';
+        hoverOverlay.style.display = 'none';
+        lastHoveredLink = null;
+      });
+    });
+    // Hide video and close drawer if background is clicked
+    // Make background clickable to close drawer (not the video)
+    videoBg.addEventListener('click', () => {
+      videoEl.pause();
+      videoEl.removeAttribute('src');
+      videoEl.load();
+      videoEl.style.display = 'none';
+      lastHoveredLink = null;
+      projectsNav.classList.remove('active');
     });
   })();
 </script>

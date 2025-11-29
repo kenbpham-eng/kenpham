@@ -6,6 +6,7 @@ const title = "Ken Pham — Press";
 <!doctype html>
 <html lang="en">
   <head>
+      <link rel="stylesheet" href="/styles/main.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -33,18 +34,7 @@ const title = "Ken Pham — Press";
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-      :root { 
-        --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-        --font-heading: 'Work Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-      }
-      
-      html, body { 
-        margin: 0; 
-        background: #000000;
-        color: #f2f2f2;
-        font-family: var(--font-primary);
-        -webkit-font-smoothing: antialiased;
-      }
+      /* ...existing code... */
       
       .wrap { max-width:100%; margin:0 auto; padding:32px; }
       
@@ -329,17 +319,9 @@ const title = "Ken Pham — Press";
     #backToTop:focus { outline: 2px solid #fff; }
     #backToTop[hidden] { display: none !important; }
   </style>
-  <script>
-    // Back to Top button logic
-    (function(){
-      const btn = document.getElementById('backToTop');
-      function toggleBtn() {
-        if(window.scrollY > 300) { btn.style.display = 'flex'; btn.style.opacity = '1'; } else { btn.style.opacity = '0'; setTimeout(()=>{btn.style.display='none';},200); }
-      }
-      window.addEventListener('scroll', toggleBtn);
-      btn.addEventListener('click', ()=>{ window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); });
-      btn.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); }});
-    })();
+  <script type="module">
+    import { initBackToTop } from '/scripts/shared.js';
+    initBackToTop();
   </script>
 
   <div id="spinnerOverlay" style="position:fixed;inset:0;z-index:9999;background:#000000e6;display:flex;align-items:center;justify-content:center;transition:opacity 0.3s;pointer-events:none;opacity:0;" hidden>
