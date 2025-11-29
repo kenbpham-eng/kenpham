@@ -100,7 +100,7 @@
     border: none;
     cursor: pointer;
     padding: 8px;
-    color: #f2f2f2;
+    color: #000000;
     font-size: 40px;
     line-height: 1;
     transition: color 0.2s ease;
@@ -263,15 +263,15 @@
       right: -100%; 
       width: 70%; 
       height: 100vh; 
-      background: rgba(40, 40, 40, 0.85); 
-      backdrop-filter: blur(10px);
+      background: #ffffff; 
+      backdrop-filter: none;
       flex-direction: column; 
       justify-content: center; 
       align-items: center; 
       gap: 40px; 
       transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
       z-index: 101;
-      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.5);
+      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
       transform: none;
     }
     .main-nav.active { right: 0; }
@@ -280,6 +280,7 @@
       opacity: 0;
       transform: translateX(20px);
       transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s ease;
+      color: #000000;
     }
     .main-nav.active a { 
       opacity: 1; 
