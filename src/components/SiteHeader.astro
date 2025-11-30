@@ -43,7 +43,9 @@
         <h3>COMMERCIAL</h3>
         <a href="#" data-video="bmwm4gt4_hover.mp4">BMW M4 GT4 <span class="status">(2025)</span></a>
         <a href="#" data-video="cayenne2024_hover.mp4">Porsche Cayenne Campaign <span class="status">(2024)</span></a>
+        <a href="#" data-video="cayennetastedrive_hover.mp4">Porsche Cayenne Taste Drive <span class="status">(2024)</span></a>
         <a href="#" data-video="driveyourownpath_hover.mp4">Policaro Group Drive Your Own Path <span class="status">(2024)</span></a>
+        <a href="#" data-video="canadiantire-wintertire_hover.mp4">Canadian Tire Motomaster Winter Edge II <span class="status">(2023)</span></a>
         <a href="#" data-video="pckw_hover.mp4">Porsche PCKW Opening <span class="status">(2023)</span></a>
         <a href="#" data-video="pecdakar_hover.mp4">PEC Porsche 911 Dakar <span class="status">(2023)</span></a>
         <a href="#" data-video="myporscheapp_hover.mp4">My Porsche App <span class="status">(2023)</span></a>
@@ -379,8 +381,8 @@
     position: fixed;
     top: 0;
     left: -100%;
-    width: 75%;
-    max-width: 500px;
+    width: 85%;
+    max-width: 600px;
     height: 100vh;
     background: #ffffff;
     flex-direction: column;
@@ -389,11 +391,11 @@
     z-index: 101;
     box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
     transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
     padding-top: 60px;
     overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
   }
 
   .projects-nav.active {
@@ -654,6 +656,9 @@
   })();
   // Project video preview background always visible when drawer is open; video only on hover
   (function() {
+    // Disable video preview on mobile (screens under 768px)
+    if (window.innerWidth < 768) return;
+    
     const projectsNav = document.querySelector('.projects-nav');
     const videoPreview = document.getElementById('project-video-preview');
     const videoEl = document.getElementById('project-hover-video');
