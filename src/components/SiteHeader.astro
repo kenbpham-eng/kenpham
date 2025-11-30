@@ -379,8 +379,8 @@
     position: fixed;
     top: 0;
     left: -100%;
-    width: 50%;
-    max-width: 340px;
+    width: 75%;
+    max-width: 500px;
     height: 100vh;
     background: #ffffff;
     flex-direction: column;
@@ -634,7 +634,12 @@
       projectsClose.addEventListener('click', closeProjectsDrawer);
     }
     if (projectsOverlay) {
-      projectsOverlay.addEventListener('click', closeProjectsDrawer);
+      projectsOverlay.addEventListener('click', (e) => {
+        // Only close if clicking directly on overlay, not its children
+        if (e.target === projectsOverlay) {
+          closeProjectsDrawer();
+        }
+      });
     }
     if (projectsNav) {
       document.addEventListener('keydown', (e) => {
@@ -733,6 +738,10 @@
       videoEl.style.display = 'none';
       lastHoveredLink = null;
       projectsNav.classList.remove('active');
+      const projectsOverlay = document.querySelector('.projects-overlay');
+      if (projectsOverlay) {
+        projectsOverlay.classList.remove('active');
+      }
     });
   })();
 </script>
