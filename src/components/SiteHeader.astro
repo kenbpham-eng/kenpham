@@ -12,18 +12,21 @@
     <button class="menu-close" aria-label="Close menu">
       <span>×</span>
     </button>
+    <div class="drawer-spacer top" aria-hidden="true"></div>
     <a href="/"><span class="underline"></span>PORTFOLIO</a>
     <a href="/about"><span class="underline"></span>ABOUT</a>
     <a href="/press"><span class="underline"></span>PRESS</a>
     <a href="/contact"><span class="underline"></span>CONTACT</a>
+    <div class="drawer-spacer bottom" aria-hidden="true"></div>
   </nav>
   <div class="projects-overlay"></div>
   <nav class="projects-nav">
     <button class="projects-close" aria-label="Close projects menu">
       <span>×</span>
     </button>
-    <div style="height: 48px;"></div>
+    <div class="drawer-spacer top" aria-hidden="true"></div>
     <div class="projects-content">
+      <div class="drawer-spacer content-top" aria-hidden="true"></div>
       <div class="projects-section">
         <h3>SHORT FILMS - NARRATIVE</h3>
         <a href="#" onclick="event.preventDefault(); openProjectModal('hitandrun'); document.querySelector('.projects-close').click();" data-video="hitandrun_hover.mp4" data-overlay="CURRENTLY IN POST PRODUCTION">Hit And Run <span class="status">(Post-Production)</span></a>
@@ -66,6 +69,7 @@
         </div>
       </div>
     </div>
+    <div class="drawer-spacer bottom" aria-hidden="true"></div>
   </nav>
   <div class="header-content">
     <div class="header-row">
@@ -95,9 +99,6 @@
       <button class="projects-toggle" aria-label="Toggle projects menu">
         + VIEW PROJECT LIST
       </button>
-    </div>
-  </div>
-      </div>
     </div>
   </div>
 </header>
@@ -331,13 +332,15 @@
       background: #000000; 
       backdrop-filter: none;
       flex-direction: column; 
-      justify-content: center; 
+      justify-content: flex-start; 
       align-items: center; 
       gap: 40px; 
       transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
       z-index: 101;
       box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
       transform: none;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
     .main-nav.active { right: 0; }
     .main-nav a { 
@@ -395,8 +398,19 @@
     overflow-y: scroll;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    padding-top: 60px;
+    padding-top: 0;
     overscroll-behavior: contain;
+  }
+  /* Drawer spacers to ease scrolling on mobile */
+  .drawer-spacer { width: 100%; }
+  .drawer-spacer.top { height: 72px; }
+  .drawer-spacer.bottom { height: calc(72px + env(safe-area-inset-bottom, 0px)); }
+  .drawer-spacer.content-top { height: 72px; }
+  /* Ensure projects drawer clears the close button fully */
+  .projects-nav .drawer-spacer.top { height: 96px; }
+  .projects-nav .drawer-spacer.content-top { height: 96px; }
+  @media (min-width: 769px) {
+    .drawer-spacer.top, .drawer-spacer.bottom, .drawer-spacer.content-top { height: 0; }
   }
 
   .projects-nav.active {
@@ -751,3 +765,4 @@
     });
   })();
 </script>
+
