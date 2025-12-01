@@ -1,0 +1,101 @@
+/* Home page styles extracted from index.astro */
+/* ...existing code... */
+.wrap { max-width:100%; margin:0 auto; padding:32px; }
+.portfolio-grid { display:grid; grid-template-columns:1fr; gap:22px; }
+@media (min-width:768px){ .portfolio-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (min-width:900px){ .portfolio-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+
+.tile{ display:block; text-decoration:none; color:inherit; transition:transform .2s ease; opacity:1; position: relative; }
+.tile .hover-media { position: relative; }
+.tile .hover-media::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000000; z-index: 5; border-radius: 14px; animation: curtainReveal 0.8s ease forwards; }
+.tile:nth-child(1) .hover-media::before { animation-delay:0.05s; }
+.tile:nth-child(2) .hover-media::before { animation-delay:0.1s; }
+.tile:nth-child(3) .hover-media::before { animation-delay:0.15s; }
+.tile:nth-child(4) .hover-media::before { animation-delay:0.2s; }
+.tile:nth-child(5) .hover-media::before { animation-delay:0.25s; }
+.tile:nth-child(6) .hover-media::before { animation-delay:0.3s; }
+.tile:nth-child(7) .hover-media::before { animation-delay:0.35s; }
+.tile:nth-child(8) .hover-media::before { animation-delay:0.4s; }
+.tile:nth-child(9) .hover-media::before { animation-delay:0.45s; }
+.tile:nth-child(10) .hover-media::before { animation-delay:0.5s; }
+.tile:nth-child(11) .hover-media::before { animation-delay:0.55s; }
+.tile:nth-child(12) .hover-media::before { animation-delay:0.6s; }
+.tile:nth-child(13) .hover-media::before { animation-delay:0.65s; }
+.tile:nth-child(14) .hover-media::before { animation-delay:0.7s; }
+.tile:nth-child(15) .hover-media::before { animation-delay:0.75s; }
+
+@keyframes curtainReveal { from { transform: translateY(0); } to { transform: translateY(-100%); } }
+
+.tile.loaded { opacity: 1; animation: none; }
+
+.tile:active { transform:scale(0.98); }
+.hover-media{ position:relative; aspect-ratio:16/9; overflow:hidden; border-radius:14px; background:#111; }
+.hover-media picture,
+.hover-media img.static,
+.hover-media video.gif{ width:100%; height:100%; object-fit:cover; display:block; border-radius:14px; }
+
+.hover-media picture { position:relative; }
+.hover-media img.static { opacity:0; transition:opacity .35s ease; font-size:0; color:transparent; }
+.hover-media img.static[data-loaded="true"] { opacity:1; }
+
+.hover-media video.gif { position:absolute; top:0; left:0; }
+
+@media (hover:hover){
+  .tile:hover { transform: translateY(-4px); }
+  .hover-media .gif { opacity:0; transition:opacity .25s ease; }
+  .tile:hover .hover-media .gif { opacity:1; }
+  .tile:hover .hover-media .static { opacity:0; }
+}
+
+.caption{ margin-top:6px; color:#f2f2f2; }
+.overlay{ pointer-events:none; color:#fff; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .25s ease; background:rgba(0,0,0,0.7); }
+@media (hover:hover){ .tile.has-overlay:hover .overlay{ opacity:1; } }
+.overlay p{ margin:0; font-size:12px; font-weight:600; letter-spacing:1px; text-align:center; padding:0 20px; }
+
+/* View Project indicator - folder tab style */
+.view-project-badge { position: absolute; top: -30px; right: 20px; background: rgba(20, 20, 20, 0.95); color: #f2f2f2; padding: 10px 18px 16px 18px; border-radius: 4px 4px 0 0; font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0; transform: translate(12px, 0); transition: opacity 0.8s ease, transform 0.8s ease; z-index: 0; box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15); }
+.view-project-badge::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 6px; background: rgba(20, 20, 20, 0.95); }
+@media (hover:hover){ .tile:hover .view-project-badge { opacity: 1; transform: translate(0, -2px); } }
+
+/* Mobile: show badge on active state */
+@media (hover:none){ .tile.mobile-active .view-project-badge { opacity: 1; transform: translate(0, -2px); } }
+
+.tile:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 4px; transform: translateY(-4px); }
+.tile:focus-visible .view-project-badge { opacity: 1; transform: translate(0, -2px); }
+
+/* View Transitions API */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: fadeOut 0.3s ease; }
+::view-transition-new(root) { animation: fadeIn 0.3s ease; background: #000000; }
+@keyframes fadeOut { to { opacity: 0; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+img, video{ user-select:none; -webkit-user-drag:none; pointer-events:auto; box-sizing:border-box; }
+.caption h3{ margin:0; font-size:14px; font-weight:600; letter-spacing:.2px; }
+.caption h3 span{ opacity:.7; font-weight:500; }
+
+/* Back to Top button */
+#backToTop{
+  display:none;
+  position:fixed;
+  bottom:32px;
+  right:32px;
+  z-index:200;
+  background:#000000cc;
+  color:#fff;
+  border:none;
+  border-radius:50%;
+  width:48px;
+  height:48px;
+  box-shadow:0 2px 12px #0007;
+  cursor:pointer;
+  transition:opacity 0.2s, transform 0.12s ease, box-shadow 0.12s ease;
+  outline:none;
+  font-size:24px;
+  align-items:center;
+  justify-content:center;
+}
+#backToTop:hover{ background:#1a1a1aee; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.65); }
+#backToTop:active{ transform: translateY(0); background:#000000cc; }
+#backToTop:focus{ outline:2px solid #fff; }
+#backToTop[hidden]{ display:none !important; }

@@ -1,0 +1,955 @@
+{
+  "projects": [
+    {
+      "id": "bmwm4gt4",
+      "title": "BMW M4 GT4",
+      "year": "2025",
+      "category": "Commercial",
+      "metadata": "Commercial",
+      "description": "Production Company: Steak+Sizzle Creative Works\n\nDirector/Producer: Ken Pham\n1st Assistant Director: Chris Monteiro\nDirector of Photography: Alessandro Lanzillotta\n1st Assistant Camera: Nick Abbate\nGaffer: Diego Barra\nSteadicam Operator: Liam VanderPloeg\nProduction Assistant: Sam Pike\nPhotographer: Brody White\nBTS: Erin Mitchell",
+      "images": [
+        {
+          "thumb": "/media/bmwm4gt4_static.webp",
+          "full": "/media/bmwm4gt4_static.jpg",
+          "alt": "BMW M4 GT4"
+        }
+      ],
+      "video": {
+        "src": "/media/bmwm4gt4_hover.mp4",
+        "poster": "/media/bmwm4gt4_static.jpg"
+      },
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          {
+            "thumb": "/portfolio/bmwm4gt4/1.+DSC00126.jpg.webp",
+            "full": "/portfolio/bmwm4gt4/1.+DSC00126.jpg.webp",
+            "alt": "BMW M4 GT4 Still 1"
+          },
+          {
+            "thumb": "/portfolio/bmwm4gt4/2.+250211_S+S_GT4M40027.jpg.webp",
+            "full": "/portfolio/bmwm4gt4/2.+250211_S+S_GT4M40027.jpg.webp",
+            "alt": "BMW M4 GT4 Still 2"
+          },
+          {
+            "thumb": "/portfolio/bmwm4gt4/250211_S+S_GT4M40006.jpg.webp",
+            "full": "/portfolio/bmwm4gt4/250211_S+S_GT4M40006.jpg.webp",
+            "alt": "BMW M4 GT4 Still 3"
+          },
+          {
+            "thumb": "/portfolio/bmwm4gt4/250211_S+S_GT4M40037.jpg.webp",
+            "full": "/portfolio/bmwm4gt4/250211_S+S_GT4M40037.jpg.webp",
+            "alt": "BMW M4 GT4 Still 4"
+          },
+          {
+            "thumb": "/portfolio/bmwm4gt4/3.+DSC00293.jpg.webp",
+            "full": "/portfolio/bmwm4gt4/3.+DSC00293.jpg.webp",
+            "alt": "BMW M4 GT4 Still 5"
+          },
+          {
+            "thumb": "/portfolio/bmwm4gt4/4.+DSC00169.jpg.webp",
+            "full": "/portfolio/bmwm4gt4/4.+DSC00169.jpg.webp",
+            "alt": "BMW M4 GT4 Still 6"
+          },
+          {
+            "thumb": "/portfolio/bmwm4gt4/5.+DSC09999.jpg.webp",
+            "full": "/portfolio/bmwm4gt4/5.+DSC09999.jpg.webp",
+            "alt": "BMW M4 GT4 Still 7"
+          },
+          {
+            "thumb": "/portfolio/bmwm4gt4/7.+DSC00228.jpg.webp",
+            "full": "/portfolio/bmwm4gt4/7.+DSC00228.jpg.webp",
+            "alt": "BMW M4 GT4 Still 8"
+          },
+          {
+            "thumb": "/portfolio/bmwm4gt4/8.+DSC09908.jpg.webp",
+            "full": "/portfolio/bmwm4gt4/8.+DSC09908.jpg.webp",
+            "alt": "BMW M4 GT4 Still 9"
+          },
+          {
+            "thumb": "/portfolio/bmwm4gt4/DSC00218.jpg.webp",
+            "full": "/portfolio/bmwm4gt4/DSC00218.jpg.webp",
+            "alt": "BMW M4 GT4 Still 10"
+          },
+          {
+            "thumb": "/portfolio/bmwm4gt4/DSC00312.jpg.webp",
+            "full": "/portfolio/bmwm4gt4/DSC00312.jpg.webp",
+            "alt": "BMW M4 GT4 Still 11"
+          }
+        ]
+      }
+    },
+    {
+      "id": "porschexpuma",
+      "title": "Porsche x PUMA 911 Turbo 50Y Sneaker",
+      "year": "2024",
+      "category": "Commercial",
+      "metadata": "Commercial | Photography",
+      "description": "Production Company: Steak+Sizzle Creative Works\n\nCreative Director & Producer: Ken Pham\nPhotographer: Pat Ryder\nStylist: Aaron Scott Garcia\nModel: Tyrell Maclennan",
+      "images": [
+        {
+          "thumb": "/media/porschexpuma_static.webp",
+          "full": "/media/porschexpuma_static.jpg",
+          "alt": "Porsche x PUMA 911 Turbo 50Y"
+        }
+      ],
+      "video": {
+        "src": "/media/porschexpuma_hover.mp4",
+        "poster": "/media/porschexpuma_static.jpg"
+      },
+      "gallery": {
+        "title": "Behind the Scenes",
+        "aspectRatio": "16 / 9",
+        "images": [
+          {
+            "thumb": "/portfolio/porschexpuma/_JR_5491.webp",
+            "full": "/portfolio/porschexpuma/_JR_5491.jpg",
+            "alt": "Porsche x PUMA Set"
+          },
+          {
+            "thumb": "/portfolio/porschexpuma/_JR_5778.webp",
+            "full": "/portfolio/porschexpuma/_JR_5778.jpg",
+            "alt": "Porsche x PUMA Set"
+          },
+          {
+            "thumb": "/portfolio/porschexpuma/_JR_6029.webp",
+            "full": "/portfolio/porschexpuma/_JR_6029.jpg",
+            "alt": "Porsche x PUMA Set"
+          },
+          {
+            "thumb": "/portfolio/porschexpuma/_JR_6113.webp",
+            "full": "/portfolio/porschexpuma/_JR_6113.jpg",
+            "alt": "Porsche x PUMA Set"
+          },
+          {
+            "thumb": "/portfolio/porschexpuma/_JR_6643-Edit.webp",
+            "full": "/portfolio/porschexpuma/_JR_6643-Edit.jpg",
+            "alt": "Porsche x PUMA Set"
+          },
+          {
+            "thumb": "/portfolio/porschexpuma/_JR_6969.webp",
+            "full": "/portfolio/porschexpuma/_JR_6969.jpg",
+            "alt": "Porsche x PUMA Set"
+          },
+          {
+            "thumb": "/portfolio/porschexpuma/_JR_7009.webp",
+            "full": "/portfolio/porschexpuma/_JR_7009.jpg",
+            "alt": "Porsche x PUMA Set"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cayenne2024",
+      "title": "Porsche Cayenne Campaign",
+      "year": "2024",
+      "category": "Commercial",
+      "metadata": "Commercial",
+      "description": "Agency: Angry Butterfly\nProduction Company: Steak+Sizzle Creative Works\n\nSr. Producer: Jakob Pospieszynski\nProducer & Editor: Ken Pham",
+      "images": [
+        {
+          "thumb": "/media/cayenne2024_static.webp",
+          "full": "/media/cayenne2024_static.jpg",
+          "alt": "Porsche Cayenne"
+        }
+      ],
+      "video": {
+        "src": "/media/cayenne2024_hover.mp4",
+        "poster": "/media/cayenne2024_static.jpg"
+      }
+    },
+    {
+      "id": "cayennetastedrive",
+      "title": "Porsche Cayenne Taste Drive",
+      "year": "2024",
+      "category": "Commercial",
+      "metadata": "Commercial",
+      "description": "Agency: Angry Butterfly\nProduction Company: Steak+Sizzle Creative Works\n\nSr. Producer, Director: Jakob Pospieszynski\nProducer: Ken Pham\nDirector of Photography: Owain Parri",
+      "images": [
+        {
+          "thumb": "/media/cayennetastedrive_static.webp",
+          "full": "/media/cayennetastedrive_static.jpg",
+          "alt": "Porsche Cayenne Taste Drive"
+        }
+      ],
+      "video": {
+        "src": "/media/cayennetastedrive_hover.mp4",
+        "poster": "/media/cayennetastedrive_static.jpg"
+      },
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          {
+            "thumb": "/portfolio/cayennetastedrive/Timeline 3_01_00_01_01.webp",
+            "full": "/portfolio/cayennetastedrive/Timeline 3_01_00_01_01.jpg",
+            "alt": "Porsche Cayenne Taste Drive Still 1"
+          },
+          {
+            "thumb": "/portfolio/cayennetastedrive/Timeline 3_01_00_03_08.webp",
+            "full": "/portfolio/cayennetastedrive/Timeline 3_01_00_03_08.jpg",
+            "alt": "Porsche Cayenne Taste Drive Still 2"
+          },
+          {
+            "thumb": "/portfolio/cayennetastedrive/Timeline 3_01_00_04_18.webp",
+            "full": "/portfolio/cayennetastedrive/Timeline 3_01_00_04_18.jpg",
+            "alt": "Porsche Cayenne Taste Drive Still 3"
+          },
+          {
+            "thumb": "/portfolio/cayennetastedrive/Timeline 3_01_00_06_16.webp",
+            "full": "/portfolio/cayennetastedrive/Timeline 3_01_00_06_16.jpg",
+            "alt": "Porsche Cayenne Taste Drive Still 4"
+          },
+          {
+            "thumb": "/portfolio/cayennetastedrive/Timeline 3_01_00_18_06.webp",
+            "full": "/portfolio/cayennetastedrive/Timeline 3_01_00_18_06.jpg",
+            "alt": "Porsche Cayenne Taste Drive Still 5"
+          }
+        ]
+      },
+      "awards": [
+        {
+          "title": "Canadian Marketing Awards 2025 Gold for Engagement",
+          "url": "https://thecma.ca/awards/2025-winner"
+        },
+        {
+          "title": "Canadian Marketing Awards 2025 Gold for Customer Experience & Shopper M.",
+          "url": "https://thecma.ca/awards/2025-winner"
+        }
+      ],
+      "press": [
+        {
+          "title": "STRATEGY - PORSCHE CAYENNE CANADA ANGRY BUTTERFLY",
+          "url": "https://strategyonline.ca/2024/09/13/porsche-cayenne-canada-angry-butterfly/"
+        },
+        {
+          "title": "THE DRUM - PORSCHE CANADA REWARDS CAYENNE TEST DRIVERS WITH SPICY SURPRISE",
+          "url": "https://www.thedrum.com/news/porsche-canada-rewards-cayenne-test-drivers-with-spicy-surprise"
+        },
+        {
+          "title": "CAMPAIGN CANADA - PORSCHE UNVEILS SAUCY PROMO ITS CAYENNE SUV",
+          "url": "https://www.campaigncanada.ca/article/1888342/porsche-unveils-saucy-promo-its-cayenne-suv"
+        },
+        {
+          "title": "THE CANADIAN PRESS - PORSCHE BOTTLES THE ESSENCE OF ITS CAYENNE",
+          "url": "https://www.thecanadianpressnews.ca/globenewswire_press_releases/porsche-bottles-the-essence-of-its-cayenne/article_a093aae8-797d-55ce-b11a-ad16b12074e5.html"
+        }
+      ]
+    },
+    {
+      "id": "driveyourownpath",
+      "title": "Drive Your Own Path",
+      "year": "2024",
+      "category": "Commercial",
+      "metadata": "Branded Content",
+      "description": "Production Company: Steak+Sizzle Creative Works\n\nExecutive Producer: Bonar Bulger\nDirector/Producer: Ken Pham\nDirector of Photography: Chris Monteiro",
+      "images": [
+        {
+          "thumb": "/media/driveyourownpath_static.webp",
+          "full": "/media/driveyourownpath_static.jpg",
+          "alt": "Drive Your Own Path"
+        }
+      ],
+      "video": {
+        "src": "/media/driveyourownpath_hover.mp4",
+        "poster": "/media/driveyourownpath_static.jpg"
+      },
+      "gallery": {
+        "aspectRatio": 1.5,
+        "images": [
+          {
+            "thumb": "/portfolio/driveyourownpath/1.+2024-10-04_Policaro-SS-DYOP_Max-Domi_0710_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/1.+2024-10-04_Policaro-SS-DYOP_Max-Domi_0710_Final.jpg.webp",
+            "alt": "Drive Your Own Path - Max Domi"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/2.+2024-10-04_Policaro-SS-DYOP_Max-Domi_0727_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/2.+2024-10-04_Policaro-SS-DYOP_Max-Domi_0727_Final.jpg.webp",
+            "alt": "Drive Your Own Path - Max Domi"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/3.+2024-10-04_Policaro-SS-DYOP_Max-Domi_0699_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/3.+2024-10-04_Policaro-SS-DYOP_Max-Domi_0699_Final.jpg.webp",
+            "alt": "Drive Your Own Path - Max Domi"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/4.+2024-10-04_Policaro-SS-DYOP_Max-Domi_0789_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/4.+2024-10-04_Policaro-SS-DYOP_Max-Domi_0789_Final.jpg.webp",
+            "alt": "Drive Your Own Path - Max Domi"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/5.+2024-10-04_Policaro-SS-DYOP_Max-Domi_0866_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/5.+2024-10-04_Policaro-SS-DYOP_Max-Domi_0866_Final.jpg.webp",
+            "alt": "Drive Your Own Path - Max Domi"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/6.+2024-10-04_Policaro-SS-DYOP_Max-Domi_0613_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/6.+2024-10-04_Policaro-SS-DYOP_Max-Domi_0613_Final.jpg.webp",
+            "alt": "Drive Your Own Path - Max Domi"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_William-Nylander_1242_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_William-Nylander_1242_Final.jpg.webp",
+            "alt": "Drive Your Own Path - William Nylander"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_William-Nylander_1444_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_William-Nylander_1444_Final.jpg.webp",
+            "alt": "Drive Your Own Path - William Nylander"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_William-Nylander_1532_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_William-Nylander_1532_Final.jpg.webp",
+            "alt": "Drive Your Own Path - William Nylander"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_William-Nylander_1597_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_William-Nylander_1597_Final.jpg.webp",
+            "alt": "Drive Your Own Path - William Nylander"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_Sebastian-Giovinco_0273_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_Sebastian-Giovinco_0273_Final.jpg.webp",
+            "alt": "Drive Your Own Path - Sebastian Giovinco"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_Sebastian-Giovinco_0440_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_Sebastian-Giovinco_0440_Final.jpg.webp",
+            "alt": "Drive Your Own Path - Sebastian Giovinco"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_Sebastian-Giovinco_0454+1_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_Sebastian-Giovinco_0454+1_Final.jpg.webp",
+            "alt": "Drive Your Own Path - Sebastian Giovinco"
+          },
+          {
+            "thumb": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_Sebastian-Giovinco_0526_Final.jpg.webp",
+            "full": "/portfolio/driveyourownpath/2024-10-04_Policaro-SS-DYOP_Sebastian-Giovinco_0526_Final.jpg.webp",
+            "alt": "Drive Your Own Path - Sebastian Giovinco"
+          }
+        ]
+      }
+    },
+    {
+      "id": "canadiantire",
+      "title": "Canadian Tire Motomaster Winter Edge II",
+      "year": "2023",
+      "category": "Commercial",
+      "metadata": "Commercial",
+      "description": "Production Company: Steak+Sizzle Creative Works",
+      "images": [
+        {
+          "thumb": "/media/canadiantire-wintertire_static.webp",
+          "full": "/media/canadiantire-wintertire_static.jpg",
+          "alt": "Canadian Tire Motomaster"
+        }
+      ],
+      "video": {
+        "src": "/media/canadiantire-wintertire_hover.mp4",
+        "poster": "/media/canadiantire-wintertire_static.jpg"
+      },
+      "gallery": {
+        "title": "Production Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          {
+            "thumb": "/portfolio/canadiantire-wintertires/Timeline 1_01_00_01_06.webp",
+            "full": "/portfolio/canadiantire-wintertires/Timeline 1_01_00_01_06.jpg",
+            "alt": "Canadian Tire Set"
+          },
+          {
+            "thumb": "/portfolio/canadiantire-wintertires/Timeline 2_01_00_00_20.webp",
+            "full": "/portfolio/canadiantire-wintertires/Timeline 2_01_00_00_20.jpg",
+            "alt": "Canadian Tire Set"
+          },
+          {
+            "thumb": "/portfolio/canadiantire-wintertires/Timeline 2_01_00_04_08.webp",
+            "full": "/portfolio/canadiantire-wintertires/Timeline 2_01_00_04_08.jpg",
+            "alt": "Canadian Tire Set"
+          },
+          {
+            "thumb": "/portfolio/canadiantire-wintertires/Timeline 2_01_00_10_00.webp",
+            "full": "/portfolio/canadiantire-wintertires/Timeline 2_01_00_10_00.jpg",
+            "alt": "Canadian Tire Set"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pckw",
+      "title": "Porsche PCKW Opening",
+      "year": "2023",
+      "category": "Commercial",
+      "metadata": "Commercial",
+      "description": "Production Company: Steak+Sizzle Creative Works\n\nDirector/Producer: Ken Pham\n1st Assistant Director: Chris Monteiro\nDirector of Photography: Alessandro Lanzillotta\n1st Assistant Camera: Nick Abbate\nProduction Assistant: Tony Wu",
+      "images": [
+        {
+          "thumb": "/media/pckw_static.webp",
+          "full": "/media/pckw_static.jpg",
+          "alt": "Porsche PCKW"
+        }
+      ],
+      "video": {
+        "src": "/media/pckw_hover.mp4",
+        "poster": "/media/pckw_static.jpg"
+      },
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          {
+            "thumb": "/portfolio/pckwopening/Screen+Shot+2025-01-24+at+6.14.18+AM.png.webp",
+            "full": "/portfolio/pckwopening/Screen+Shot+2025-01-24+at+6.14.18+AM.png.webp",
+            "alt": "Porsche PCKW Still 1"
+          },
+          {
+            "thumb": "/portfolio/pckwopening/Screen+Shot+2025-01-24+at+6.14.38+AM.png.webp",
+            "full": "/portfolio/pckwopening/Screen+Shot+2025-01-24+at+6.14.38+AM.png.webp",
+            "alt": "Porsche PCKW Still 2"
+          },
+          {
+            "thumb": "/portfolio/pckwopening/Screen+Shot+2025-01-24+at+6.14.49+AM.png.webp",
+            "full": "/portfolio/pckwopening/Screen+Shot+2025-01-24+at+6.14.49+AM.png.webp",
+            "alt": "Porsche PCKW Still 3"
+          },
+          {
+            "thumb": "/portfolio/pckwopening/Timeline+1_01_05_03_03.jpg.webp",
+            "full": "/portfolio/pckwopening/Timeline+1_01_05_03_03.jpg.webp",
+            "alt": "Porsche PCKW Still 4"
+          },
+          {
+            "thumb": "/portfolio/pckwopening/Timeline+1_01_06_59_09.jpg.webp",
+            "full": "/portfolio/pckwopening/Timeline+1_01_06_59_09.jpg.webp",
+            "alt": "Porsche PCKW Still 5"
+          },
+          {
+            "thumb": "/portfolio/pckwopening/Timeline+1_01_07_11_02.jpg.webp",
+            "full": "/portfolio/pckwopening/Timeline+1_01_07_11_02.jpg.webp",
+            "alt": "Porsche PCKW Still 6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pecdakar",
+      "title": "PEC Porsche 911 Dakar",
+      "year": "2023",
+      "category": "Commercial",
+      "metadata": "Commercial",
+      "description": "Production Company: Steak+Sizzle Creative Works",
+      "images": [
+        {
+          "thumb": "/media/pecdakar_static.webp",
+          "full": "/media/pecdakar_static.jpg",
+          "alt": "PEC Porsche 911 Dakar"
+        }
+      ],
+      "video": {
+        "src": "/media/pecdakar_hover.mp4",
+        "poster": "/media/pecdakar_static.jpg"
+      }
+    },
+    {
+      "id": "myporscheapp",
+      "title": "My Porsche App",
+      "year": "2023",
+      "category": "Commercial",
+      "metadata": "Commercial",
+      "description": "Production Company: Steak+Sizzle Creative Works\n\nDirector/Producer: Ken Pham\nDirector of Photography: Alessandro Lanzillotta",
+      "images": [
+        {
+          "thumb": "/media/myporscheapp_static.webp",
+          "full": "/media/myporscheapp_static.jpg",
+          "alt": "My Porsche App"
+        }
+      ],
+      "video": {
+        "src": "/media/myporscheapp_hover.mp4",
+        "poster": "/media/myporscheapp_static.jpg"
+      }
+    },
+    {
+      "id": "pcv",
+      "title": "Porsche Taycan EV Roadtrip",
+      "year": "2023",
+      "category": "Commercial",
+      "metadata": "Commercial",
+      "description": "Production Company: Steak+Sizzle Creative Works\n\nDirector/Producer: Ken Pham\nDirector of Photography: Alessandro Lanzillotta",
+      "images": [
+        {
+          "thumb": "/media/pcv_static.webp",
+          "full": "/media/pcv_static.jpg",
+          "alt": "Porsche Taycan"
+        }
+      ],
+      "video": {
+        "src": "/media/pcv_hover.mp4",
+        "poster": "/media/pcv_static.jpg"
+      },
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          {
+            "thumb": "/portfolio/taycanroadtrip/PCV+-+Director's+Cut_01_00_12_02.jpg.webp",
+            "full": "/portfolio/taycanroadtrip/PCV+-+Director's+Cut_01_00_12_02.jpg.webp",
+            "alt": "Porsche Taycan EV Roadtrip Still 1"
+          },
+          {
+            "thumb": "/portfolio/taycanroadtrip/PCV+-+Director's+Cut_01_00_22_21.jpg.webp",
+            "full": "/portfolio/taycanroadtrip/PCV+-+Director's+Cut_01_00_22_21.jpg.webp",
+            "alt": "Porsche Taycan EV Roadtrip Still 2"
+          },
+          {
+            "thumb": "/portfolio/taycanroadtrip/PCV+-+Director's+Cut_01_00_36_12.jpg.webp",
+            "full": "/portfolio/taycanroadtrip/PCV+-+Director's+Cut_01_00_36_12.jpg.webp",
+            "alt": "Porsche Taycan EV Roadtrip Still 3"
+          },
+          {
+            "thumb": "/portfolio/taycanroadtrip/PCV+-+Director's+Cut_01_00_43_04.jpg.webp",
+            "full": "/portfolio/taycanroadtrip/PCV+-+Director's+Cut_01_00_43_04.jpg.webp",
+            "alt": "Porsche Taycan EV Roadtrip Still 4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "volvoawareness",
+      "title": "Volvo Awareness Campaign",
+      "year": "2023",
+      "category": "Branded Content",
+      "metadata": "Branded Content",
+      "description": "Production Company: Steak+Sizzle Creative Works\n\nExecutive Producer: Bonar Bulger\nDirector/Producer: Ken Pham",
+      "images": [
+        {
+          "thumb": "/media/volvoawareness_static.webp",
+          "full": "/media/volvoawareness_static.jpg",
+          "alt": "Volvo Awareness"
+        }
+      ],
+      "video": {
+        "src": "/media/volvoawareness_hover.mp4",
+        "poster": "/media/volvoawareness_static.jpg"
+      },
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          {
+            "thumb": "/portfolio/volvoawareness/A66I1876.JPG.webp",
+            "full": "/portfolio/volvoawareness/A66I1876.JPG.webp",
+            "alt": "Volvo Awareness Still 1"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/A66I1879.JPG.webp",
+            "full": "/portfolio/volvoawareness/A66I1879.JPG.webp",
+            "alt": "Volvo Awareness Still 2"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/A66I2039.JPG.webp",
+            "full": "/portfolio/volvoawareness/A66I2039.JPG.webp",
+            "alt": "Volvo Awareness Still 3"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/A66I2053.JPG.webp",
+            "full": "/portfolio/volvoawareness/A66I2053.JPG.webp",
+            "alt": "Volvo Awareness Still 4"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/A66I2067.JPG.webp",
+            "full": "/portfolio/volvoawareness/A66I2067.JPG.webp",
+            "alt": "Volvo Awareness Still 5"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/A66I2129.JPG.webp",
+            "full": "/portfolio/volvoawareness/A66I2129.JPG.webp",
+            "alt": "Volvo Awareness Still 6"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/A66I2154.JPG.webp",
+            "full": "/portfolio/volvoawareness/A66I2154.JPG.webp",
+            "alt": "Volvo Awareness Still 7"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/A66I2168.JPG.webp",
+            "full": "/portfolio/volvoawareness/A66I2168.JPG.webp",
+            "alt": "Volvo Awareness Still 8"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/martz-engineering-02.jpg.webp",
+            "full": "/portfolio/volvoawareness/martz-engineering-02.jpg.webp",
+            "alt": "Volvo Awareness Still 9"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/martz-engineering-04.jpg.webp",
+            "full": "/portfolio/volvoawareness/martz-engineering-04.jpg.webp",
+            "alt": "Volvo Awareness Still 10"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/martz-seagram-15.jpg.webp",
+            "full": "/portfolio/volvoawareness/martz-seagram-15.jpg.webp",
+            "alt": "Volvo Awareness Still 11"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/martz-volvo-charles-st-08.jpg.webp",
+            "full": "/portfolio/volvoawareness/martz-volvo-charles-st-08.jpg.webp",
+            "alt": "Volvo Awareness Still 12"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/martz-volvo-concrete-02.jpg.webp",
+            "full": "/portfolio/volvoawareness/martz-volvo-concrete-02.jpg.webp",
+            "alt": "Volvo Awareness Still 13"
+          },
+          {
+            "thumb": "/portfolio/volvoawareness/martz-volvo-details-03.jpg.webp",
+            "full": "/portfolio/volvoawareness/martz-volvo-details-03.jpg.webp",
+            "alt": "Volvo Awareness Still 14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "teachplay",
+      "title": "Teach, Play",
+      "year": "2023",
+      "category": "Documentary",
+      "metadata": "Documentary | 8 Minutes",
+      "description": "Production Company: StudioAM\n\nExecutive Producer: Chris Penrose & LayUp Basketball\nDirector: Ken Pham & Neil Anthony Watson\nEditor: Ian Simon",
+      "images": [
+        {
+          "thumb": "/media/teachplay_static.webp",
+          "full": "/media/teachplay_static.jpg",
+          "alt": "Teach, Play"
+        }
+      ],
+      "video": {
+        "src": "/media/teachplay_hover.mp4",
+        "poster": "/media/teachplay_static.jpg"
+      }
+    },
+    {
+      "id": "vinfast",
+      "title": "VinFast Boundless Together",
+      "year": "2022",
+      "category": "Commercial",
+      "metadata": "Commercial",
+      "description": "Production Company: StudioAM\n\nExecutive Producer: Anil Mohabir\nLead Photographer: Neil Anthony Watson\nVideo Director & Producer: Ken Pham\nDirector of Photography: Alessandro Lanzillotta",
+      "images": [
+        {
+          "thumb": "/media/vinfast_static.webp",
+          "full": "/media/vinfast_static.jpg",
+          "alt": "VinFast"
+        }
+      ],
+      "video": {
+        "src": "/media/vinfast_hover.mp4",
+        "poster": "/media/vinfast_static.jpg"
+      }
+    },
+    {
+      "id": "offonanisland",
+      "title": "Off On An Island by Cooper",
+      "year": "2023",
+      "category": "Music Video",
+      "metadata": "Music Video | 3 Minutes | Colour",
+      "description": "\n\nDirector: Ken Pham",
+      "images": [
+        {
+          "thumb": "/media/offonanisland_static.webp",
+          "full": "/media/offonanisland_static.jpg",
+          "alt": "Off On An Island"
+        }
+      ],
+      "video": {
+        "src": "/media/offonanisland_hover.mp4",
+        "poster": "/media/offonanisland_static.jpg"
+      },
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          {
+            "thumb": "/portfolio/offonanisland/Timeline_01_00_35_05.jpg.webp",
+            "full": "/portfolio/offonanisland/Timeline_01_00_35_05.jpg.webp",
+            "alt": "Off On An Island Still 1"
+          },
+          {
+            "thumb": "/portfolio/offonanisland/Timeline_01_01_11_10.jpg.webp",
+            "full": "/portfolio/offonanisland/Timeline_01_01_11_10.jpg.webp",
+            "alt": "Off On An Island Still 2"
+          },
+          {
+            "thumb": "/portfolio/offonanisland/Timeline_01_01_33_23.jpg.webp",
+            "full": "/portfolio/offonanisland/Timeline_01_01_33_23.jpg.webp",
+            "alt": "Off On An Island Still 3"
+          },
+          {
+            "thumb": "/portfolio/offonanisland/Timeline_01_02_00_05.jpg.webp",
+            "full": "/portfolio/offonanisland/Timeline_01_02_00_05.jpg.webp",
+            "alt": "Off On An Island Still 4"
+          },
+          {
+            "thumb": "/portfolio/offonanisland/Timeline_01_02_06_23.jpg.webp",
+            "full": "/portfolio/offonanisland/Timeline_01_02_06_23.jpg.webp",
+            "alt": "Off On An Island Still 5"
+          },
+          {
+            "thumb": "/portfolio/offonanisland/Timeline_01_02_26_14.jpg.webp",
+            "full": "/portfolio/offonanisland/Timeline_01_02_26_14.jpg.webp",
+            "alt": "Off On An Island Still 6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hitandrun",
+      "title": "Hit And Run",
+      "year": "2025",
+      "category": "Short Film",
+      "metadata": "Short Film | 7 Minutes | Colour",
+      "status": "Post-Production",
+      "description": "CURRENTLY IN POST-PRODUCTION",
+      "images": [
+        {
+          "thumb": "/media/hitandrun_static.webp",
+          "full": "/media/hitandrun_static.jpg",
+          "alt": "Hit And Run"
+        }
+      ],
+      "video": {
+        "src": "/media/hitandrun_hover.mp4",
+        "poster": "/media/hitandrun_static.jpg"
+      }
+    },
+    {
+      "id": "thatwhichisheard",
+      "title": "THAT WHICH IS HEARD",
+      "year": "2025",
+      "category": "Documentary",
+      "metadata": "Documentary | 22 Minutes | Colour",
+      "description": "A stroke survivor, Shruthi Kothari and once in demand theatre performer finds her way back on stage for the first time in four years.\n\nFeaturing: Shruti Kothari, Ruth Goodwin, Liz Johnson and Ravi Jain\n\nDirector: Ken Pham\nProducer: Kirthiga Rajanayagam\nProduction Company: The Howland Company\nExecutive Producer: Ruth Goodwin, Shruti Kothari\nDirector of Photography: Owain Parri\nEditor: Sara Cabrera-Aragon\nSound Designer & Re-Recording Mixer: David Machado\nComposer: Joseph Chiu\n1st AC: Roya Delsol, Karina Dywanski\nSound Mixer: Ian Reynolds\nBoom Operator: Ogo Eze\nStills Photographer: Zeynep Doray\nColourist: Owain Parri\nTitle Designer: Lola Landekic\nTheatre Director: Ravi Jain\nAssociate Producer: Sebastian Biasucci\nStage Manager: Heather Bellingham, Sam Hale\nHead Technician: Adam Bromley\nMusic Supervision: Jody Colero and Victoria Beard\nPianist: Danny Provider",
+      "images": [
+        {
+          "thumb": "/media/twih_static.webp",
+          "full": "/media/twih_static.jpg",
+          "alt": "That Which Is Heard"
+        }
+      ],
+      "video": {
+        "src": "/media/twih_hover.mp4",
+        "poster": "/media/twih_static.jpg"
+      },
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          {
+            "thumb": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 1.webp",
+            "full": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 1.jpg",
+            "alt": "That Which Is Heard - Still 1"
+          },
+          {
+            "thumb": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 2.webp",
+            "full": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 2.jpg",
+            "alt": "That Which Is Heard - Still 2"
+          },
+          {
+            "thumb": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 3.webp",
+            "full": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 3.jpg",
+            "alt": "That Which Is Heard - Still 3"
+          },
+          {
+            "thumb": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 4.webp",
+            "full": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 4.jpg",
+            "alt": "That Which Is Heard - Still 4"
+          },
+          {
+            "thumb": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 5.webp",
+            "full": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 5.jpg",
+            "alt": "That Which Is Heard - Still 5"
+          },
+          {
+            "thumb": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 6.webp",
+            "full": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 6.jpg",
+            "alt": "That Which Is Heard - Still 6"
+          },
+          {
+            "thumb": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 7.webp",
+            "full": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 7.jpg",
+            "alt": "That Which Is Heard - Still 7"
+          },
+          {
+            "thumb": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 8.webp",
+            "full": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 8.jpg",
+            "alt": "That Which Is Heard - Still 8"
+          },
+          {
+            "thumb": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 9.webp",
+            "full": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 9.jpg",
+            "alt": "That Which Is Heard - Still 9"
+          },
+          {
+            "thumb": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 10.webp",
+            "full": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 10.jpg",
+            "alt": "That Which Is Heard - Still 10"
+          },
+          {
+            "thumb": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 11.webp",
+            "full": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 11.jpg",
+            "alt": "That Which Is Heard - Still 11"
+          },
+          {
+            "thumb": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 12.webp",
+            "full": "/portfolio/thatwhichisheard/That Which Is Heard - Screengrab - 12.jpg",
+            "alt": "That Which Is Heard - Still 12"
+          }
+        ]
+      },
+      "press": [
+        {
+          "title": "VARIETY - DOC NYC UNVEILS 16TH ANNUAL FILM LINEUP (EXCLUSIVE)",
+          "url": "https://variety.com/2025/film/news/doc-nyc-film-lineup-1236541355/"
+        },
+        {
+          "title": "BROADWAY WORLD - THEATRE-INSPIRED DOCUMENTARY THAT WHICH IS HEARD TO PREMIERE AT DOC NYC",
+          "url": "https://www.broadwayworld.com/bwwtv/article/Theatre-Inspired-Documentary-THAT-WHICH-IS-HEARD-to-Premiere-at-DOC-NYC-20251027"
+        }
+      ]
+    },
+    {
+      "id": "thehallpass",
+      "title": "THE HALL PASS",
+      "year": "2024",
+      "category": "Short Film",
+      "metadata": "Short Film | 11 Minutes | Drama/Thriller | Colour",
+      "description": "In a chance encounter, a ride-share driver struggling to navigate jealousy in his relationship, picks up his partner's celebrity hall pass as a passenger.\n\nFeaturing: Marc Donato, Rebecca Kwan, Noah Zulfikar and Demi Oliver\n\nToronto Laurels 2025\nToronto Short Film Festival Official Selection 2025\nCanada Shorts Finalist 2024\nNew Orleans International Film Awards Semi-Finalist 2024\n\nDirector: Ken Pham\nProducer: Lee J. Poichuck\nCo-Producers: Kirthiga Rajanayagam, Rebecca Kwan\n1st Assistant Director: Ian Simon\nDirector of Photography: Alessandro Lanzillotta\nProduction Designer: Serena Nguyen\nCo-Writers: Rebecca Kwan, Kirthiga Rajanayagam\nMusic Composer: Patrick Lawrence Zappia\nKey Rigging Grip: Nick Julian\nCostume Designer: Lucy Wong\nCostume Assistant: Aaron Scott\nEditor: Ken Pham\nSound Editors: David Machado Gómez, Jack Rudman, Patrick Lawrence Zappia\nMix Mastering: David Machado Gómez\nSound Recordists: David Machado Gómez, Ian Reynolds\nColourist: Grant McNair\nVisual Effects Editor: Samuel Armin\nHair & Make Up Artist: Shaniqua Gittens\nBTS Photographer: Alexander Panetta\nBTS Videographer: Anton Iakovenko\nProduction Assistants: Millie Tam, Tony Wu",
+      "images": [
+        {
+          "thumb": "/media/hallpass_static.webp",
+          "full": "/media/hallpass_static.jpg",
+          "alt": "The Hall Pass"
+        }
+      ],
+      "video": {
+        "src": "/media/hallpass_hover.mp4",
+        "poster": "/media/hallpass_static.jpg"
+      },
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "2.39 / 1",
+        "images": [
+          {
+            "thumb": "/portfolio/thehallpass/1. The Hall Pass - Screenshot.webp",
+            "full": "/portfolio/thehallpass/1. The Hall Pass - Screenshot.png",
+            "alt": "The Hall Pass Still 1"
+          },
+          {
+            "thumb": "/portfolio/thehallpass/2. The Hall Pass - Screenshot.webp",
+            "full": "/portfolio/thehallpass/2. The Hall Pass - Screenshot.png",
+            "alt": "The Hall Pass Still 2"
+          },
+          {
+            "thumb": "/portfolio/thehallpass/3. The Hall Pass - Screenshot.webp",
+            "full": "/portfolio/thehallpass/3. The Hall Pass - Screenshot.png",
+            "alt": "The Hall Pass Still 3"
+          },
+          {
+            "thumb": "/portfolio/thehallpass/4. The Hall Pass - Screenshot.webp",
+            "full": "/portfolio/thehallpass/4. The Hall Pass - Screenshot.png",
+            "alt": "The Hall Pass Still 4"
+          },
+          {
+            "thumb": "/portfolio/thehallpass/5. The Hall Pass - Screenshot.webp",
+            "full": "/portfolio/thehallpass/5. The Hall Pass - Screenshot.jpg",
+            "alt": "The Hall Pass Still 5"
+          },
+          {
+            "thumb": "/portfolio/thehallpass/6. The Hall Pass - Screenshot.webp",
+            "full": "/portfolio/thehallpass/6. The Hall Pass - Screenshot.png",
+            "alt": "The Hall Pass Still 6"
+          }
+        ]
+      },
+      "laurels": [
+        {
+          "src": "/portfolio/thehallpass/Toronto_Laurels_2025_White.png",
+          "alt": "Toronto Laurels 2025"
+        },
+        {
+          "src": "/portfolio/thehallpass/OFFICIALSELECTION-TorontoShortFilmFestival-2025 (1).png",
+          "alt": "Toronto Short Film Festival Official Selection 2025"
+        },
+        {
+          "src": "/portfolio/thehallpass/FINALIST - Canada Shorts - Canadian  International Short Film Fest. - 2024-2.png",
+          "alt": "Canada Shorts Finalist 2024"
+        },
+        {
+          "src": "/portfolio/thehallpass/SEMI-FINALIST - New Orleans International Film Awards - 2024-2.png",
+          "alt": "New Orleans International Film Awards Semi-Finalist 2024"
+        }
+      ]
+    },
+    {
+      "id": "halfwaybroken",
+      "title": "HALFWAY BROKEN BY LUNA ELLE",
+      "year": "2024",
+      "category": "Music Video",
+      "metadata": "Music Video | 2 Minutes | Colour",
+      "description": "\n\nCREDITS\nDirector: Ken Pham\nProducer: Ken Asafo, Hotfreestyle\nDirector of Photography: Owain Parri\nProduction Design: Michaela Kurimsky\nHair and Makeup: Gabrielle Jovellanos\nSpecial Thanks: Rebecca Kwan, Ian Simon and Broadview Flower Market",
+      "images": [
+        {
+          "thumb": "/media/halfwaybroken_static.webp",
+          "full": "/media/halfwaybroken_static.jpg",
+          "alt": "Halfway Broken"
+        }
+      ],
+      "video": {
+        "src": "/media/halfwaybroken_hover.mp4",
+        "poster": "/media/halfwaybroken_static.jpg"
+      },
+      "laurels": [
+        {
+          "src": "/portfolio/halfwaybroken/cropped-1.-TIMVF-logo-PNG.png",
+          "alt": "TIMVF"
+        }
+      ],
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          {
+            "thumb": "/portfolio/halfwaybroken/HalfwayBroken_Timeline_FINAL-COLOUR2_01_00_24_17.webp",
+            "full": "/portfolio/halfwaybroken/HalfwayBroken_Timeline_FINAL-COLOUR2_01_00_24_17.jpg",
+            "alt": "Halfway Broken Still 2"
+          },
+          {
+            "thumb": "/portfolio/halfwaybroken/HalfwayBroken_Timeline_FINAL-COLOUR2_01_01_01_20.webp",
+            "full": "/portfolio/halfwaybroken/HalfwayBroken_Timeline_FINAL-COLOUR2_01_01_01_20.jpg",
+            "alt": "Halfway Broken Still 3"
+          },
+          {
+            "thumb": "/portfolio/halfwaybroken/HalfwayBroken_Timeline_FINAL-COLOUR2_01_01_27_13.webp",
+            "full": "/portfolio/halfwaybroken/HalfwayBroken_Timeline_FINAL-COLOUR2_01_01_27_13.jpg",
+            "alt": "Halfway Broken Still 4"
+          },
+          {
+            "thumb": "/portfolio/halfwaybroken/HalfwayBroken_Timeline_FINAL-COLOUR2_01_01_53_07.webp",
+            "full": "/portfolio/halfwaybroken/HalfwayBroken_Timeline_FINAL-COLOUR2_01_01_53_07.jpg",
+            "alt": "Halfway Broken Still 5"
+          },
+          {
+            "thumb": "/portfolio/halfwaybroken/HalfwayBroken_Timeline_FINAL-COLOUR2_01_01_59_05.webp",
+            "full": "/portfolio/halfwaybroken/HalfwayBroken_Timeline_FINAL-COLOUR2_01_01_59_05.jpg",
+            "alt": "Halfway Broken Still 6"
+          },
+          {
+            "thumb": "/portfolio/halfwaybroken/HalfwayBroken_Timeline_FINAL-COLOUR2_01_02_50_17.webp",
+            "full": "/portfolio/halfwaybroken/HalfwayBroken_Timeline_FINAL-COLOUR2_01_02_50_17.jpg",
+            "alt": "Halfway Broken Still 7"
+          }
+        ]
+      }
+    }
+  ]
+}

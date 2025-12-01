@@ -1,0 +1,754 @@
+---
+// ProjectModal.astro - Lightweight modal component for project galleries
+// No SSR data loading - uses JSON and vanilla JS for interactivity
+---
+
+<div id="project-modal" class="modal-overlay" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Close modal">
+      <span>×</span>
+    </button>
+    
+    <div class="modal-body">
+      <div class="modal-header">
+        <h2 id="modal-title"></h2>
+        <div class="modal-metadata" id="modal-metadata"></div>
+      </div>
+
+      <div class="modal-video-section">
+        <video 
+          id="modal-video"
+          class="modal-video" 
+          loop
+          muted 
+          playsinline
+          loading="lazy"
+          aria-label="Project video"
+          style="display: none;">
+        </video>
+        <img 
+          id="modal-image"
+          class="modal-image" 
+          style="display: none;"
+          alt="Project image">
+      </div>
+
+      <div class="modal-description" id="modal-description"></div>
+
+      <div id="modal-featuring" class="modal-featuring" style="display: none;">
+        <div class="featuring-label" id="featuring-label"></div>
+        <div class="featuring-names" id="featuring-names"></div>
+        <div class="featuring-laurel" id="featuring-laurel"></div>
+      </div>
+
+      <div id="modal-credits" class="modal-credits" style="display: none;">
+        <h3>CREDITS</h3>
+        <div class="credits-list" id="credits-list"></div>
+      </div>
+
+      <div id="modal-awards" class="modal-awards" style="display: none;">
+        <h3>AWARDS</h3>
+        <div class="awards-list" id="awards-list"></div>
+      </div>
+
+      <div id="modal-press" class="modal-press" style="display: none;">
+        <h3>PRESS</h3>
+        <div class="press-list" id="press-list"></div>
+      </div>
+
+      <div id="modal-gallery" class="modal-gallery" style="display: none;">
+        <h3>STILLS</h3>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  .modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 100%;
+    height: 100%;
+    background: #000;
+    padding: 32px 24px;
+    animation: slideInRight 0.4s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    margin-left: auto;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 1024px) {
+    .modal-content {
+      width: 50%;
+      max-width: 50vw;
+      padding: 32px 28px;
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .modal-overlay.active .modal-content {
+    animation: slideInRight 0.4s ease forwards;
+  }
+
+  .modal-close {
+    position: sticky;
+    top: 20px;
+    float: right;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: opacity 0.2s;
+    padding: 8px;
+    margin: -8px -8px 20px 0;
+  }
+
+  .modal-close:hover {
+    opacity: 0.6;
+  }
+
+  .modal-header {
+    margin-bottom: 32px;
+    margin-top: 20px;
+  }
+
+  #modal-title {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    word-break: break-word;
+  }
+
+  .modal-metadata {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    margin-top: 8px;
+  }
+
+  .modal-year {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    display: none;
+  }
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .modal-video-section {
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: clip;
+    border: none;
+    display: block;
+    margin-left: -24px;
+    margin-right: -24px;
+    width: calc(100% + 48px);
+  }
+
+  .modal-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+    border: none;
+    outline: none;
+    display: block;
+    transform: translateZ(0);
+  }
+
+  .modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+    border: none;
+    outline: none;
+    display: block;
+  }
+
+  .modal-featuring {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+  }
+
+  .featuring-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .featuring-names {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
+  .featuring-laurel {
+    margin-top: 12px;
+  }
+
+  .featuring-laurel img {
+    max-width: 30px;
+    height: auto;
+    display: block;
+  }
+
+  .featuring-laurel-img {
+    max-width: 30px !important;
+    height: auto !important;
+    display: block !important;
+    width: auto !important;
+  }
+
+  .modal-description {
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 32px;
+  }
+  
+  .modal-description p {
+    grid-column: 1 / -1;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .modal-description .description-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .modal-description .description-label {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  .modal-description .description-value {
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .modal-credits h3,
+  .modal-press h3,
+  .modal-awards h3,
+  .modal-gallery h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 24px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .modal-credits {
+    margin-bottom: 32px;
+  }
+
+  .modal-press {
+    margin-bottom: 32px;
+  }
+
+  .modal-awards {
+    margin-bottom: 32px;
+  }
+
+  .modal-gallery {
+    margin-bottom: 32px;
+  }
+
+  .modal-gallery h3 {
+    margin: 0 0 16px 0;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #fff;
+  }
+
+  .credits-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 32px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #fff !important;
+  }
+
+  .credit-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: #fff !important;
+  }
+
+  .credit-role {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    display: block;
+  }
+
+  .credit-name {
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 14px;
+    display: block;
+  }
+
+  .press-list {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .awards-list {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .press-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    transition: opacity 0.2s ease;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  .press-link:hover {
+    opacity: 0.7;
+  }
+
+  .press-link .underline {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #000;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+    pointer-events: none;
+  }
+
+  .press-link:hover .underline {
+    transform: scaleX(1);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+
+  @media (min-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+  }
+    opacity: 0.6;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    padding: 16px 20px;
+    transition: background 0.2s;
+    z-index: 1001;
+  }
+
+  .lightbox-prev {
+    left: 20px;
+  }
+
+  .lightbox-next {
+    right: 20px;
+  }
+
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  #lightbox-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 95%;
+      padding: 24px;
+      margin: 20px auto;
+    }
+
+    .modal-close {
+      top: 12px;
+      right: 12px;
+      font-size: 28px;
+    }
+
+    #modal-title {
+      font-size: 20px;
+    }
+
+    .modal-header {
+      flex-direction: column;
+    }
+
+    .modal-year {
+      font-size: 12px;
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 8px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      padding: 12px 16px;
+      font-size: 28px;
+    }
+  }
+</style>
+
+<script define:vars={{ projectsUrl: '/data/projects.json' }}>
+  let projectsData = null;
+  let galleryLightboxIndex = 0;
+  let galleryStillIndex = 0;
+  let currentGalleryImages = [];
+  let modalInitialized = false;
+  let modalElements = {};
+
+  // Wait for DOM to be ready
+  function initModal() {
+    const modal = document.getElementById('project-modal');
+    const modalContent = modal.querySelector('.modal-content');
+    const modalClose = document.querySelector('.modal-close');
+    const videoEl = document.getElementById('modal-video');
+    const imageEl = document.getElementById('modal-image');
+    const descriptionEl = document.getElementById('modal-description');
+    const titleEl = document.getElementById('modal-title');
+    const metadataEl = document.getElementById('modal-metadata');
+    const featuringEl = document.getElementById('modal-featuring');
+    const featuringLabelEl = document.getElementById('featuring-label');
+    const featuringNamesEl = document.getElementById('featuring-names');
+    const featuringLaurelEl = document.getElementById('featuring-laurel');
+    const creditsEl = document.getElementById('modal-credits');
+    const creditsList = document.getElementById('credits-list');
+    const pressEl = document.getElementById('modal-press');
+    const pressList = document.getElementById('press-list');
+    const galleryEl = document.getElementById('modal-gallery');
+
+    // Lazy load projects data
+    async function loadProjects() {
+      if (projectsData) return projectsData;
+      try {
+        const response = await fetch(projectsUrl);
+        projectsData = await response.json();
+        return projectsData;
+      } catch (error) {
+        console.error('Error loading projects:', error);
+        return null;
+      }
+    }
+
+    // Extract featuring line from description
+    function extractFeaturing(description) {
+      if (!description) return null;
+      const lines = description.split('\n');
+      const featuringLine = lines.find(line => line.trim().startsWith('Featuring:'));
+      if (!featuringLine) return null;
+      // Extract the names part after "Featuring:"
+      const featuringText = featuringLine.trim();
+      const names = featuringText.replace(/^Featuring:\s*/, '');
+      return names;
+    }
+
+    // Parse credits from description (format: Role: Name\n)
+    function parseCredits(description) {
+      if (!description) return [];
+      // Skip first 2 lines (synopsis and blank), then get lines with colons but not Featuring line
+      const lines = description.split('\n').slice(2).filter(line => line.trim().includes(':') && !line.trim().startsWith('Featuring:'));
+      return lines.map(line => {
+        const [role, name] = line.split(':').map(s => s.trim());
+        return { role, name };
+      });
+    }
+
+    // Open modal with project data
+    window.openProjectModal = async function(projectId) {
+      const data = await loadProjects();
+      if (!data) return;
+
+      const project = data.projects.find(p => p.id === projectId);
+      if (!project) return;
+
+      titleEl.textContent = project.title.toUpperCase();
+      if (project.metadata) {
+        metadataEl.textContent = project.metadata;
+      } else {
+        metadataEl.textContent = '';
+      }
+      
+      // Format description with label/value pairs
+      const descLines = project.description.split('\n').slice(0, 2).filter(line => line.trim());
+      descriptionEl.innerHTML = descLines.map(line => {
+        if (line.includes(':')) {
+          const [label, value] = line.split(':').map(s => s.trim());
+          return `
+            <div class="description-item">
+              <span class="description-label">${label}</span>
+              <span class="description-value">${value}</span>
+            </div>
+          `;
+        }
+        return `<p style="margin: 0; line-height: 1.6;">${line}</p>`;
+      }).join('');
+
+      // Handle featuring
+      const featuringNames = extractFeaturing(project.description);
+      // Check if project has laurel images
+      let hasLaurel = false;
+      if (projectId === 'thatwhichisheard') {
+        featuringLaurelEl.innerHTML = '<img src="/portfolio/thatwhichisheard/DOCNYC25_Laurels_OfficialSelection_White.png" alt="DOC NYC 2025 Official Selection" loading="lazy" style="max-width: 150px; height: auto; display: block; width: auto;" />';
+        hasLaurel = true;
+      } else if (projectId === 'halfwaybroken') {
+        featuringLaurelEl.innerHTML = '<img src="/portfolio/halfwaybroken/cropped-1.-TIMVF-logo-PNG.png" alt="Toronto International Motorcycle and Vehicle Festival" loading="lazy" style="max-width: 150px; height: auto; display: block; width: auto;" />';
+        hasLaurel = true;
+      } else if (projectId === 'thehallpass' && project.laurels && project.laurels.length > 0) {
+        featuringLaurelEl.innerHTML = project.laurels.map(laurel => `<img src="${laurel.src}" alt="${laurel.alt}" loading="lazy" style="max-width: 150px; height: auto; display: inline-block; width: auto; margin-right: 12px;" />`).join('');
+        hasLaurel = true;
+      } else {
+        featuringLaurelEl.innerHTML = '';
+      }
+
+      if (featuringNames) {
+        featuringLabelEl.textContent = 'FEATURING';
+        featuringNamesEl.textContent = featuringNames;
+        featuringEl.style.display = 'flex';
+      } else if (hasLaurel) {
+        featuringLabelEl.textContent = '';
+        featuringNamesEl.textContent = '';
+        featuringEl.style.display = 'flex';
+      } else {
+        featuringEl.style.display = 'none';
+      }
+
+      // Load video or image lazily
+      if (projectId === 'hitandrun') {
+        // Show static image for Hit and Run
+        videoEl.style.display = 'none';
+        imageEl.style.display = 'block';
+        imageEl.src = '/media/hitandrun_static.jpg';
+        imageEl.alt = project.title;
+      } else if (project.modalImage) {
+        // Show static image instead of video
+        videoEl.style.display = 'none';
+        imageEl.style.display = 'block';
+        imageEl.src = project.modalImage;
+        imageEl.alt = project.title;
+      } else if (project.video) {
+        // Show video
+        videoEl.style.display = 'block';
+        imageEl.style.display = 'none';
+        const source = document.createElement('source');
+        source.src = project.video.src;
+        source.type = 'video/mp4';
+        videoEl.innerHTML = '';
+        videoEl.appendChild(source);
+        videoEl.poster = project.video.poster;
+        videoEl.play();
+      }
+
+      // Handle credits
+      const credits = parseCredits(project.description);
+      if (credits.length > 0) {
+        creditsEl.style.display = 'block';
+        creditsList.innerHTML = '';
+        credits.forEach(credit => {
+          const item = document.createElement('div');
+          item.className = 'credit-item';
+          item.innerHTML = `
+            <span class="credit-role">${credit.role}</span>
+            <span class="credit-name">${credit.name}</span>
+          `;
+          creditsList.appendChild(item);
+        });
+      } else {
+        creditsEl.style.display = 'none';
+      }
+
+      // Handle press (if available in project data)
+      if (project.press && project.press.length > 0) {
+        pressEl.style.display = 'block';
+        pressList.innerHTML = '';
+        project.press.forEach(item => {
+          const link = document.createElement('a');
+          link.className = 'press-link';
+          link.href = item.url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.innerHTML = `${item.title}<span class="underline"></span>`;
+          pressList.appendChild(link);
+        });
+      } else {
+        pressEl.style.display = 'none';
+      }
+
+      // Handle awards (if available in project data)
+      const awardsEl = document.getElementById('modal-awards');
+      const awardsList = document.getElementById('awards-list');
+      if (project.awards && project.awards.length > 0) {
+        awardsEl.style.display = 'block';
+        awardsList.innerHTML = '';
+        project.awards.forEach(item => {
+          const link = document.createElement('a');
+          link.className = 'press-link';
+          link.href = item.url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.innerHTML = `${item.title}<span class="underline"></span>`;
+          awardsList.appendChild(link);
+        });
+      } else {
+        awardsEl.style.display = 'none';
+      }
+
+      // Handle gallery
+      if (project.gallery && project.gallery.images && project.gallery.images.length > 0) {
+        galleryEl.style.display = 'block';
+        const galleryGrid = document.getElementById('gallery-grid');
+        galleryGrid.innerHTML = project.gallery.images.map(img => 
+          `<img src="${img.full}" alt="${img.alt}" loading="lazy" />`
+        ).join('');
+      } else {
+        galleryEl.style.display = 'none';
+      }
+
+      // Always start modal scroll position at the top
+      if (modalContent) {
+        modalContent.scrollTop = 0;
+      }
+
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      // Ensure scroll is at top after activation/animation as well
+      if (modalContent) {
+        requestAnimationFrame(() => {
+          modalContent.scrollTop = 0;
+        });
+      }
+    };
+
+    // Close modal
+    function closeModal() {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      videoEl.innerHTML = '';
+      if (modalContent) modalContent.scrollTop = 0;
+    }
+
+    // Event listeners
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeModal();
+    });
+  }
+
+  // Initialize modal immediately - the script runs after the HTML is parsed
+  initModal();
+</script>
+

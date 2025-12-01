@@ -1,6 +1,7 @@
 ---
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import ProjectModal from "../components/ProjectModal.astro";
 const title = "Ken Pham — Director";
 ---
 <!doctype html>
@@ -34,173 +35,7 @@ const title = "Ken Pham — Director";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-      /* ...existing code... */
-      .wrap { max-width:100%; margin:0 auto; padding:32px; }
-      .portfolio-grid { display:grid; grid-template-columns:1fr; gap:22px; }
-      @media (min-width:768px){ .portfolio-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-      @media (min-width:900px){ .portfolio-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
-
-      .tile{ display:block; text-decoration:none; color:inherit; transition:transform .2s ease; opacity:1; position: relative; }
-      .tile .hover-media {
-        position: relative;
-      }
-      .tile .hover-media::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #000000;
-        z-index: 5;
-        border-radius: 14px;
-        animation: curtainReveal 0.8s ease forwards;
-      }
-      .tile:nth-child(1) .hover-media::before { animation-delay:0.05s; }
-      .tile:nth-child(2) .hover-media::before { animation-delay:0.1s; }
-      .tile:nth-child(3) .hover-media::before { animation-delay:0.15s; }
-      .tile:nth-child(4) .hover-media::before { animation-delay:0.2s; }
-      .tile:nth-child(5) .hover-media::before { animation-delay:0.25s; }
-      .tile:nth-child(6) .hover-media::before { animation-delay:0.3s; }
-      .tile:nth-child(7) .hover-media::before { animation-delay:0.35s; }
-      .tile:nth-child(8) .hover-media::before { animation-delay:0.4s; }
-      .tile:nth-child(9) .hover-media::before { animation-delay:0.45s; }
-      .tile:nth-child(10) .hover-media::before { animation-delay:0.5s; }
-      .tile:nth-child(11) .hover-media::before { animation-delay:0.55s; }
-      .tile:nth-child(12) .hover-media::before { animation-delay:0.6s; }
-      .tile:nth-child(13) .hover-media::before { animation-delay:0.65s; }
-      .tile:nth-child(14) .hover-media::before { animation-delay:0.7s; }
-      .tile:nth-child(15) .hover-media::before { animation-delay:0.75s; }
-      
-      @keyframes curtainReveal {
-        from { 
-          transform: translateY(0);
-        }
-        to { 
-          transform: translateY(-100%);
-        }
-      }
-      
-      .tile.loaded {
-        opacity: 1;
-        animation: none;
-      }
-      
-      .tile:active { transform:scale(0.98); }
-      .hover-media{ position:relative; aspect-ratio:16/9; overflow:hidden; border-radius:14px; background:#111; }
-      .hover-media picture,
-      .hover-media img.static,
-      .hover-media video.gif{ width:100%; height:100%; object-fit:cover; display:block; border-radius:14px; }
-
-      .hover-media picture { position:relative; }
-      .hover-media img.static { opacity:0; transition:opacity .35s ease; font-size:0; color:transparent; }
-      .hover-media img.static[data-loaded="true"] { opacity:1; }
-
-      .hover-media video.gif { position:absolute; top:0; left:0; }
-
-      @media (hover:hover){
-        .tile:hover {
-          transform: translateY(-4px);
-        }
-        .hover-media .gif { opacity:0; transition:opacity .25s ease; }
-        .tile:hover .hover-media .gif { opacity:1; }
-        .tile:hover .hover-media .static { opacity:0; }
-      }
-
-      .caption{ margin-top:6px; color:#f2f2f2; }
-      .overlay{ pointer-events:none; color:#fff; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .25s ease; background:rgba(0,0,0,0.7); }
-      @media (hover:hover){
-        .tile.has-overlay:hover .overlay{ opacity:1; }
-      }
-      .overlay p{ margin:0; font-size:12px; font-weight:600; letter-spacing:1px; text-align:center; padding:0 20px; }
-      
-      /* View Project indicator - folder tab style */
-      .view-project-badge {
-        position: absolute;
-        top: -30px;
-        right: 20px;
-        background: rgba(20, 20, 20, 0.95);
-        color: #f2f2f2;
-        padding: 10px 18px 16px 18px;
-        border-radius: 4px 4px 0 0;
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        opacity: 0;
-        transform: translate(12px, 0);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-        z-index: 0;
-        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
-      }
-      
-      .view-project-badge::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 6px;
-        background: rgba(20, 20, 20, 0.95);
-      }
-      
-      @media (hover:hover){
-        .tile:hover .view-project-badge {
-          opacity: 1;
-          transform: translate(0, -2px);
-        }
-      }
-      
-      /* Mobile: show badge on active state */
-      @media (hover:none){
-        .tile.mobile-active .view-project-badge {
-          opacity: 1;
-          transform: translate(0, -2px);
-        }
-      }
-      
-      .tile:focus-visible {
-        outline: 2px solid #fff;
-        outline-offset: 4px;
-        border-radius: 4px;
-        transform: translateY(-4px);
-      }
-      
-      .tile:focus-visible .view-project-badge {
-        opacity: 1;
-        transform: translate(0, -2px);
-      }
-      
-      
-      /* View Transitions API */
-      @view-transition {
-        navigation: auto;
-      }
-      
-      ::view-transition-old(root) {
-        animation: fadeOut 0.3s ease;
-      }
-      
-      ::view-transition-new(root) {
-        animation: fadeIn 0.3s ease;
-        background: #000000;
-      }
-      
-      @keyframes fadeOut {
-        to { opacity: 0; }
-      }
-      
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      
-      img, video{ user-select:none; -webkit-user-drag:none; pointer-events:auto; box-sizing:border-box; }
-      h3{ margin:0; font-size:14px; font-weight:600; letter-spacing:.2px; }
-      h3 span{ opacity:.7; font-weight:500; }
-    </style>
+    <link rel="stylesheet" href="/styles/home.css" />
     
     <script type="application/ld+json">
     {
@@ -231,233 +66,245 @@ const title = "Ken Pham — Director";
 
         <!-- ========== TILES ========== -->
 
-        <a class="tile" href="/that-which-is-heard" aria-label="View That Which Is Heard documentary project">
-          <span class="view-project-badge">Open Project</span>
+        <button class="tile has-overlay" onclick="openProjectModal('thatwhichisheard')" aria-label="View That Which Is Heard documentary project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/twih_static.webp" type="image/webp" />
-              <img class="static" src="/media/twih_static.jpg" alt="That Which Is Heard" width="1280" height="720" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/twih_static.jpg" alt="That Which Is Heard" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="metadata" poster="/media/twih_static.jpg">
               <source src="/media/twih_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>That Which Is Heard <span>– Documentary</span></h3></div>
-        </a>
+        </button>
 
-        <div class="tile has-overlay" aria-label="Hit And Run short film - currently in post-production">
+        <button class="tile has-overlay" onclick="openProjectModal('hitandrun')" aria-label="View Hit And Run project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/hitandrun_static.webp" type="image/webp" />
-              <img class="static" src="/media/hitandrun_static.jpg" alt="Hit And Run" width="1280" height="720" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/hitandrun_static.jpg" alt="Hit And Run" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <div class="overlay"><p>CURRENTLY IN POST-PRODUCTION</p></div>
           </div>
           <div class="caption"><h3>Hit And Run <span>– Short Film</span></h3></div>
-        </div>
+        </button>
 
-        <a class="tile" href="/the-hall-pass" aria-label="View The Hall Pass short film project">
-          <span class="view-project-badge">Open Project</span>
+        <button class="tile has-overlay" onclick="openProjectModal('thehallpass')" aria-label="View The Hall Pass short film project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/hallpass_static.webp" type="image/webp" />
-              <img class="static" src="/media/hallpass_static.jpg" alt="Hall Pass" width="1280" height="720" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/hallpass_static.jpg" alt="The Hall Pass" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="metadata" poster="/media/hallpass_static.jpg">
               <source src="/media/hallpass_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>The Hall Pass <span>– Short Film</span></h3></div>
-        </a>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('pckw')" aria-label="View PCKW Opening project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/pckw_static.webp" type="image/webp" />
-              <img class="static" src="/media/pckw_static.jpg" alt="PCKW Opening" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/pckw_static.jpg" alt="PCKW Opening" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/pckw_static.jpg">
               <source src="/media/pckw_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>PCKW Opening <span>– Commercial</span></h3></div>
-        </div>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('bmwm4gt4')" aria-label="View BMW M4 GT4 project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/bmwm4gt4_static.webp" type="image/webp" />
-              <img class="static" src="/media/bmwm4gt4_static.jpg" alt="BMW M4 GT4" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/bmwm4gt4_static.jpg" alt="BMW M4 GT4" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/bmwm4gt4_static.jpg">
               <source src="/media/bmwm4gt4_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>BMW M4 GT4 <span>– Commercial</span></h3></div>
-        </div>
+        </button>
 
-        <a class="tile" href="/halfway-broken" aria-label="View Halfway Broken project">
-          <span class="view-project-badge">Open Project</span>
+        <button class="tile has-overlay" onclick="openProjectModal('halfwaybroken')" aria-label="View Halfway Broken music video project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/halfwaybroken_static.webp" type="image/webp" />
-              <img class="static" src="/media/halfwaybroken_static.jpg" alt="Halfway Broken" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/halfwaybroken_static.jpg" alt="Halfway Broken" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/halfwaybroken_static.jpg">
               <source src="/media/halfwaybroken_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>Halfway Broken <span>– Music Video</span></h3></div>
-        </a>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('cayennetastedrive')" aria-label="View Porsche Cayenne Taste Drive project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/cayennetastedrive_static.webp" type="image/webp" />
-              <img class="static" src="/media/cayennetastedrive_static.jpg" alt="Porsche Cayenne Taste Drive" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/cayennetastedrive_static.jpg" alt="Porsche Cayenne Taste Drive" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/cayennetastedrive_static.jpg">
               <source src="/media/cayennetastedrive_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>Porsche Cayenne Taste Drive <span>– Commercial</span></h3></div>
-        </div>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('porschexpuma')" aria-label="View Porsche x PUMA project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/porschexpuma_static.webp" type="image/webp" />
+              <img class="static" src="/media/porschexpuma_static.webp" alt="Porsche x PUMA" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/porschexpuma_static.webp">
+              <source src="/media/porschexpuma_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>Porsche x PUMA <span>– Commercial</span></h3></div>
+        </button>
+
+        <button class="tile" onclick="openProjectModal('offonanisland')" aria-label="View Off On An Island project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/offonanisland_static.webp" type="image/webp" />
-              <img class="static" src="/media/offonanisland_static.jpg" alt="Off On An Island" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/offonanisland_static.jpg" alt="Off On An Island" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/offonanisland_static.jpg">
               <source src="/media/offonanisland_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>Off On An Island <span>– Music Video</span></h3></div>
-        </div>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('cayenne2024')" aria-label="View Porsche Cayenne Campaign project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/cayenne2024_static.webp" type="image/webp" />
-              <img class="static" src="/media/cayenne2024_static.jpg" alt="Porsche Cayenne 2024" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/cayenne2024_static.jpg" alt="Porsche Cayenne 2024" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/cayenne2024_static.jpg">
               <source src="/media/cayenne2024_hover.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="caption"><h3>Porsche Cayenne 2024 <span>– Commercial</span></h3></div>
-        </div>
+          <div class="caption"><h3>Porsche Cayenne Campaign <span>– Commercial</span></h3></div>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('pecdakar')" aria-label="View PEC Porsche 911 Dakar project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/pecdakar_static.webp" type="image/webp" />
-              <img class="static" src="/media/pecdakar_static.jpg" alt="PEC Porsche 911 Dakar" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/pecdakar_static.jpg" alt="PEC Porsche 911 Dakar" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/pecdakar_static.jpg">
               <source src="/media/pecdakar_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>PEC Porsche 911 Dakar <span>– Commercial</span></h3></div>
-        </div>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('myporscheapp')" aria-label="View My Porsche App project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/myporscheapp_static.webp" type="image/webp" />
-              <img class="static" src="/media/myporscheapp_static.jpg" alt="My Porsche App" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/myporscheapp_static.jpg" alt="My Porsche App" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/myporscheapp_static.jpg">
               <source src="/media/myporscheapp_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>My Porsche App <span>– Commercial</span></h3></div>
-        </div>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('pcv')" aria-label="View Porsche Taycan EV Roadtrip project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/pcv_static.webp" type="image/webp" />
-              <img class="static" src="/media/pcv_static.jpg" alt="Porsche Taycan EV Roadtrip" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/pcv_static.jpg" alt="Porsche Taycan EV Roadtrip" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/pcv_static.jpg">
               <source src="/media/pcv_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>Porsche Taycan EV Roadtrip <span>– Commercial</span></h3></div>
-        </div>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('driveyourownpath')" aria-label="View Drive Your Own Path project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/driveyourownpath_static.webp" type="image/webp" />
-              <img class="static" src="/media/driveyourownpath_static.jpg" alt="Drive Your Own Path" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/driveyourownpath_static.jpg" alt="Drive Your Own Path" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/driveyourownpath_static.jpg">
               <source src="/media/driveyourownpath_hover.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="caption"><h3>Drive Your Own Path <span>– Commercial</span></h3></div>
-        </div>
+          <div class="caption"><h3>Drive Your Own Path <span>– Branded Content</span></h3></div>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('volvoawareness')" aria-label="View Volvo Awareness Campaign project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/volvoawareness_static.webp" type="image/webp" />
-              <img class="static" src="/media/volvoawareness_static.jpg" alt="Volvo Awareness Campaign" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/volvoawareness_static.jpg" alt="Volvo Awareness Campaign" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/volvoawareness_static.jpg">
               <source src="/media/volvoawareness_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>Volvo Awareness Campaign <span>– Branded Content</span></h3></div>
-        </div>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('teachplay')" aria-label="View Teach, Play project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/teachplay_static.webp" type="image/webp" />
-              <img class="static" src="/media/teachplay_static.jpg" alt="Teach, Play" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/teachplay_static.jpg" alt="Teach, Play" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/teachplay_static.jpg">
               <source src="/media/teachplay_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>Teach, Play <span>– Documentary</span></h3></div>
-        </div>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('vinfast')" aria-label="View VinFast Boundless Together project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/vinfast_static.webp" type="image/webp" />
-              <img class="static" src="/media/vinfast_static.jpg" alt="VinFast Boundless Together" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/vinfast_static.jpg" alt="VinFast Boundless Together" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/vinfast_static.jpg">
               <source src="/media/vinfast_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>VinFast Boundless Together <span>– Commercial</span></h3></div>
-        </div>
+        </button>
 
-        <div class="tile">
+        <button class="tile" onclick="openProjectModal('canadiantire')" aria-label="View Canadian Tire Motomaster Winter Edge II project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
           <div class="hover-media">
             <picture>
               <source srcset="/media/canadiantire-wintertire_static.webp" type="image/webp" />
-              <img class="static" src="/media/canadiantire-wintertire_static.jpg" alt="Canadian Tire Motomaster Winter Edge II" width="1280" height="720" loading="lazy" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/canadiantire-wintertire_static.jpg" alt="Canadian Tire Motomaster Winter Edge II" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/canadiantire-wintertire_static.jpg">
               <source src="/media/canadiantire-wintertire_hover.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption"><h3>Canadian Tire Motomaster Winter Edge II <span>– Commercial</span></h3></div>
-        </div>
+        </button>
 
       </div>
       </main>
       
       <SiteFooter />
     </div>
+
+    <ProjectModal />
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
@@ -557,24 +404,22 @@ const title = "Ken Pham — Director";
         
         // Reading progress bar
         const progressBar = document.getElementById('progress-bar');
-        function updateProgress() {
-          const scrollTop = window.scrollY;
-          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const progress = (scrollTop / docHeight) * 100;
-          progressBar.style.width = progress + '%';
+        if (progressBar) {
+          function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            progressBar.style.width = progress + '%';
+          }
+          window.addEventListener('scroll', updateProgress);
+          updateProgress();
         }
-        window.addEventListener('scroll', updateProgress);
-        updateProgress();
       });
     </script>
   </body>
-  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#000000cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
+  <button id="backToTop" aria-label="Back to top" tabindex="0">
     ↑
   </button>
-  <style>
-    #backToTop:focus { outline: 2px solid #fff; }
-    #backToTop[hidden] { display: none !important; }
-  </style>
   <script type="module">
     import { initBackToTop, initProgressBar } from '/scripts/shared.js';
     initBackToTop();
