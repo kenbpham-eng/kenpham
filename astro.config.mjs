@@ -8,5 +8,7 @@ export default defineConfig({
   adapter: vercel({
     webAnalytics: { enabled: false }
   }),
-  integrations: [sitemap()]
+  integrations: [sitemap({
+    filter: (page) => !page.includes('/work-samples-a8f3d9e2')
+  })]
 });

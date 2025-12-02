@@ -1,0 +1,246 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Social First Portfolio - Ken Pham</title>
+</head>
+<body>
+    <SiteHeader />
+    
+    <div class="page-wrap">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>SOCIAL FIRST PORTFOLIO</h1>
+            <p>Creative direction and film production for leading brands</p>
+        </section>
+
+        <!-- About Section -->
+        <section class="section section-dark">
+            <div class="section-content">
+                <h2>About</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </section>
+
+        <!-- Selected Work Section -->
+        <section class="section section-warm">
+            <div class="section-content">
+                <h2>Selected Work</h2>
+                <div class="work-grid">
+                    <div class="work-item">
+                        <h3>Project 1</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                    </div>
+                    <div class="work-item">
+                        <h3>Project 2</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                    </div>
+                    <div class="work-item">
+                        <h3>Project 3</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                    </div>
+                    <div class="work-item">
+                        <h3>Project 4</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section section-cool">
+            <div class="section-content">
+                <h2>Services</h2>
+                <ul>
+                    <li>Creative Direction</li>
+                    <li>Film Production</li>
+                    <li>Social Content Strategy</li>
+                    <li>Brand Storytelling</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Clients Section -->
+        <section class="section section-light">
+            <div class="section-content">
+                <h2>Clients</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section section-accent">
+            <div class="section-content">
+                <h2>Get In Touch</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
+<style>
+    :root {
+        --bg-dark: #000000;
+        --bg-light: #ffffff;
+        --bg-warm: #F5E6CC;
+        --bg-cool: #eef2ff;
+        --bg-accent: #4338ca;
+        --text-light: #ffffff;
+        --text-dark: #000000;
+        --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+        --font-heading: 'Work Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        font-family: var(--font-primary);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    :global(header) {
+        background-color: #000000 !important;
+    }
+
+    :global(header h1),
+    :global(header nav a) {
+        color: #ffffff !important;
+    }
+
+    .page-wrap {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .hero {
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        background: var(--bg-light);
+        color: var(--text-dark);
+    }
+
+    .hero h1 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        letter-spacing: 0.05em;
+    }
+
+    .hero p {
+        font-size: 18px;
+        max-width: 600px;
+    }
+
+    .section {
+        padding: 4rem 2rem;
+    }
+
+    .section-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section h2 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 2rem;
+    }
+
+    .section p,
+    .section ul {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .section li {
+        padding: 0.5rem 0;
+    }
+
+    .section-dark {
+        background: var(--bg-dark);
+        color: var(--text-light);
+    }
+
+    .section-light {
+        background: var(--bg-light);
+        color: var(--text-dark);
+    }
+
+    .section-warm {
+        background: var(--bg-warm);
+        color: var(--text-dark);
+    }
+
+    .section-cool {
+        background: var(--bg-cool);
+        color: var(--text-dark);
+    }
+
+    .section-accent {
+        background: var(--bg-accent);
+        color: var(--text-light);
+    }
+
+    .work-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .work-item h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+        .hero h1 {
+            font-size: 48px;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        .section {
+            padding: 6rem 2rem;
+        }
+
+        .section h2 {
+            font-size: 36px;
+        }
+
+        .section p,
+        .section ul {
+            font-size: 18px;
+        }
+
+        .work-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>

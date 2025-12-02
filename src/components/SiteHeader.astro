@@ -10,7 +10,7 @@
   </button>
   <nav class="main-nav">
     <button class="menu-close" aria-label="Close menu">
-      <span>×</span>
+      <span>X</span>
     </button>
     <div class="drawer-spacer top" aria-hidden="true"></div>
     <a href="/"><span class="underline"></span>PORTFOLIO</a>
@@ -74,8 +74,8 @@
   <div class="header-content">
     <div class="header-row">
       <div class="name-section">
-        <h1><a href="/">KEN PHAM</a></h1>
-        <h2>DIRECTOR & FILMMAKER</h2>
+          <h1><a href="/">Ken Pham</a></h1>
+        <h2>Director & Filmmaker</h2>
       </div>
       <div class="social-section">
         <div class="social-icons">
@@ -97,7 +97,7 @@
     </div>
     <div class="projects-toggle-row">
       <button class="projects-toggle" aria-label="Toggle projects menu">
-        + VIEW PROJECT LIST
+        <span class="plus-sign">+</span> VIEW PROJECT LIST
       </button>
     </div>
   </div>
@@ -106,8 +106,8 @@
 <style>
   .site-header { 
     text-align: left;
-    margin-bottom: 62.4px;
-    padding: 41.6px 0;
+    margin-bottom: 20px;
+    padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 99;
@@ -135,7 +135,7 @@
     display: block;
     width: 24px;
     height: 2px;
-    background: #f2f2f2;
+    background: var(--paper-white);
     margin: 5px 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
     transform-origin: center;
@@ -159,7 +159,7 @@
     cursor: pointer;
     padding: 8px;
     color: #ffffff;
-    font-size: 40px;
+    font-size: 32px;
     line-height: 1;
     transition: color 0.2s ease;
     z-index: 102;
@@ -183,7 +183,7 @@
     z-index: 100;
   }
   .main-nav a {
-    color: rgba(242, 242, 242, 0.6);
+    color: var(--soft-shadow-grey);
     text-decoration: none;
     font-size: 14px;
     font-weight: 400;
@@ -199,14 +199,14 @@
     left: 0;
     width: 100%;
     height: 1px;
-    background: #fff;
+    background: var(--paper-white);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.6s ease;
   }
   .main-nav a:hover,
   .main-nav a:focus-visible {
-    color: #555555;
+    color: var(--paper-white);
     outline: none;
   }
   .main-nav a:hover .underline,
@@ -219,7 +219,7 @@
     border-radius: 2px;
   }
   .main-nav a.active {
-    color: #f2f2f2;
+    color: var(--paper-white);
   }
   .main-nav a.active .underline {
     transform: scaleX(1);
@@ -227,22 +227,22 @@
   
   @media (max-width: 768px) {
     .main-nav a.active {
-      color: #000000;
+      color: var(--paper-white);
     }
     .main-nav a.active .underline {
-      background: #000000;
+      background: var(--paper-white);
     }
   }
   .site-header h1 {
     margin: 0;
     font-weight: 700;
     letter-spacing: 0.5px;
-    color: #f2f2f2;
+    color: var(--body-text);
     font-family: var(--font-heading);
     font-size: 35px;
   }
   .site-header h1 a {
-    color: #f2f2f2;
+    color: var(--body-text);
     text-decoration: none;
     transition: opacity 0.2s ease;
   }
@@ -260,12 +260,12 @@
   .projects-toggle { margin-left: 0; }
   .name-section { display: flex; flex-direction: column; }
   .name-section h1 { margin: 0; }
-  .name-section h2 { margin: 8px 0 0 0; font-weight: 400; letter-spacing: 0.2px; color: #f2f2f2; font-family: var(--font-heading); font-size: inherit; }
+  .name-section h2 { margin: 8px 0 0 0; font-weight: 400; letter-spacing: 0.3px; color: var(--body-text); font-family: var(--font-heading); font-size: 15px; }
   .social-section { }
   .social-icons { display: flex; gap: 12px; align-items: center; }
-  .social-icons a, .social-icons svg { color: rgba(242, 242, 242, 0.6); }
-  .social-icons a:hover, .social-icons a:focus { color:#fff; outline:none; filter: drop-shadow(0 0 2px #fff2); }
-  .social-icons a:hover svg, .social-icons a:focus svg { color: #fff; }
+  .social-icons a, .social-icons svg { color: var(--soft-shadow-grey); }
+  .social-icons a:hover, .social-icons a:focus { color: var(--paper-white); outline:none; filter: drop-shadow(0 0 2px #fff2); }
+  .social-icons a:hover svg, .social-icons a:focus svg { color: var(--paper-white); }
   .social-icons a:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 4px;
@@ -303,7 +303,7 @@
   @media (max-width: 768px) {
     .site-header { text-align: center; padding: 24px 16px; margin-bottom: 32px; }
     .site-header h1 { font-size: 24px; margin: 0; text-align: left; }
-    .site-header h2 { font-size: 13px; margin: 4px 0 0 0; text-align: left; }
+    .site-header h2 { font-size: 15px; margin: 4px 0 0 0; text-align: left; }
     .header-content { 
       flex-direction: column; 
       gap: 12px; 
@@ -329,7 +329,7 @@
       right: -100%; 
       width: 70%; 
       height: 100vh; 
-      background: #000000; 
+      background: var(--carbon-black); 
       backdrop-filter: none;
       flex-direction: column; 
       justify-content: flex-start; 
@@ -337,7 +337,7 @@
       gap: 40px; 
       transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
       z-index: 101;
-      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+      box-shadow: -4px 0 24px rgba(47, 47, 50, 0.2);
       transform: none;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
@@ -364,7 +364,7 @@
   .projects-toggle {
     background: none;
     border: none;
-    color: rgba(242, 242, 242, 0.6);
+    color: var(--soft-shadow-grey);
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.3px;
@@ -373,12 +373,36 @@
     text-transform: lowercase;
     transition: color 0.2s ease;
     display: block;
+    position: relative;
+  }
+
+  .projects-toggle::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--paper-white);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s ease;
   }
 
   .projects-toggle:hover,
   .projects-toggle:focus-visible {
-    color: #fff;
+    color: var(--paper-white);
     outline: none;
+  }
+
+  .projects-toggle:hover::after,
+  .projects-toggle:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .projects-toggle .plus-sign {
+    font-size: inherit;
+    font-weight: inherit;
   }
 
   .projects-nav {
@@ -388,12 +412,12 @@
     width: 85%;
     max-width: 600px;
     height: 100vh;
-    background: #ffffff;
+    background: var(--paper-white);
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     z-index: 101;
-    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 4px 0 24px rgba(47, 47, 50, 0.2);
     transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: scroll;
     overflow-x: hidden;
@@ -443,7 +467,7 @@
     cursor: pointer;
     padding: 8px;
     color: #000000;
-    font-size: 40px;
+    font-size: 32px;
     line-height: 1;
     transition: color 0.2s ease;
     z-index: 102;
@@ -470,14 +494,14 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: #000000;
+    color: var(--gunmetal);
     margin: 0 0 12px 0;
     text-align: left;
   }
 
   .projects-section a {
     display: block;
-    color: #000000;
+    color: var(--gunmetal);
     text-decoration: none;
     font-size: 12px;
     line-height: 1.4;
@@ -506,7 +530,7 @@
       color: #555555;
     }
 
-    .projects-close {
+      color: var(--gunmetal);
       display: block;
     }
   }
