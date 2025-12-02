@@ -773,26 +773,31 @@
       // Load video or image lazily
       if (projectId === 'hitandrun') {
         // Show static image for Hit and Run
+        videoEl.pause();
         videoEl.style.display = 'none';
         imageEl.style.display = 'block';
         imageEl.src = '/media/hitandrun_static.jpg';
         imageEl.alt = project.title;
       } else if (project.modalImage) {
         // Show static image instead of video
+        videoEl.pause();
         videoEl.style.display = 'none';
         imageEl.style.display = 'block';
         imageEl.src = project.modalImage;
         imageEl.alt = project.title;
       } else if (project.video) {
         // Show video
+        videoEl.pause();
+        videoEl.currentTime = 0;
+        videoEl.innerHTML = '';
         videoEl.style.display = 'block';
         imageEl.style.display = 'none';
         const source = document.createElement('source');
         source.src = project.video.src;
         source.type = 'video/mp4';
-        videoEl.innerHTML = '';
         videoEl.appendChild(source);
         videoEl.poster = project.video.poster;
+        videoEl.load();
         videoEl.play();
       }
 
@@ -944,7 +949,12 @@
       modal.classList.remove('active');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      videoEl.pause();
+      videoEl.currentTime = 0;
       videoEl.innerHTML = '';
+      videoEl.style.display = 'none';
+      imageEl.style.display = 'none';
+      imageEl.src = '';
       if (modalContent) modalContent.scrollTop = 0;
     }
 
