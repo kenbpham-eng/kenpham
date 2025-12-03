@@ -18,6 +18,7 @@
     <a href="/press"><span class="underline"></span>PRESS</a>
     <a href="/contact"><span class="underline"></span>CONTACT</a>
     <div class="drawer-spacer bottom" aria-hidden="true"></div>
+    <!-- Removed duplicate theme toggle -->
   </nav>
   <div class="projects-overlay"></div>
   <nav class="projects-nav">
@@ -72,13 +73,18 @@
     <div class="drawer-spacer bottom" aria-hidden="true"></div>
   </nav>
   <div class="header-content">
-    <div class="header-row">
+    <div class="header-row" style="display:flex;align-items:baseline;">
       <div class="name-section">
           <h1><a href="/">Ken Pham</a></h1>
         <h2>Director & Filmmaker</h2>
       </div>
       <div class="social-section">
         <div class="social-icons">
+          <div class="site-theme-toggle" role="switch" aria-checked="false" aria-label="Toggle dark mode" tabindex="0">
+            <div class="switch">
+              <div class="thumb"></div>
+            </div>
+          </div>
           <a href="mailto:kenbpham@icloud.com" aria-label="Email">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="4" width="20" height="16" rx="2"/>
@@ -226,11 +232,11 @@
   }
   
   @media (max-width: 768px) {
-    .main-nav a.active {
-      color: var(--paper-white);
+    .main-nav a {
+      color: #fff;
     }
-    .main-nav a.active .underline {
-      background: var(--paper-white);
+    :global(body.light-mode) .main-nav a {
+      color: #2F2F32;
     }
   }
   .site-header h1 {
@@ -262,7 +268,7 @@
   .name-section h1 { margin: 0; }
   .name-section h2 { margin: 8px 0 0 0; font-weight: 400; letter-spacing: 0.3px; color: var(--body-text); font-family: var(--font-heading); font-size: 15px; }
   .social-section { }
-  .social-icons { display: flex; gap: 12px; align-items: center; }
+  .social-icons { display: flex; gap: 24px; align-items: flex-start; }
   .social-icons a, .social-icons svg { color: var(--soft-shadow-grey); }
   .social-icons a:hover, .social-icons a:focus { color: var(--paper-white); outline:none; filter: drop-shadow(0 0 2px #fff2); }
   .social-icons a:hover svg, .social-icons a:focus svg { color: var(--paper-white); }
@@ -272,6 +278,51 @@
     border-radius: 4px;
   }
   .social-icons svg { width: 20px; height: 20px; }
+
+  /* Site-wide theme toggle */
+  .site-theme-toggle {
+    cursor: pointer;
+    user-select: none;
+    margin-left: 16px;
+  }
+
+  .site-theme-toggle:focus-visible {
+    outline: 2px solid var(--paper-white);
+    outline-offset: 4px;
+    border-radius: 20px;
+  }
+
+  .site-theme-toggle .switch {
+    width: 32px;
+    height: 16px;
+    background: #F7F7F7;
+    border: 2px solid #2F2F32;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .site-theme-toggle .thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2F2F32;
+    position: absolute;
+    top: 50%;
+    transform: translate(2px, -50%);
+    transition: all 0.3s ease;
+  }
+
+  :global(body.light-mode) .site-theme-toggle .switch {
+    background: #2F2F32;
+    border-color: #F7F7F7;
+  }
+
+  :global(body.light-mode) .site-theme-toggle .thumb {
+    background: #F7F7F7;
+    transform: translate(20px, -50%);
+  }
+
   :global(h1), :global(h2), :global(h3), :global(h4), :global(h5), :global(h6) {
     font-family: var(--font-heading);
     font-weight: 400;
@@ -520,6 +571,19 @@
     font-size: 12px;
   }
 
+  /* Light mode: white text in projects drawer */
+  :global(body.light-mode) .projects-close {
+    color: #ffffff;
+  }
+
+  :global(body.light-mode) .projects-section h3 {
+    color: #ffffff;
+  }
+
+  :global(body.light-mode) .projects-section a {
+    color: #ffffff;
+  }
+
   @media (max-width: 768px) {
     .projects-toggle {
       /* No override: always visible, consistent style */
@@ -587,6 +651,27 @@
     background: #000;
     display: none;
     pointer-events: none;
+  }
+
+  .site-theme-toggle.top-right {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    z-index: 200;
+    display: block;
+  }
+  @media (max-width: 768px) {
+    .site-theme-toggle.top-right {
+      display: none;
+    }
+  }
+  .site-theme-toggle.mobile-toggle {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    .site-theme-toggle.mobile-toggle {
+      display: flex;
+    }
   }
 </style>
 
@@ -788,5 +873,43 @@
       }
     });
   })();
+
+  // Site-wide theme toggle
+  (function() {
+    const toggle = document.querySelector('.site-theme-toggle');
+    if (!toggle) return;
+
+    // Check for saved theme preference or default to dark
+    const savedTheme = localStorage.getItem('siteTheme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+      toggle.setAttribute('aria-checked', 'true');
+    }
+
+    // Toggle theme
+    function toggleTheme() {
+      const isLight = document.body.classList.toggle('light-mode');
+      toggle.setAttribute('aria-checked', isLight ? 'true' : 'false');
+      localStorage.setItem('siteTheme', isLight ? 'light' : 'dark');
+    }
+
+    toggle.addEventListener('click', toggleTheme);
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleTheme();
+      }
+    });
+  })();
+
+  // Apply saved theme on page load (before content paints to avoid flash)
+  (function() {
+    const savedTheme = localStorage.getItem('siteTheme');
+    if (savedTheme === 'light') {
+      document.documentElement.classList.add('light-mode');
+      document.body.classList.add('light-mode');
+    }
+  })();
 </script>
+
 

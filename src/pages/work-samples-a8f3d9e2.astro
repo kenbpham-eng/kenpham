@@ -1,246 +1,233 @@
 ---
-import SiteHeader from '../components/SiteHeader.astro';
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+const title = "Ken Pham — Work Samples";
 ---
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Social First Portfolio - Ken Pham</title>
-</head>
-<body>
-    <SiteHeader />
-    
-    <div class="page-wrap">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>SOCIAL FIRST PORTFOLIO</h1>
-            <p>Creative direction and film production for leading brands</p>
-        </section>
+  <head>
+      <link rel="stylesheet" href="/styles/main.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content="Private work samples portfolio" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- About Section -->
-        <section class="section section-dark">
-            <div class="section-content">
-                <h2>About</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </section>
+    <style>
+                  .narrow-text {
+                    max-width: 600px;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                    text-align: left;
+                  }
+            .intro-large {
+              font-size: 14px;
+              line-height: 1.7;
+              font-family: var(--font-heading, 'Inter', 'Work Sans', Arial, sans-serif);
+              font-weight: 400;
+              margin-bottom: 18px;
+            }
+      body {
+        background: #000000;
+        color: rgba(242, 242, 242, 0.9);
+      }
 
-        <!-- Selected Work Section -->
-        <section class="section section-warm">
-            <div class="section-content">
-                <h2>Selected Work</h2>
-                <div class="work-grid">
-                    <div class="work-item">
-                        <h3>Project 1</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-                    </div>
-                    <div class="work-item">
-                        <h3>Project 2</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-                    </div>
-                    <div class="work-item">
-                        <h3>Project 3</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-                    </div>
-                    <div class="work-item">
-                        <h3>Project 4</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+      :global(body.light-mode) {
+        background: #fff;
+        color: #222;
+      }
 
-        <!-- Services Section -->
-        <section class="section section-cool">
-            <div class="section-content">
-                <h2>Services</h2>
-                <ul>
-                    <li>Creative Direction</li>
-                    <li>Film Production</li>
-                    <li>Social Content Strategy</li>
-                    <li>Brand Storytelling</li>
-                </ul>
-            </div>
-        </section>
+      :global(body.light-mode) .text-section {
+        color: #222;
+      }
 
-        <!-- Clients Section -->
-        <section class="section section-light">
-            <div class="section-content">
-                <h2>Clients</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-        </section>
+      .wrap { 
+        max-width:100%; 
+        margin:0 auto; 
+        padding:32px;
+      }
+      
+      @media (max-width: 768px) {
+        .wrap { padding: 24px; }
+      }
 
-        <!-- Contact Section -->
-        <section class="section section-accent">
-            <div class="section-content">
-                <h2>Get In Touch</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-        </section>
-    </div>
-</body>
-</html>
 
-<style>
-    :root {
-        --bg-dark: #000000;
-        --bg-light: #ffffff;
-        --bg-warm: #F5E6CC;
-        --bg-cool: #eef2ff;
-        --bg-accent: #4338ca;
-        --text-light: #ffffff;
-        --text-dark: #000000;
-        --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-        --font-heading: 'Work Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html, body {
-        font-family: var(--font-primary);
-        -webkit-font-smoothing: antialiased;
-    }
-
-    :global(header) {
-        background-color: #000000 !important;
-    }
-
-    :global(header h1),
-    :global(header nav a) {
-        color: #ffffff !important;
-    }
-
-    .page-wrap {
-        width: 100%;
-        min-height: 100vh;
-    }
-
-    .hero {
-        min-height: 60vh;
+      .content {
+        margin-top: 48px;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        gap: 80px;
+      }
+
+      @media (max-width: 768px) {
+        .content {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+      }
+
+      .text-section {
+        font-size: 16px;
+        line-height: 1.8;
+        color: rgba(242, 242, 242, 0.9);
+      }
+
+      .text-section p {
+        margin-bottom: 24px;
+      }
+
+      .image-section {
+        display: flex;
         justify-content: center;
         align-items: center;
-        text-align: center;
-        padding: 2rem;
-        background: var(--bg-light);
-        color: var(--text-dark);
-    }
+        width: 100%;
+        margin-bottom: 0;
+      }
 
-    .hero h1 {
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        letter-spacing: 0.05em;
-    }
+      .image-section img {
+        width: 210px;
+        height: 210px;
+        object-fit: cover;
+        object-position: 65% 25%;
+        border-radius: 50%;
+        display: block;
+        background: none;
+        margin-bottom: 40px;
+      }
 
-    .hero p {
-        font-size: 18px;
-        max-width: 600px;
-    }
-
-    .section {
-        padding: 4rem 2rem;
-    }
-
-    .section-content {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .section h2 {
-        font-size: 28px;
-        font-weight: 700;
-        margin-bottom: 2rem;
-    }
-
-    .section p,
-    .section ul {
-        font-size: 16px;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-    }
-
-    .section ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .section li {
-        padding: 0.5rem 0;
-    }
-
-    .section-dark {
-        background: var(--bg-dark);
-        color: var(--text-light);
-    }
-
-    .section-light {
-        background: var(--bg-light);
-        color: var(--text-dark);
-    }
-
-    .section-warm {
-        background: var(--bg-warm);
-        color: var(--text-dark);
-    }
-
-    .section-cool {
-        background: var(--bg-cool);
-        color: var(--text-dark);
-    }
-
-    .section-accent {
-        background: var(--bg-accent);
-        color: var(--text-light);
-    }
-
-    .work-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    .work-item h3 {
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-    }
-
-    @media (min-width: 768px) {
-        .hero h1 {
-            font-size: 48px;
+      @media (max-width: 768px) {
+        .image-section {
+          position: static;
+          order: -1;
         }
+      }
 
-        .hero p {
-            font-size: 20px;
-        }
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .skip-link:focus {
+        position: fixed;
+        left: 16px;
+        top: 16px;
+        width: auto;
+        height: auto;
+        padding: 10px 14px;
+        background: #fff;
+        color: #000;
+        border-radius: 4px;
+        z-index: 100;
+        text-decoration: none;
+        border: 1px solid #0002;
+        box-shadow: 0 2px 8px #0006;
+      }
+      
+      /* View Transitions API */
+      @view-transition {
+        navigation: auto;
+      }
+      
+      ::view-transition-old(root) {
+        animation: fadeOut 0.3s ease;
+      }
+      
+      ::view-transition-new(root) {
+        animation: fadeIn 0.3s ease;
+        background: #000000;
+      }
+      
+      @keyframes fadeOut {
+        to { opacity: 0; }
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <div class="wrap">
+      <SiteHeader />
 
-        .section {
-            padding: 6rem 2rem;
-        }
+      <main id="main-content" class="content">
+        <div class="intro-clients-row" style="display:flex;gap:64px;justify-content:center;align-items:flex-start;width:100%;max-width:1400px;margin:0 auto 80px auto;">
+          <div class="text-section" style="min-width: 400px; max-width: 600px;">
+            <div class="image-section">
+              <img src="/images/about-kenpham.webp" alt="Ken Pham" width="2033" height="2544" loading="lazy" />
+            </div>
+            <div class="narrow-text">
+              <section>
+                  <p style="font-size: 1.1rem; line-height: 1.7; font-family: var(--font-primary); color: var(--soft-shadow-grey);">
+                    Hi there. I’m Ken Pham. I come from a long relationship with espresso, dance and choreography, and some how ended up directing and producing things for screens big and small.
+                  </p>
+              </section>
+            </div>
+          </div>
+          <div class="client-list-section" style="min-width: 400px; max-width: 600px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 40px 32px;">
+            <!-- Typewriter animation removed -->
+            <h2 style="font-size: 2rem; margin-bottom: 18px; color: var(--soft-shadow-grey);">Select Clients</h2>
+            <p style="font-size: 1.1rem; line-height: 1.7; color: var(--soft-shadow-grey);">
+              Porsche, Volkswagen, Michelin Guide, PUMA, VinFast, Volvo, RBC, Arc'Teryx, Bootlegger, Gyptech, BMW, Volvo, Jaguar, Lexus, Landrover, Kia, Hankook, Banff Springs, A&amp;W, Wealthsimple
+            </p>
+            <br />
+            <h2 style="font-size: 2rem; margin:18px 0 10px 0; color: var(--soft-shadow-grey);">Creative Services</h2>
+            <br />
+            <div style="font-size: 1.1rem; line-height: 1.7; color: var(--soft-shadow-grey); margin-bottom:0; max-width:600px;">
+              Director-for-hire<br>
+              Producer-for-hire<br>
+              Branded Content<br>
+              Commercial Spots<br>
+              Narrative<br>
+              Documentary<br>
+              Production Services<br>
+              Social Campaign Production<br>
+              Consulting
+            </div>
+          </div>
+        </div>
+        <div class="video-panel" style="max-width: 900px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px 32px;">
+          <div style="display:flex;gap:48px;justify-content:center;align-items:flex-start;width:100%;max-width:900px;">
+            <div style="flex:1;display:flex;justify-content:center;align-items:center;">
+              <video controls style="width:100%;max-width:400px;" poster="">
+                <source src="/portfolio/socialfirstportfolio/drivenbydreams/porschecanada_drivenbydreams_christophersealy.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;">
+              <h2 style="font-size: 1.2rem; margin-bottom: 18px;">Driven By Dreams, Christopher Sealy presented by Porsche Canada</h2>
+              <!-- Description removed as requested -->
+            </div>
+          </div>
+        </div>
+        <div style="min-width:400px;scroll-snap-align:start;"></div>
+        </div>
+      </main>
+      
+      <SiteFooter />
+    </div>
 
-        .section h2 {
-            font-size: 36px;
-        }
-
-        .section p,
-        .section ul {
-            font-size: 18px;
-        }
-
-        .work-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-</style>
+  </body>
+  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#000000cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
+    ↑
+  </button>
+  <style>
+    #backToTop:focus { outline: 2px solid #fff; }
+    #backToTop[hidden] { display: none !important; }
+  </style>
+  <script type="module">
+    import { initBackToTop } from '/scripts/shared.js';
+    initBackToTop();
+  </script>
+</html>
