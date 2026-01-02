@@ -76,7 +76,7 @@
     <div class="header-row" style="display:flex;align-items:baseline;">
       <div class="name-section">
           <h1><a href="/">Ken Pham</a></h1>
-        <h2>Director & Filmmaker</h2>
+        <h2>Director & Creative Producer</h2>
       </div>
       <div class="social-section">
         <div class="social-icons">
@@ -571,17 +571,25 @@
     font-size: 12px;
   }
 
-  /* Light mode: white text in projects drawer */
+  /* Light mode: white text in projects drawer (dark background) */
+  :global(body.light-mode) .projects-nav {
+    background: #1a1a1a;
+  }
+
   :global(body.light-mode) .projects-close {
     color: #ffffff;
   }
 
   :global(body.light-mode) .projects-section h3 {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.7);
   }
 
   :global(body.light-mode) .projects-section a {
     color: #ffffff;
+  }
+
+  :global(body.light-mode) .projects-section a .status {
+    color: rgba(255, 255, 255, 0.6);
   }
 
   @media (max-width: 768px) {
@@ -592,10 +600,6 @@
     .projects-toggle:hover,
     .projects-toggle:focus-visible {
       color: #555555;
-    }
-
-      color: var(--gunmetal);
-      display: block;
     }
   }
   #project-video-preview {
