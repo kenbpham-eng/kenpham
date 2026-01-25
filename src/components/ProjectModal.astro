@@ -998,6 +998,13 @@
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
 
+      // Update URL hash for deep linking
+      if (history.pushState) {
+        history.pushState({ projectId: projectId }, '', '#' + projectId);
+      } else {
+        window.location.hash = projectId;
+      }
+
       // Ensure scroll is at top after activation/animation as well
       if (modalContent) {
         requestAnimationFrame(() => {
@@ -1072,6 +1079,13 @@
       imageEl.style.display = 'none';
       imageEl.src = '';
       if (modalContent) modalContent.scrollTop = 0;
+
+      // Clear URL hash
+      if (history.pushState) {
+        history.pushState(null, '', window.location.pathname);
+      } else {
+        window.location.hash = '';
+      }
     }
 
     // Event listeners
@@ -1199,6 +1213,39 @@
         observer.observe(modal, { attributes: true });
       }
     }
+
+    // Deep linking: open project from URL hash on page load
+    function checkHashAndOpenProject() {
+      const hash = window.location.hash.slice(1); // Remove the '#'
+      if (hash) {
+        window.openProjectModal(hash);
+      }
+    }
+
+    // Check hash on initial load
+    checkHashAndOpenProject();
+
+    // Handle browser back/forward navigation
+    window.addEventListener('popstate', (e) => {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        window.openProjectModal(hash, false);
+      } else {
+        // No hash means we should close the modal
+        if (modal.classList.contains('active')) {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+          videoEl.pause();
+          videoEl.currentTime = 0;
+          videoEl.innerHTML = '';
+          videoEl.style.display = 'none';
+          imageEl.style.display = 'none';
+          imageEl.src = '';
+          if (modalContent) modalContent.scrollTop = 0;
+        }
+      }
+    });
   }
 
   // Initialize modal immediately - the script runs after the HTML is parsed
