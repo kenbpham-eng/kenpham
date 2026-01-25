@@ -9,10 +9,10 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^4.0.0"
+    "astro": "^5.16.15"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.6.0",
-    "@astrojs/vercel": "^7.8.2"
+    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/vercel": "^9.0.4"
   }
 }
