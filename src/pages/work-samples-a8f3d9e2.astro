@@ -62,7 +62,7 @@ const title = "Ken Pham | Work Samples";
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 80px;
+        gap: 25px;
       }
 
       @media (max-width: 768px) {
@@ -131,6 +131,18 @@ const title = "Ken Pham | Work Samples";
         border: 1px solid #0002;
         box-shadow: 0 2px 8px #0006;
       }
+
+      /* Work list item hover/focus underline */
+      .work-item:hover,
+      .work-item:focus {
+        text-decoration: underline;
+      }
+      .work-item:focus {
+        outline: none;
+      }
+      .work-item.active {
+        text-decoration: underline;
+      }
       
       /* View Transitions API */
       @view-transition {
@@ -197,37 +209,131 @@ const title = "Ken Pham | Work Samples";
             </div>
           </div>
         </div>
-        <div class="video-panel" style="max-width: 900px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px 32px;">
-          <div style="display:flex;gap:48px;justify-content:center;align-items:flex-start;width:100%;max-width:900px;">
-            <div style="flex:1;display:flex;justify-content:center;align-items:center;">
-              <video controls style="width:100%;max-width:400px;" poster="">
-                <source src="/portfolio/socialfirstportfolio/drivenbydreams/porschecanada_drivenbydreams_christophersealy.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+          <div class="work-list-preview-row" style="display:flex;gap:150px;justify-content:center;align-items:flex-start;width:100%;max-width:1400px;margin:0 auto 80px auto;">
+            <div class="work-list" style="min-width:300px;max-width:340px;">
+              <h2 style="font-size:2rem;font-family:var(--font-primary);font-weight:400;margin:18px 0 10px 0;color:var(--soft-shadow-grey);white-space:nowrap;">Select Works <span style="font-size:14px;">for Branded Content</span></h2>
+              <ul id="workList" style="list-style:none;padding:0;margin:0;margin-top:0;">
+                <li class="work-item" data-index="0" style="padding:8px 0;cursor:pointer;font-size:14px;font-family:'Inter', 'Work Sans', Arial, sans-serif;font-weight:400;margin-top:2px;">Porsche Canada, Driven By Dreamers with Christopher Sealy</li>
+                <li class="work-item" data-index="1" style="padding:8px 0;cursor:pointer;font-size:14px;font-family:'Inter', 'Work Sans', Arial, sans-serif;font-weight:400;margin-top:2px;">Lucas Scarfone x Volvo</li>
+                <li class="work-item" data-index="2" style="padding:8px 0;cursor:pointer;font-size:14px;font-family:'Inter', 'Work Sans', Arial, sans-serif;font-weight:400;margin-top:2px;">Porsche Canada, Driven by Dreamers with Elladj</li>
+                <li class="work-item" data-index="3" style="padding:8px 0;cursor:pointer;font-size:14px;font-family:'Inter', 'Work Sans', Arial, sans-serif;font-weight:400;margin-top:2px;">A&amp;W, Rooty Turns 50 with Morgan Cameron Ross</li>
+                <li class="work-item" data-index="4" style="padding:8px 0;cursor:pointer;font-size:14px;font-family:'Inter', 'Work Sans', Arial, sans-serif;font-weight:400;margin-top:2px;">Neil Anthony Watson x Volvo</li>
+                <li class="work-item" data-index="5" style="padding:8px 0;cursor:pointer;font-size:14px;font-family:'Inter', 'Work Sans', Arial, sans-serif;font-weight:400;margin-top:2px;">Michelin Guide x Gail Simmons, My Toronto</li>
+                <!-- Removed: Porsche Ice Experience 2024 -->
+                <!-- Removed: Volkswagen Canada, Tiguan Highlight -->
+              </ul>
+              <div id="arrowNav" style="display:flex;justify-content:flex-start;gap:16px;margin-top:18px;">
+                <button id="prevBtn" style="background:none;border:none;cursor:pointer;font-size:24px;color:var(--soft-shadow-grey);">&#8592;</button>
+                <button id="nextBtn" style="background:none;border:none;cursor:pointer;font-size:24px;color:var(--soft-shadow-grey);">&#8594;</button>
+                <button id="playPauseBtn" style="background:none;border:none;cursor:pointer;font-size:24px;color:var(--soft-shadow-grey);">&#9654;</button>
+              </div>
             </div>
-            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;">
-              <h2 style="font-size: 1.2rem; margin-bottom: 18px;">Driven By Dreams, Christopher Sealy presented by Porsche Canada</h2>
-              <!-- Description removed as requested -->
+            <div class="work-preview" id="workPreview" style="flex:1;min-width:340px;max-width:700px;position:relative;">
+              <!-- Default preview: first item (video only) -->
+              <div class="hover-media" style="width:100%;">
+                <video controls style="width:100%;height:auto;max-width:400px;display:block;object-fit:cover;border-radius:14px;background:var(--gunmetal);" poster="">
+                  <source src="/portfolio/socialfirstportfolio/grid/porschecanada_drivenbydreams_christophersealy.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
-        </div>
-        <div style="min-width:400px;scroll-snap-align:start;"></div>
-        </div>
-      </main>
-      
-      <SiteFooter />
-    </div>
-
-  </body>
-  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#000000cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
-    ↑
-  </button>
-  <style>
-    #backToTop:focus { outline: 2px solid #fff; }
-    #backToTop[hidden] { display: none !important; }
-  </style>
-  <script type="module">
-    import { initBackToTop } from '/scripts/shared.js';
-    initBackToTop();
-  </script>
-</html>
+          <script>
+            const works = [
+              {
+                title: "Porsche Canada, Driven By Dreamers with Christopher Sealy",
+                video: "/portfolio/socialfirstportfolio/grid/porschecanada_drivenbydreams_christophersealy.mp4",
+                videoStyle: "width:100%;height:auto;max-width:400px;display:block;object-fit:cover;border-radius:14px;background:var(--gunmetal);"
+              },
+              {
+                title: "Lucas Scarfone x Volvo",
+                video: "/portfolio/socialfirstportfolio/grid/volvoxlucas_1080.mp4",
+                videoStyle: "width:100%;height:auto;max-width:400px;display:block;object-fit:cover;border-radius:14px;background:var(--gunmetal);"
+              },
+              {
+                title: "Porsche Canada, Driven by Dreamers with Elladj",
+                video: "/portfolio/socialfirstportfolio/grid/dreamers_on_elladj_coloured_16x9_v1 (1440p).mp4",
+                videoStyle: "width:100%;height:auto;max-width:600px;display:block;object-fit:cover;border-radius:24px;background:var(--gunmetal);"
+              },
+              {
+                title: "A&W, Rooty Turns 50 with Morgan Cameron Ross",
+                video: "/portfolio/socialfirstportfolio/grid/a&w__rooty_turns_50_|_morgan_cameron_ross_v1 (1080p).mp4",
+                videoStyle: "width:100%;height:auto;max-width:400px;display:block;object-fit:cover;border-radius:14px;background:var(--gunmetal);"
+              },
+              {
+                title: "Neil Anthony Watson x Volvo",
+                video: "/portfolio/socialfirstportfolio/grid/23146_-_neil_x_volvo_-_client_rc2_v1 (1080p).mp4",
+                videoStyle: "width:100%;height:auto;max-width:400px;display:block;object-fit:cover;border-radius:14px;background:var(--gunmetal);"
+              },
+              {
+                title: "Michelin Guide x Gail Simmons, My Toronto",
+                video: "/portfolio/socialfirstportfolio/grid/michelin_guide__my_toronto_series_|_gail_simmons_v1 (1080p).mp4",
+                videoStyle: "width:100%;height:auto;max-width:400px;display:block;object-fit:cover;border-radius:14px;background:var(--gunmetal);"
+              },
+              // Removed Porsche Ice Experience 2024 and Volkswagen Tiguan entries
+            ];
+            let activeIdx = 0;
+            let isPlaying = false;
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            function updateActive(idx) {
+              activeIdx = idx;
+              const items = document.querySelectorAll('.work-item');
+              items.forEach((item, i) => {
+                if (i === idx) item.classList.add('active'); else item.classList.remove('active');
+              });
+              const work = works[idx];
+              const preview = document.getElementById('workPreview');
+              preview.innerHTML = `
+                <div class="hover-media" style="width:100%;">
+                  <video id="workVideo" controls style="${work.videoStyle}" poster="">
+                    <source src="${work.video}" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              `;
+              isPlaying = false;
+              playPauseBtn.innerHTML = '&#9654;';
+            }
+            // Restore hover feature
+            document.addEventListener('DOMContentLoaded', () => {
+              const items = document.querySelectorAll('.work-item');
+              items.forEach((item, idx) => {
+                item.addEventListener('click', () => {
+                  updateActive(idx);
+                  // Play the video after it's rendered
+                  setTimeout(() => {
+                    const video = document.getElementById('workVideo');
+                    if (video) {
+                      video.play().catch(() => {
+                        // autoplay may be blocked; do nothing
+                      });
+                      playPauseBtn.innerHTML = '&#10073;&#10073;';
+                      isPlaying = true;
+                    }
+                  }, 50);
+                });
+              });
+            });
+            prevBtn.onclick = () => {
+              updateActive((activeIdx - 1 + works.length) % works.length);
+            };
+            nextBtn.onclick = () => {
+              updateActive((activeIdx + 1) % works.length);
+            };
+            playPauseBtn.onclick = () => {
+              const video = document.getElementById('workVideo');
+              if (!video) return;
+              if (video.paused) {
+                video.play();
+                playPauseBtn.innerHTML = '&#10073;&#10073;';
+                isPlaying = true;
+              } else {
+                video.pause();
+                playPauseBtn.innerHTML = '&#9654;';
+                isPlaying = false;
+              }
+            // Removed invalid ESM import and call from browser script
+          }
+        </script>

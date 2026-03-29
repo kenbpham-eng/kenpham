@@ -81,6 +81,64 @@
       }
     },
     {
+      "id": "couchetard",
+      "title": "Couche-Tard",
+      "year": "2026",
+      "category": "Commercial",
+      "metadata": "Commercial",
+      "description": "Agency: WPP\nProduction Company: Steak+Sizzle\n\nClient Lead/Producer: James Wright\nDirector/Producer: Ken Pham\nDirector of Photography: Kejd Kuqo\nKey Grip/Swing: Eric Bates\nSound Recordist: Edward Almeida\nEditor/Colourist: Federico Capellini\nProduction Assistant: Rachel Kramer",
+      "images": [
+        {
+          "thumb": "/media/couchetard_static.webp",
+          "full": "/media/couchetard_static.webp",
+          "alt": "Couche-Tard"
+        }
+      ],
+      "video": {
+        "src": "/media/couchetard_hover.mp4",
+        "poster": "/media/couchetard_static.webp"
+      },
+      "vimeoEmbeds": [
+        {
+          "src": "https://player.vimeo.com/video/1174229318?h=b88a435797&badge=0&autopause=0&player_id=0&app_id=58479",
+          "title": "Combo Valeur / Meal Deal",
+          "aspectRatio": "16/9"
+        },
+        {
+          "src": "https://player.vimeo.com/video/1174229355?h=5ca9c5ec70&badge=0&autopause=0&player_id=0&app_id=58479",
+          "title": "On Revient / We'll Be Right Back",
+          "aspectRatio": "16/9"
+        }
+      ],
+      "directorNote": "Every production comes with its own set of challenges and parameters. This one came with a lot of talent and experience both crew and actors, but was limited to two 4-hour days to capture a 30-second and 15-second spot, all while being mindful of the operating store. I'm very proud of the product especially with the circumstances we had to create in.",
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          {
+            "thumb": "/portfolio/couchetard/Timeline 1_01_00_02_08.webp",
+            "full": "/portfolio/couchetard/Timeline 1_01_00_02_08.jpg",
+            "alt": "Couche-Tard Still 1"
+          },
+          {
+            "thumb": "/portfolio/couchetard/Timeline 1_01_00_03_07.webp",
+            "full": "/portfolio/couchetard/Timeline 1_01_00_03_07.jpg",
+            "alt": "Couche-Tard Still 2"
+          },
+          {
+            "thumb": "/portfolio/couchetard/Timeline 1_01_00_04_10.webp",
+            "full": "/portfolio/couchetard/Timeline 1_01_00_04_10.jpg",
+            "alt": "Couche-Tard Still 3"
+          },
+          {
+            "thumb": "/portfolio/couchetard/Timeline 1_01_00_42_11.webp",
+            "full": "/portfolio/couchetard/Timeline 1_01_00_42_11.jpg",
+            "alt": "Couche-Tard Still 4"
+          }
+        ]
+      }
+    },
+    {
       "id": "porschexpuma",
       "title": "Porsche x PUMA 911 Turbo 50Y Sneaker",
       "year": "2024",
@@ -164,8 +222,8 @@
       "title": "Porsche Cayenne Taste Drive",
       "year": "2024",
       "category": "Commercial",
-      "metadata": "Commercial",
-      "description": "Agency: Angry Butterfly\nProduction Company: Steak+Sizzle Creative Works\n\nSr. Producer, Director: Jakob Pospieszynski\nProducer: Ken Pham\nDirector of Photography: Owain Parri",
+      "metadata": "Commercial | Integrated Production",
+      "description": "Client: Porsche Cars Canada\nAgency Partners: Angry Butterfly, Conversation Agency, Sports Driving Canada\nProduction Company: Steak+Sizzle Creative Works\n\nSr. Producer, Director: Jakob Pospieszynski\nProducer: Ken Pham\nDirector of Photography: Owain Parri",
       "images": [
         {
           "thumb": "/media/cayennetastedrive_static.webp",
@@ -532,6 +590,20 @@
         "src": "/media/volvoawareness_hover.mp4",
         "poster": "/media/volvoawareness_static.jpg"
       },
+      "vimeoEmbeds": [
+        {
+          "src": "https://player.vimeo.com/video/1073057041?h=d1c8724a8c&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+          "title": "Neil x Volvo"
+        },
+        {
+          "src": "https://player.vimeo.com/video/1073057034?h=1b5ad3fdcc&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+          "title": "Joe Martz x Volvo"
+        },
+        {
+          "src": "https://player.vimeo.com/video/1073057028?h=6ec435886b&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+          "title": "Lucas Scarfone x Volvo"
+        }
+      ],
       "gallery": {
         "title": "Stills",
         "aspectRatio": "16 / 9",
@@ -740,6 +812,13 @@
         "src": "/media/twih_hover.mp4",
         "poster": "/media/twih_static.jpg"
       },
+      "vimeoEmbeds": [
+        {
+          "src": "https://player.vimeo.com/video/1178073335?h=8791c0eb29&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+          "title": "Trailer",
+          "aspectRatio": "16/9"
+        }
+      ],
       "gallery": {
         "title": "Stills",
         "aspectRatio": "16 / 9",
@@ -908,6 +987,13 @@
         "src": "/media/halfwaybroken_hover.mp4",
         "poster": "/media/halfwaybroken_static.jpg"
       },
+      "links": [
+        {
+          "title": "WATCH",
+          "url": "https://vimeo.com/1013020164"
+        }
+      ],
+      "directorNote": "This project was one of my favourites in regards to thinking outside the box and working with a very limited budget. I feel that sometimes scale doesn't have to come from money, and can come from creativity. Firstly, a very big thank you to Fieldworks for letting us use their beautiful space. Though the space is beautiful, I didn't want the music video to feel like it was shot inside a studio so I thought, why don't I buy a ton of flowers and use their existing plants to create our own ethereal world? We really wanted to approach the day with the intention to play. A lot of the times, there is always a shot list or a storyboard to work against, this was the opposite. Lead with instincts, intention and play.",
       "laurels": [
         {
           "src": "/portfolio/halfwaybroken/cropped-1.-TIMVF-logo-PNG.png",

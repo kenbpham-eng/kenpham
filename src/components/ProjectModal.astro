@@ -26,34 +26,24 @@
       <div class="modal-header">
         <div class="title-row">
           <h2 id="modal-title"></h2>
-          <button id="modal-theme-toggle" class="theme-toggle" aria-label="Toggle dark or light theme" aria-pressed="false" type="button">
-            <span class="switch" aria-hidden="true">
-              <span class="thumb"></span>
-            </span>
-          </button>
         </div>
         <div class="modal-metadata" id="modal-metadata"></div>
       </div>
 
-      <div class="modal-video-section">
-        <video
-          id="modal-video"
-          class="modal-video"
-          loop
-          muted
-          playsinline
-          preload="none"
-          aria-label="Project video"
-          style="display: none;">
-        </video>
-        <img 
-          id="modal-image"
-          class="modal-image" 
-          style="display: none;"
-          alt="Project image">
+      <div id="modal-vimeo-embeds" class="modal-vimeo-embeds" style="display: none;">
+        <div class="vimeo-embeds-grid" id="vimeo-embeds-grid"></div>
+      </div>
+
+      <div id="modal-links" class="modal-links" style="display: none;">
+        <div class="links-list" id="links-list"></div>
       </div>
 
       <div class="modal-description" id="modal-description"></div>
+
+      <div id="modal-director-note" class="modal-director-note" style="display: none;">
+        <h3>DIRECTOR'S NOTE</h3>
+        <p id="director-note-text"></p>
+      </div>
 
       <div id="modal-featuring" class="modal-featuring" style="display: none;">
         <div class="featuring-label" id="featuring-label"></div>
@@ -84,6 +74,16 @@
   </div>
 </div>
 
+<!-- Video theater overlay for Vimeo embeds -->
+<div id="video-theater" class="video-theater" aria-hidden="true" style="display:none;">
+  <button id="video-theater-close" class="video-theater-close" aria-label="Close video">×</button>
+  <div class="video-theater-inner">
+    <div class="video-theater-wrapper">
+      <iframe id="video-theater-iframe" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
 <!-- Lightbox overlay for enlarged stills -->
 <div id="lightbox-overlay" class="lightbox-overlay" aria-hidden="true" style="display:none;">
   <button id="lightbox-close" class="lightbox-close" aria-label="Close image">×</button>
@@ -100,10 +100,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.65);
     z-index: 1000;
     opacity: 0;
     transition: opacity 0.3s ease;
+    align-items: center;
+    justify-content: center;
   }
 
   .modal-overlay.active {
@@ -201,58 +203,42 @@
     }
   }
 
-  .modal-content.modal-dark .pull-indicator {
-    background: rgba(255, 255, 255, 0.3);
-  }
-
   /* Modal dragging state */
   .modal-content.dragging {
     transition: none !important;
   }
 
   .modal-content.closing {
-    animation: slideOutRight 0.3s ease forwards;
+    animation: modalOut 0.25s ease forwards;
   }
 
-  @keyframes slideOutRight {
-    from { transform: translateX(0); }
-    to { transform: translateX(100%); }
+  @keyframes modalOut {
+    from { transform: scale(1) translateY(0); opacity: 1; }
+    to   { transform: scale(0.93) translateY(16px); opacity: 0; }
   }
 
   .modal-content {
     position: relative;
-    width: 90%;
-    max-width: 100%;
-    height: 100%;
-    background: #F7F7F7;
-    padding: 32px 24px;
-    animation: slideInRight 0.4s ease;
+    width: min(1200px, 92vw);
+    max-height: 88vh;
+    height: auto;
+    background: #F2F0EC;
+    padding: 0 28px 32px;
+    border-radius: 20px;
+    animation: modalIn 0.35s cubic-bezier(0.34, 1.4, 0.64, 1);
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    margin-left: auto;
     box-sizing: border-box;
   }
 
-  @media (min-width: 1024px) {
-    .modal-content {
-      width: 50%;
-      max-width: 50vw;
-      padding: 32px 28px;
-    }
-  }
-
-  @keyframes slideInRight {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0);
-    }
+  @keyframes modalIn {
+    from { transform: scale(0.93) translateY(16px); opacity: 0; }
+    to   { transform: scale(1) translateY(0);       opacity: 1; }
   }
 
   .modal-overlay.active .modal-content {
-    animation: slideInRight 0.4s ease forwards;
+    animation: modalIn 0.35s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
   }
 
   .modal-close {
@@ -275,7 +261,7 @@
   }
 
   /* Header layout */
-  .modal-header { margin-bottom: 32px; margin-top: 10px; }
+  .modal-header { margin-bottom: 16px; margin-top: 0; padding-top: 16px; }
   .title-row {
     display: flex;
     align-items: center;
@@ -283,64 +269,31 @@
     gap: 16px;
   }
 
-  /* Simple pill toggle */
-  .theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    background: none;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-    user-select: none;
-  }
-  .theme-toggle .switch {
-    position: relative;
-    width: 32px;
-    height: 16px;
-    background: #F7F7F7;
-    border: 2px solid #2F2F32;
-    border-radius: 999px;
-    padding: 2px;
-    display: inline-flex;
-    align-items: center;
-  }
-  .theme-toggle .thumb {
-    width: 10px;
-    height: 10px;
-    background: #2F2F32;
-    border-radius: 50%;
-    transition: transform .3s cubic-bezier(.4,0,.2,1);
-    transform: translateX(2px);
-  }
-  /* Light mode: thumb on left */
-  .theme-toggle:not(.is-dark) .thumb { transform: translateX(2px); }
-  /* Dark mode: thumb on right */
-  .theme-toggle.is-dark .thumb { transform: translateX(16px); }
-
-  /* Dark mode overrides */
-  .modal-content.modal-dark { background: #000; }
-  .modal-content.modal-dark .theme-toggle .switch { background: #2F2F32; border-color: #F7F7F7; }
-  .modal-content.modal-dark .theme-toggle .thumb { background: #F7F7F7; }
-  .modal-content.modal-dark .modal-close { color: #fff; }
-  .modal-content.modal-dark #modal-title { color: #fff; }
-  .modal-content.modal-dark .modal-metadata { color: rgba(255,255,255,0.7); }
-  .modal-content.modal-dark .modal-year { color: rgba(255,255,255,0.6); }
-  .modal-content.modal-dark .featuring-label { color: rgba(255,255,255,0.6); }
-  .modal-content.modal-dark .featuring-names { color: #fff; }
-  .modal-content.modal-dark .modal-description { color: #fff; }
-  .modal-content.modal-dark .modal-description .description-label { color: rgba(255,255,255,0.6) !important; }
-  .modal-content.modal-dark .modal-description .description-value { color: #fff !important; }
-  .modal-content.modal-dark .modal-credits h3,
-  .modal-content.modal-dark .modal-press h3,
-  .modal-content.modal-dark .modal-awards h3,
-  .modal-content.modal-dark .modal-gallery h3 { color: #fff; }
-  .modal-content.modal-dark .credits-list { color: #fff !important; }
-  .modal-content.modal-dark .credit-item { color: #fff !important; }
-  .modal-content.modal-dark .credit-role { color: rgba(255,255,255,0.6) !important; }
-  .modal-content.modal-dark .credit-name { color: #fff !important; }
-  .modal-content.modal-dark .press-link { color: #fff; }
-  .modal-content.modal-dark .press-link .underline { background: #fff; }
-  .modal-content.modal-dark .featuring-laurel img { filter: none; }
+  /* Light site = dark modal */
+  body.light-mode .modal-content { background: #1C1C1E; }
+  body.light-mode .modal-content .modal-close { color: #fff; }
+  body.light-mode .modal-content #modal-title { color: #fff; }
+  body.light-mode .modal-content .modal-metadata { color: rgba(255,255,255,0.7); }
+  body.light-mode .modal-content .modal-year { color: rgba(255,255,255,0.6); }
+  body.light-mode .modal-content .featuring-label { color: rgba(255,255,255,0.6); }
+  body.light-mode .modal-content .featuring-names { color: #fff; }
+  body.light-mode .modal-content .modal-description { color: #fff; }
+  body.light-mode .modal-content .modal-description .description-label { color: rgba(255,255,255,0.6) !important; }
+  body.light-mode .modal-content .modal-description .description-value { color: #fff !important; }
+  body.light-mode .modal-content .modal-credits h3,
+  body.light-mode .modal-content .modal-links h3,
+  body.light-mode .modal-content .modal-press h3,
+  body.light-mode .modal-content .modal-awards h3,
+  body.light-mode .modal-content .modal-gallery h3,
+  body.light-mode .modal-content .modal-director-note h3 { color: #fff; }
+  body.light-mode .modal-content .credits-list { color: #fff !important; }
+  body.light-mode .modal-content .credit-item { color: #fff !important; }
+  body.light-mode .modal-content .credit-role { color: rgba(255,255,255,0.6) !important; }
+  body.light-mode .modal-content .credit-name { color: #fff !important; }
+  body.light-mode .modal-content .press-link { color: #fff; }
+  body.light-mode .modal-content .press-link .underline { background: #fff; }
+  body.light-mode .modal-content .featuring-laurel img { filter: none; }
+  body.light-mode .modal-content .pull-indicator { background: rgba(255,255,255,0.3); }
 
   /* moved header spacing above */
 
@@ -378,38 +331,6 @@
     max-width: 100%;
     min-width: 0;
     overflow: hidden;
-  }
-
-  .modal-video-section {
-    aspect-ratio: 16 / 9;
-    background: #000;
-    overflow: clip;
-    border: none;
-    display: block;
-    margin-left: -24px;
-    margin-right: -24px;
-    width: calc(100% + 48px);
-  }
-
-  .modal-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: #000;
-    border: none;
-    outline: none;
-    display: block;
-    transform: translateZ(0);
-  }
-
-  .modal-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: #000;
-    border: none;
-    outline: none;
-    display: block;
   }
 
   .modal-featuring {
@@ -489,9 +410,31 @@
     font-size: 14px;
   }
 
+  .modal-director-note {
+    margin-bottom: 32px;
+  }
+
+  .modal-director-note p {
+    font-size: 15.4px;
+    font-style: italic;
+    line-height: 1.75;
+    color: #000000;
+    margin: 0;
+  }
+
+  body.light-mode .modal-content .modal-director-note p {
+    color: #ffffff !important;
+  }
+
+  body.light-mode .modal-content .modal-director-note h3 {
+    color: #ffffff !important;
+  }
+
   .modal-credits h3,
+  .modal-links h3,
   .modal-press h3,
   .modal-awards h3,
+  .modal-director-note h3,
   .modal-gallery h3 {
     font-size: 24px;
     font-weight: 700;
@@ -505,6 +448,47 @@
     margin-bottom: 32px;
   }
 
+  .modal-links {
+    margin-bottom: 12px;
+  }
+
+  .links-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .links-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border: 1px solid #000;
+    color: #000;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .links-list a:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  body.light-mode .modal-content .links-list a {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  body.light-mode .modal-content .links-list a:hover {
+    background: #fff;
+    color: #000;
+  }
+
   .modal-press {
     margin-bottom: 32px;
   }
@@ -515,6 +499,79 @@
 
   .modal-gallery {
     margin-bottom: 32px;
+  }
+
+  .modal-vimeo-embeds {
+    margin-bottom: 32px;
+  }
+
+  .vimeo-embeds-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .vimeo-embed-item {
+    flex: 1 1 0;
+    min-width: 140px;
+  }
+
+  .vimeo-embed-wrapper {
+    position: relative;
+    padding-bottom: 177.78%; /* 9:16 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #111;
+  }
+
+  .vimeo-embed-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .vimeo-switcher-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .vimeo-switcher-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    border: 1px solid #000;
+    background: transparent;
+    color: #000;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .vimeo-switcher-btn:hover,
+  .vimeo-switcher-btn.active {
+    background: #000;
+    color: #fff;
+  }
+
+  body.light-mode .modal-content .vimeo-switcher-btn {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  body.light-mode .modal-content .vimeo-switcher-btn:hover,
+  body.light-mode .modal-content .vimeo-switcher-btn.active {
+    background: #fff;
+    color: #000;
   }
 
   .modal-gallery h3 {
@@ -581,7 +638,7 @@
     letter-spacing: 0.3px;
     transition: opacity 0.2s ease;
     position: relative;
-    display: inline-block;
+    display: block;
     margin-bottom: 12px;
   }
 
@@ -636,6 +693,49 @@
   }
 
   /* Lightbox */
+  .video-theater {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+  }
+  .video-theater.active { display: flex; }
+  .video-theater-close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 40px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+    padding: 4px 8px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .video-theater-close:hover { opacity: 1; }
+  .video-theater-inner {
+    width: 90vw;
+    max-width: 1100px;
+  }
+  .video-theater-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+  }
+  .video-theater-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
+
   .lightbox-overlay {
     position: fixed;
     inset: 0;
@@ -694,9 +794,10 @@
   /* Mobile */
   @media (max-width: 768px) {
     .modal-content {
-      width: 95%;
-      padding: 24px;
-      margin: 20px auto;
+      width: 94vw;
+      max-height: 92vh;
+      padding: 0 20px 24px;
+      border-radius: 16px;
     }
 
     .modal-close {
@@ -729,7 +830,6 @@
   let galleryLightboxIndex = 0;
   let currentGalleryImages = [];
   let modalInitialized = false;
-  let modalElements = {};
   let lightboxOpen = false;
   let currentProjectIndex = 0;
   let projectIds = [];
@@ -749,9 +849,6 @@
     let isDragging = false;
     let isHorizontalSwipe = null;
     const modalClose = document.querySelector('.modal-close');
-    const themeToggle = document.getElementById('modal-theme-toggle');
-    const videoEl = document.getElementById('modal-video');
-    const imageEl = document.getElementById('modal-image');
     const descriptionEl = document.getElementById('modal-description');
     const titleEl = document.getElementById('modal-title');
     const metadataEl = document.getElementById('modal-metadata');
@@ -886,37 +983,6 @@
         featuringEl.style.display = 'none';
       }
 
-      // Load video or image lazily
-      if (projectId === 'hitandrun') {
-        // Show static image for Hit and Run
-        videoEl.pause();
-        videoEl.style.display = 'none';
-        imageEl.style.display = 'block';
-        imageEl.src = '/media/hitandrun_static.jpg';
-        imageEl.alt = project.title;
-      } else if (project.modalImage) {
-        // Show static image instead of video
-        videoEl.pause();
-        videoEl.style.display = 'none';
-        imageEl.style.display = 'block';
-        imageEl.src = project.modalImage;
-        imageEl.alt = project.title;
-      } else if (project.video) {
-        // Show video
-        videoEl.pause();
-        videoEl.currentTime = 0;
-        videoEl.innerHTML = '';
-        videoEl.style.display = 'block';
-        imageEl.style.display = 'none';
-        const source = document.createElement('source');
-        source.src = project.video.src;
-        source.type = 'video/mp4';
-        videoEl.appendChild(source);
-        videoEl.poster = project.video.poster;
-        videoEl.load();
-        videoEl.play();
-      }
-
       // Handle credits
       const credits = parseCredits(project.description);
       if (credits.length > 0) {
@@ -933,6 +999,36 @@
         });
       } else {
         creditsEl.style.display = 'none';
+      }
+
+      // Handle watch links (if available in project data)
+      const linksEl = document.getElementById('modal-links');
+      const linksList = document.getElementById('links-list');
+      if (project.links && project.links.length > 0) {
+        linksEl.style.display = 'block';
+        linksList.innerHTML = '';
+        project.links.forEach(item => {
+          const link = document.createElement('a');
+          link.href = '#';
+          link.innerHTML = `▶ ${item.title}`;
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            openVideoTheater(item.url);
+          });
+          linksList.appendChild(link);
+        });
+      } else {
+        linksEl.style.display = 'none';
+      }
+
+      // Handle director's note (if available in project data)
+      const directorNoteEl = document.getElementById('modal-director-note');
+      const directorNoteTextEl = document.getElementById('director-note-text');
+      if (project.directorNote) {
+        directorNoteTextEl.textContent = project.directorNote;
+        directorNoteEl.style.display = 'block';
+      } else {
+        directorNoteEl.style.display = 'none';
       }
 
       // Handle press (if available in project data)
@@ -971,6 +1067,57 @@
         awardsEl.style.display = 'none';
       }
 
+      // Handle vimeo embeds
+      const vimeoEmbedsEl = document.getElementById('modal-vimeo-embeds');
+      const vimeoEmbedsGrid = document.getElementById('vimeo-embeds-grid');
+      if (project.vimeoEmbeds && project.vimeoEmbeds.length > 0) {
+        vimeoEmbedsEl.style.display = 'block';
+        const is16x9 = project.vimeoEmbeds.some(e => e.aspectRatio === '16/9' || e.aspectRatio === '4/3');
+        if (is16x9) {
+          // Switcher UI: one video at a time with buttons
+          const firstEmbed = project.vimeoEmbeds[0];
+          vimeoEmbedsGrid.style.flexDirection = 'column';
+          vimeoEmbedsGrid.innerHTML = `
+            <div class="vimeo-switcher-buttons" id="vimeo-switcher-buttons">
+              ${project.vimeoEmbeds.map((e, i) => `
+                <button class="vimeo-switcher-btn${i === 0 ? ' active' : ''}" data-index="${i}">▶ ${e.title}</button>
+              `).join('')}
+            </div>
+            <div class="vimeo-embed-item" style="flex:none;width:100%;">
+              <div class="vimeo-embed-wrapper" style="padding-bottom:${project.vimeoEmbeds[0].aspectRatio === '4/3' ? '75%' : '56.25%'};">
+                <iframe id="vimeo-switcher-iframe" src="${firstEmbed.src}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="${firstEmbed.title}" allowfullscreen></iframe>
+              </div>
+            </div>
+          `;
+          // Wire up buttons
+          const embeds = project.vimeoEmbeds;
+          vimeoEmbedsGrid.querySelectorAll('.vimeo-switcher-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-index'), 10);
+              vimeoEmbedsGrid.querySelectorAll('.vimeo-switcher-btn').forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+              const iframe = document.getElementById('vimeo-switcher-iframe');
+              iframe.src = embeds[idx].src;
+              iframe.title = embeds[idx].title;
+            });
+          });
+        } else {
+          vimeoEmbedsGrid.style.flexDirection = is16x9 ? 'column' : 'row';
+          vimeoEmbedsGrid.innerHTML = project.vimeoEmbeds.map(embed => {
+            const padding = embed.aspectRatio === '16/9' ? '56.25%' : embed.aspectRatio === '4/3' ? '75%' : '177.78%';
+            return `
+              <div class="vimeo-embed-item" style="${is16x9 ? 'flex:none;width:100%;' : ''}">
+                <div class="vimeo-embed-wrapper" style="padding-bottom:${padding};">
+                  <iframe src="${embed.src}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="${embed.title}" allowfullscreen></iframe>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+      } else {
+        vimeoEmbedsEl.style.display = 'none';
+      }
+
       // Handle gallery
       if (project.gallery && project.gallery.images && project.gallery.images.length > 0) {
         galleryEl.style.display = 'block';
@@ -1006,32 +1153,39 @@
       }
     };
 
-    // Theme handling
-    const savedTheme = (typeof localStorage !== 'undefined') ? localStorage.getItem('projectModalTheme') : null;
-    if (savedTheme === 'dark') {
-      modalContent.classList.add('modal-dark');
-      if (themeToggle) {
-        themeToggle.classList.add('is-dark');
-        themeToggle.setAttribute('aria-pressed', 'true');
-      }
-    } else {
-      modalContent.classList.remove('modal-dark');
-      if (themeToggle) {
-        themeToggle.classList.remove('is-dark');
-        themeToggle.setAttribute('aria-pressed', 'false');
-      }
+    // Video theater
+    const videoTheater = document.getElementById('video-theater');
+    const videoTheaterIframe = document.getElementById('video-theater-iframe');
+    const videoTheaterClose = document.getElementById('video-theater-close');
+
+    function vimeoEmbedUrl(url) {
+      // Convert https://vimeo.com/ID/HASH?... to https://player.vimeo.com/video/ID?h=HASH&autoplay=1
+      const match = url.match(/vimeo\.com\/(\d+)\/([a-f0-9]+)/);
+      if (match) return `https://player.vimeo.com/video/${match[1]}?h=${match[2]}&autoplay=1&color=fff`;
+      return url;
     }
 
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const isDark = modalContent.classList.toggle('modal-dark');
-        if (typeof localStorage !== 'undefined') {
-          localStorage.setItem('projectModalTheme', isDark ? 'dark' : 'light');
-        }
-        themeToggle.classList.toggle('is-dark', isDark);
-        themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
-      });
+    function openVideoTheater(url) {
+      videoTheaterIframe.src = vimeoEmbedUrl(url);
+      videoTheater.style.display = 'flex';
+      videoTheater.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
+
+    function closeVideoTheater() {
+      videoTheater.style.display = 'none';
+      videoTheater.setAttribute('aria-hidden', 'true');
+      videoTheaterIframe.src = '';
+      document.body.style.overflow = '';
+    }
+
+    if (videoTheaterClose) videoTheaterClose.addEventListener('click', closeVideoTheater);
+    if (videoTheater) videoTheater.addEventListener('click', (e) => {
+      if (e.target === videoTheater || e.target === videoTheater.querySelector('.video-theater-inner')) closeVideoTheater();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && videoTheater.style.display === 'flex') closeVideoTheater();
+    });
 
     function openLightbox(index) {
       if (!currentGalleryImages || currentGalleryImages.length === 0) return;
@@ -1065,13 +1219,10 @@
       modal.classList.remove('active');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      videoEl.pause();
-      videoEl.currentTime = 0;
-      videoEl.innerHTML = '';
-      videoEl.style.display = 'none';
-      imageEl.style.display = 'none';
-      imageEl.src = '';
       if (modalContent) modalContent.scrollTop = 0;
+      // Stop vimeo embeds
+      const vimeoEmbedsGrid = document.getElementById('vimeo-embeds-grid');
+      if (vimeoEmbedsGrid) vimeoEmbedsGrid.querySelectorAll('iframe').forEach(f => { f.src = f.src; });
     }
 
     // Event listeners

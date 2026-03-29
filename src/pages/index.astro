@@ -1,6 +1,5 @@
 ---
 import SiteHeader from "../components/SiteHeader.astro";
-import SiteFooter from "../components/SiteFooter.astro";
 import ProjectModal from "../components/ProjectModal.astro";
 const title = "Ken Pham | Director";
 ---
@@ -33,7 +32,6 @@ const title = "Ken Pham | Director";
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/home.css" />
     
@@ -60,15 +58,15 @@ const title = "Ken Pham | Director";
     <a href="#main-content" class="skip-link">Skip to content</a>
     <!-- Custom cursor bubble -->
     <div class="cursor-bubble" id="cursorBubble">open project</div>
-    <div class="wrap">
+    <div class="wrap" style="overflow-x:clip;">
       <SiteHeader />
       
       <main id="main-content">
       <!-- Category Filter -->
       <div class="category-filter-wrap">
         <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filterOptions">
-          <span class="filter-icon">+</span>
-          <span class="filter-label">filter projects</span>
+          <span class="filter-toggle-icon">+</span>
+          <span class="filter-toggle-label" id="filterToggleLabel">Filter</span>
         </button>
         <div class="filter-options" id="filterOptions" role="group" aria-label="Filter projects by category">
           <button class="filter-btn active" data-filter="all">All</button>
@@ -86,11 +84,11 @@ const title = "Ken Pham | Director";
 
         <!-- ========== TILES ========== -->
 
-        <button class="tile has-overlay" data-category="documentary" data-project-id="thatwhichisheard" onclick="openProjectModal('thatwhichisheard')" aria-label="View That Which Is Heard documentary project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile has-overlay" data-category="documentary" data-project-id="thatwhichisheard" onclick="openProjectModal('thatwhichisheard')" aria-label="View That Which Is Heard documentary project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/twih_static.webp" type="image/webp" />
-              <img class="static" src="/media/twih_static.jpg" alt="That Which Is Heard" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/twih_static.jpg" alt="That Which Is Heard" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="metadata" poster="/media/twih_static.jpg">
               <source src="/media/twih_hover.mp4" type="video/mp4">
@@ -99,22 +97,35 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>That Which Is Heard <span>| Documentary</span></h3></div>
         </button>
 
-        <button class="tile has-overlay" data-category="short-film" data-project-id="hitandrun" onclick="openProjectModal('hitandrun')" aria-label="View Hit And Run project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="commercial" data-project-id="couchetard" onclick="openProjectModal('couchetard')" aria-label="View Couche-Tard project">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/couchetard_static.webp" type="image/webp" />
+              <img class="static" src="/media/couchetard_static.webp" alt="Couche-Tard" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/couchetard_static.webp">
+              <source src="/media/couchetard_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>Couche-Tard <span>| Commercial</span></h3></div>
+        </button>
+
+        <button class="tile has-overlay" data-category="short-film" data-project-id="hitandrun" onclick="openProjectModal('hitandrun')" aria-label="View Hit And Run project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/hitandrun_static.webp" type="image/webp" />
-              <img class="static" src="/media/hitandrun_static.jpg" alt="Hit And Run" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/hitandrun_static.jpg" alt="Hit And Run" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <div class="overlay"><p>CURRENTLY IN POST-PRODUCTION</p></div>
           </div>
           <div class="caption"><h3>Hit And Run <span>| Short Film</span></h3></div>
         </button>
 
-        <button class="tile has-overlay" data-category="short-film" data-project-id="thehallpass" onclick="openProjectModal('thehallpass')" aria-label="View The Hall Pass short film project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile has-overlay" data-category="short-film" data-project-id="thehallpass" onclick="openProjectModal('thehallpass')" aria-label="View The Hall Pass short film project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/hallpass_static.webp" type="image/webp" />
-              <img class="static" src="/media/hallpass_static.jpg" alt="The Hall Pass" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/hallpass_static.jpg" alt="The Hall Pass" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="metadata" poster="/media/hallpass_static.jpg">
               <source src="/media/hallpass_hover.mp4" type="video/mp4">
@@ -123,50 +134,11 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>The Hall Pass <span>| Short Film</span></h3></div>
         </button>
 
-        <button class="tile" data-category="commercial" data-project-id="pckw" onclick="openProjectModal('pckw')" aria-label="View PCKW Opening project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
-          <div class="hover-media">
-            <picture>
-              <source srcset="/media/pckw_static.webp" type="image/webp" />
-              <img class="static" src="/media/pckw_static.jpg" alt="PCKW Opening" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
-            </picture>
-            <video class="gif" muted playsinline preload="none" poster="/media/pckw_static.jpg">
-              <source src="/media/pckw_hover.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="caption"><h3>PCKW Opening <span>| Commercial</span></h3></div>
-        </button>
-
-        <button class="tile" data-category="commercial" data-project-id="bmwm4gt4" onclick="openProjectModal('bmwm4gt4')" aria-label="View BMW M4 GT4 project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
-          <div class="hover-media">
-            <picture>
-              <source srcset="/media/bmwm4gt4_static.webp" type="image/webp" />
-              <img class="static" src="/media/bmwm4gt4_static.jpg" alt="BMW M4 GT4" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
-            </picture>
-            <video class="gif" muted playsinline preload="none" poster="/media/bmwm4gt4_static.jpg">
-              <source src="/media/bmwm4gt4_hover.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="caption"><h3>BMW M4 GT4 <span>| Commercial</span></h3></div>
-        </button>
-
-        <button class="tile has-overlay" data-category="music-video" data-project-id="halfwaybroken" onclick="openProjectModal('halfwaybroken')" aria-label="View Halfway Broken music video project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
-          <div class="hover-media">
-            <picture>
-              <source srcset="/media/halfwaybroken_static.webp" type="image/webp" />
-              <img class="static" src="/media/halfwaybroken_static.jpg" alt="Halfway Broken" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
-            </picture>
-            <video class="gif" muted playsinline preload="none" poster="/media/halfwaybroken_static.jpg">
-              <source src="/media/halfwaybroken_hover.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="caption"><h3>Halfway Broken <span>| Music Video</span></h3></div>
-        </button>
-
-        <button class="tile" data-category="commercial" data-project-id="cayennetastedrive" onclick="openProjectModal('cayennetastedrive')" aria-label="View Porsche Cayenne Taste Drive project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="commercial" data-project-id="cayennetastedrive" onclick="openProjectModal('cayennetastedrive')" aria-label="View Porsche Cayenne Taste Drive project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/cayennetastedrive_static.webp" type="image/webp" />
-              <img class="static" src="/media/cayennetastedrive_static.jpg" alt="Porsche Cayenne Taste Drive" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/cayennetastedrive_static.jpg" alt="Porsche Cayenne Taste Drive" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/cayennetastedrive_static.jpg">
               <source src="/media/cayennetastedrive_hover.mp4" type="video/mp4">
@@ -175,11 +147,50 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>Porsche Cayenne Taste Drive <span>| Commercial</span></h3></div>
         </button>
 
-        <button class="tile" data-category="commercial" data-project-id="porschexpuma" onclick="openProjectModal('porschexpuma')" aria-label="View Porsche x PUMA project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="commercial" data-project-id="pckw" onclick="openProjectModal('pckw')" aria-label="View PCKW Opening project">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/pckw_static.webp" type="image/webp" />
+              <img class="static" src="/media/pckw_static.jpg" alt="PCKW Opening" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/pckw_static.jpg">
+              <source src="/media/pckw_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>PCKW Opening <span>| Commercial</span></h3></div>
+        </button>
+
+        <button class="tile" data-category="commercial" data-project-id="bmwm4gt4" onclick="openProjectModal('bmwm4gt4')" aria-label="View BMW M4 GT4 project">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/bmwm4gt4_static.webp" type="image/webp" />
+              <img class="static" src="/media/bmwm4gt4_static.jpg" alt="BMW M4 GT4" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/bmwm4gt4_static.jpg">
+              <source src="/media/bmwm4gt4_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>BMW M4 GT4 <span>| Commercial</span></h3></div>
+        </button>
+
+        <button class="tile has-overlay" data-category="music-video" data-project-id="halfwaybroken" onclick="openProjectModal('halfwaybroken')" aria-label="View Halfway Broken music video project">
+          <div class="hover-media">
+            <picture>
+              <source srcset="/media/halfwaybroken_static.webp" type="image/webp" />
+              <img class="static" src="/media/halfwaybroken_static.jpg" alt="Halfway Broken" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
+            </picture>
+            <video class="gif" muted playsinline preload="none" poster="/media/halfwaybroken_static.jpg">
+              <source src="/media/halfwaybroken_hover.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption"><h3>Halfway Broken <span>| Music Video</span></h3></div>
+        </button>
+
+        <button class="tile" data-category="commercial" data-project-id="porschexpuma" onclick="openProjectModal('porschexpuma')" aria-label="View Porsche x PUMA project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/porschexpuma_static.webp" type="image/webp" />
-              <img class="static" src="/media/porschexpuma_static.webp" alt="Porsche x PUMA" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/porschexpuma_static.webp" alt="Porsche x PUMA" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/porschexpuma_static.webp">
               <source src="/media/porschexpuma_hover.mp4" type="video/mp4">
@@ -188,11 +199,11 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>Porsche x PUMA <span>| Commercial</span></h3></div>
         </button>
 
-        <button class="tile" data-category="music-video" data-project-id="offonanisland" onclick="openProjectModal('offonanisland')" aria-label="View Off On An Island project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="music-video" data-project-id="offonanisland" onclick="openProjectModal('offonanisland')" aria-label="View Off On An Island project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/offonanisland_static.webp" type="image/webp" />
-              <img class="static" src="/media/offonanisland_static.jpg" alt="Off On An Island" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/offonanisland_static.jpg" alt="Off On An Island" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/offonanisland_static.jpg">
               <source src="/media/offonanisland_hover.mp4" type="video/mp4">
@@ -201,11 +212,11 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>Off On An Island <span>| Music Video</span></h3></div>
         </button>
 
-        <button class="tile" data-category="commercial" data-project-id="cayenne2024" onclick="openProjectModal('cayenne2024')" aria-label="View Porsche Cayenne Campaign project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="commercial" data-project-id="cayenne2024" onclick="openProjectModal('cayenne2024')" aria-label="View Porsche Cayenne Campaign project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/cayenne2024_static.webp" type="image/webp" />
-              <img class="static" src="/media/cayenne2024_static.jpg" alt="Porsche Cayenne 2024" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/cayenne2024_static.jpg" alt="Porsche Cayenne 2024" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/cayenne2024_static.jpg">
               <source src="/media/cayenne2024_hover.mp4" type="video/mp4">
@@ -214,11 +225,11 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>Porsche Cayenne Campaign <span>| Commercial</span></h3></div>
         </button>
 
-        <button class="tile" data-category="commercial" data-project-id="pecdakar" onclick="openProjectModal('pecdakar')" aria-label="View PEC Porsche 911 Dakar project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="commercial" data-project-id="pecdakar" onclick="openProjectModal('pecdakar')" aria-label="View PEC Porsche 911 Dakar project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/pecdakar_static.webp" type="image/webp" />
-              <img class="static" src="/media/pecdakar_static.jpg" alt="PEC Porsche 911 Dakar" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/pecdakar_static.jpg" alt="PEC Porsche 911 Dakar" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/pecdakar_static.jpg">
               <source src="/media/pecdakar_hover.mp4" type="video/mp4">
@@ -227,11 +238,11 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>PEC Porsche 911 Dakar <span>| Commercial</span></h3></div>
         </button>
 
-        <button class="tile" data-category="commercial" data-project-id="myporscheapp" onclick="openProjectModal('myporscheapp')" aria-label="View My Porsche App project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="commercial" data-project-id="myporscheapp" onclick="openProjectModal('myporscheapp')" aria-label="View My Porsche App project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/myporscheapp_static.webp" type="image/webp" />
-              <img class="static" src="/media/myporscheapp_static.jpg" alt="My Porsche App" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/myporscheapp_static.jpg" alt="My Porsche App" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/myporscheapp_static.jpg">
               <source src="/media/myporscheapp_hover.mp4" type="video/mp4">
@@ -240,11 +251,11 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>My Porsche App <span>| Commercial</span></h3></div>
         </button>
 
-        <button class="tile" data-category="commercial" data-project-id="pcv" onclick="openProjectModal('pcv')" aria-label="View Porsche Taycan EV Roadtrip project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="commercial" data-project-id="pcv" onclick="openProjectModal('pcv')" aria-label="View Porsche Taycan EV Roadtrip project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/pcv_static.webp" type="image/webp" />
-              <img class="static" src="/media/pcv_static.jpg" alt="Porsche Taycan EV Roadtrip" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/pcv_static.jpg" alt="Porsche Taycan EV Roadtrip" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/pcv_static.jpg">
               <source src="/media/pcv_hover.mp4" type="video/mp4">
@@ -253,11 +264,11 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>Porsche Taycan EV Roadtrip <span>| Commercial</span></h3></div>
         </button>
 
-        <button class="tile" data-category="commercial" data-project-id="driveyourownpath" onclick="openProjectModal('driveyourownpath')" aria-label="View Drive Your Own Path project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="commercial" data-project-id="driveyourownpath" onclick="openProjectModal('driveyourownpath')" aria-label="View Drive Your Own Path project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/driveyourownpath_static.webp" type="image/webp" />
-              <img class="static" src="/media/driveyourownpath_static.jpg" alt="Drive Your Own Path" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/driveyourownpath_static.jpg" alt="Drive Your Own Path" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/driveyourownpath_static.jpg">
               <source src="/media/driveyourownpath_hover.mp4" type="video/mp4">
@@ -266,11 +277,11 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>Drive Your Own Path <span>| Branded Content</span></h3></div>
         </button>
 
-        <button class="tile" data-category="commercial" data-project-id="volvoawareness" onclick="openProjectModal('volvoawareness')" aria-label="View Volvo Awareness Campaign project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="commercial" data-project-id="volvoawareness" onclick="openProjectModal('volvoawareness')" aria-label="View Volvo Awareness Campaign project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/volvoawareness_static.webp" type="image/webp" />
-              <img class="static" src="/media/volvoawareness_static.jpg" alt="Volvo Awareness Campaign" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/volvoawareness_static.jpg" alt="Volvo Awareness Campaign" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/volvoawareness_static.jpg">
               <source src="/media/volvoawareness_hover.mp4" type="video/mp4">
@@ -279,11 +290,11 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>Volvo Awareness Campaign <span>| Branded Content</span></h3></div>
         </button>
 
-        <button class="tile" data-category="documentary" data-project-id="teachplay" onclick="openProjectModal('teachplay')" aria-label="View Teach, Play project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="documentary" data-project-id="teachplay" onclick="openProjectModal('teachplay')" aria-label="View Teach, Play project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/teachplay_static.webp" type="image/webp" />
-              <img class="static" src="/media/teachplay_static.jpg" alt="Teach, Play" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/teachplay_static.jpg" alt="Teach, Play" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/teachplay_static.jpg">
               <source src="/media/teachplay_hover.mp4" type="video/mp4">
@@ -292,11 +303,11 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>Teach, Play <span>| Documentary</span></h3></div>
         </button>
 
-        <button class="tile" data-category="commercial" data-project-id="vinfast" onclick="openProjectModal('vinfast')" aria-label="View VinFast Boundless Together project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="commercial" data-project-id="vinfast" onclick="openProjectModal('vinfast')" aria-label="View VinFast Boundless Together project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/vinfast_static.webp" type="image/webp" />
-              <img class="static" src="/media/vinfast_static.jpg" alt="VinFast Boundless Together" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/vinfast_static.jpg" alt="VinFast Boundless Together" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/vinfast_static.jpg">
               <source src="/media/vinfast_hover.mp4" type="video/mp4">
@@ -305,11 +316,11 @@ const title = "Ken Pham | Director";
           <div class="caption"><h3>VinFast Boundless Together <span>| Commercial</span></h3></div>
         </button>
 
-        <button class="tile" data-category="commercial" data-project-id="canadiantire" onclick="openProjectModal('canadiantire')" aria-label="View Canadian Tire Motomaster Winter Edge II project" style="cursor:pointer;background:none;border:none;padding:0;font-family:inherit;">
+        <button class="tile" data-category="commercial" data-project-id="canadiantire" onclick="openProjectModal('canadiantire')" aria-label="View Canadian Tire Motomaster Winter Edge II project">
           <div class="hover-media">
             <picture>
               <source srcset="/media/canadiantire-wintertire_static.webp" type="image/webp" />
-              <img class="static" src="/media/canadiantire-wintertire_static.jpg" alt="Canadian Tire Motomaster Winter Edge II" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')">
+              <img class="static" src="/media/canadiantire-wintertire_static.jpg" alt="Canadian Tire Motomaster Winter Edge II" width="1280" height="720" loading="lazy" decoding="async" onload="this.setAttribute('data-loaded','true')" onerror="this.setAttribute('data-error','true')">
             </picture>
             <video class="gif" muted playsinline preload="none" poster="/media/canadiantire-wintertire_static.jpg">
               <source src="/media/canadiantire-wintertire_hover.mp4" type="video/mp4">
@@ -321,8 +332,7 @@ const title = "Ken Pham | Director";
       </div>
       </main>
       
-      <SiteFooter />
-    </div>
+    </div><!-- /.wrap -->
 
     <ProjectModal />
 
@@ -336,31 +346,23 @@ const title = "Ken Pham | Director";
       Tap once to preview, tap again to view project
     </div>
 
+    <script>window.__isTouch = matchMedia("(hover: none) and (pointer: coarse)").matches;</script>
+
     <script>
       // Category Filter Logic
       document.addEventListener('DOMContentLoaded', () => {
         const filterToggle = document.getElementById('filterToggle');
         const filterOptions = document.getElementById('filterOptions');
+        const filterToggleLabel = document.getElementById('filterToggleLabel');
         const filterBtns = document.querySelectorAll('.filter-btn');
         const tiles = document.querySelectorAll('.tile[data-category]');
 
-        // Toggle filter options
-        const filterIcon = filterToggle?.querySelector('.filter-icon');
+        // Toggle open/close
         if (filterToggle && filterOptions) {
           filterToggle.addEventListener('click', () => {
             const isExpanded = filterToggle.getAttribute('aria-expanded') === 'true';
             filterToggle.setAttribute('aria-expanded', !isExpanded);
             filterOptions.classList.toggle('expanded', !isExpanded);
-            if (filterIcon) filterIcon.textContent = isExpanded ? '+' : '−';
-          });
-
-          // Close on ESC key
-          document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && filterOptions.classList.contains('expanded')) {
-              filterToggle.setAttribute('aria-expanded', 'false');
-              filterOptions.classList.remove('expanded');
-              if (filterIcon) filterIcon.textContent = '+';
-            }
           });
         }
 
@@ -371,6 +373,14 @@ const title = "Ken Pham | Director";
             // Update active button
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+
+            // Update toggle label to show active filter
+            const label = filter === 'all' ? 'Filter' : btn.textContent;
+            if (filterToggleLabel) filterToggleLabel.textContent = label;
+
+            // Close the options after selection
+            filterToggle.setAttribute('aria-expanded', 'false');
+            filterOptions.classList.remove('expanded');
 
             // Filter tiles
             tiles.forEach(tile => {
@@ -397,7 +407,7 @@ const title = "Ken Pham | Director";
         }
 
         // Mobile Tap Indicator (first-time visitors)
-        const isTouch = matchMedia("(hover: none) and (pointer: coarse)").matches;
+        const isTouch = window.__isTouch;
         const tapIndicator = document.getElementById('tapIndicator');
         const hasSeenTapIndicator = localStorage.getItem('hasSeenTapIndicator');
 
@@ -443,7 +453,7 @@ const title = "Ken Pham | Director";
       // Custom cursor bubble for tiles
       document.addEventListener('DOMContentLoaded', () => {
         const cursorBubble = document.getElementById('cursorBubble');
-        const isTouch = matchMedia("(hover: none) and (pointer: coarse)").matches;
+        const isTouch = window.__isTouch;
 
         if (!isTouch && cursorBubble) {
           const tiles = document.querySelectorAll('.tile');
@@ -468,7 +478,7 @@ const title = "Ken Pham | Director";
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const isTouch = matchMedia("(hover: none) and (pointer: coarse)").matches;
+        const isTouch = window.__isTouch;
         const vids = document.querySelectorAll('.portfolio-grid video.gif');
         const io = new IntersectionObserver((entries) => {
           entries.forEach(({ isIntersecting, target }) => {
@@ -546,18 +556,6 @@ const title = "Ken Pham | Director";
           }, delay + animationDuration);
         });
 
-        // Reading progress bar
-        const progressBar = document.getElementById('progress-bar');
-        if (progressBar) {
-          function updateProgress() {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = (scrollTop / docHeight) * 100;
-            progressBar.style.width = progress + '%';
-          }
-          window.addEventListener('scroll', updateProgress);
-          updateProgress();
-        }
       });
     </script>
 
@@ -565,6 +563,156 @@ const title = "Ken Pham | Director";
       import { initBackToTop, initProgressBar } from '/scripts/shared.js';
       initBackToTop();
       initProgressBar();
+    </script>
+
+    <!-- Contact form handler -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const firstName = form.querySelector('#firstName').value || '';
+          const lastName = form.querySelector('#lastName').value || '';
+          const email = form.querySelector('#email').value || '';
+          const subject = form.querySelector('#subject').value || 'Contact from website';
+          const message = form.querySelector('#message').value || '';
+          const fullName = `${firstName} ${lastName}`.trim() || '(not provided)';
+          const body = `Name: ${fullName}\nEmail: ${email}\n\n${message}`;
+          window.location.href = `mailto:kenbpham@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        });
+      });
+    </script>
+
+    <!-- Horizontal scroll sections engine -->
+    <script>
+      (function () {
+        const isMobile = () => window.innerWidth <= 768;
+
+        // Measure and cache header height as CSS var
+        function setHeaderHeight() {
+          const h = document.querySelector('.site-header');
+          if (h) document.documentElement.style.setProperty('--header-h', h.offsetHeight + 'px');
+        }
+        setHeaderHeight();
+        window.addEventListener('resize', setHeaderHeight);
+
+        const wrapper  = document.getElementById('sectionsWrapper');
+        const inner    = document.getElementById('sectionsInner');
+        const navBtns  = document.querySelectorAll('.section-nav-btn');
+        const panels   = document.querySelectorAll('.section-panel');
+        const scrollHint = document.getElementById('scrollHint');
+        const NUM      = 3; // number of panels
+
+        if (!wrapper || !inner) return;
+
+        let lastState = '';
+
+        function getSectionIndex(progress) {
+          return Math.min(NUM - 1, Math.round(progress * (NUM - 1)));
+        }
+
+        function update() {
+          if (isMobile()) {
+            inner.style.transform = '';
+            return;
+          }
+
+          const rect = wrapper.getBoundingClientRect();
+          const scrolled   = -rect.top;
+          const scrollable = wrapper.offsetHeight - window.innerHeight;
+
+          // Scroll hint near bottom of grid
+          if (scrollHint) {
+            scrollHint.classList.toggle('visible', window.scrollY >= wrapper.offsetTop - window.innerHeight * 0.5);
+          }
+
+          if (scrolled <= 0) {
+            inner.style.transform = 'translateX(0)';
+            setActive(-1, false); // -1 = portfolio/grid
+            if (-rect.top > -window.innerHeight) panels[0]?.classList.add('entered');
+            return;
+          }
+          if (scrolled >= scrollable) {
+            inner.style.transform = `translateX(-${(NUM - 1) * 100}vw)`;
+            setActive(NUM - 1, true);
+            panels.forEach(p => p.classList.add('entered'));
+            return;
+          }
+
+          const progress    = scrolled / scrollable;
+          const translateVw = progress * (NUM - 1) * 100;
+          inner.style.transform = `translateX(-${translateVw}vw)`;
+
+          const idx = getSectionIndex(progress);
+          setActive(idx, true);
+
+          panels.forEach((panel, i) => {
+            if (i * 100 - translateVw < 80) panel.classList.add('entered');
+          });
+        }
+
+        function setActive(idx, inSections) {
+          const state = inSections ? `s${idx}` : 'grid';
+          if (state === lastState) return;
+          lastState = state;
+
+          navBtns.forEach((btn, i) => btn.classList.toggle('active', inSections && i === idx));
+
+          const sectionIds = ['about', 'press', 'contact'];
+          window.dispatchEvent(new CustomEvent('sectionchange', {
+            detail: inSections ? sectionIds[idx] : null
+          }));
+        }
+
+        window.addEventListener('scroll', update, { passive: true });
+        // Run after layout — rAF ensures DOM measurements are accurate
+        requestAnimationFrame(() => requestAnimationFrame(update));
+
+        // Section nav button clicks
+        navBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = parseInt(btn.dataset.idx, 10);
+            scrollToSectionIndex(idx);
+          });
+        });
+
+        // Intercept hash-anchor nav links (e.g. /#about)
+        document.addEventListener('click', (e) => {
+          const link = e.target.closest('a[href]');
+          if (!link) return;
+          const href = link.getAttribute('href');
+          const match = href.match(/^\/?#(about|press|contact)$/);
+          if (match) {
+            e.preventDefault();
+            const sectionIds = ['about', 'press', 'contact'];
+            const idx = sectionIds.indexOf(match[1]);
+            if (idx >= 0) scrollToSectionIndex(idx);
+            history.pushState(null, '', '/#' + match[1]);
+          }
+          // Portfolio link scrolls back to top
+          if (href === '/' && window.location.pathname === '/') {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        });
+
+        function scrollToSectionIndex(idx) {
+          const scrollable = wrapper.offsetHeight - window.innerHeight;
+          const targetY = wrapper.offsetTop + (idx / (NUM - 1)) * scrollable;
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        }
+
+        // Handle initial hash on load
+        const hashMap = { about: 0, press: 1, contact: 2 };
+        const initHash = window.location.hash.replace('#', '');
+        if (initHash in hashMap) {
+          // Wait for layout to settle before scrolling
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            scrollToSectionIndex(hashMap[initHash]);
+          }));
+        }
+      })();
     </script>
   </body>
 </html>
