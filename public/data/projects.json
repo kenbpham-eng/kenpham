@@ -89,14 +89,14 @@
       "description": "Agency: WPP\nProduction Company: Steak+Sizzle\n\nClient Lead/Producer: James Wright\nDirector/Producer: Ken Pham\nDirector of Photography: Kejd Kuqo\nKey Grip/Swing: Eric Bates\nSound Recordist: Edward Almeida\nEditor/Colourist: Federico Capellini\nProduction Assistant: Rachel Kramer",
       "images": [
         {
-          "thumb": "/media/couchetard_static.webp",
-          "full": "/media/couchetard_static.webp",
+          "thumb": "/media/couchetard_static.jpg",
+          "full": "/media/couchetard_static.jpg",
           "alt": "Couche-Tard"
         }
       ],
       "video": {
         "src": "/media/couchetard_hover.mp4",
-        "poster": "/media/couchetard_static.webp"
+        "poster": "/media/couchetard_static.jpg"
       },
       "vimeoEmbeds": [
         {
