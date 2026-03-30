@@ -30,31 +30,37 @@
         <div class="modal-metadata" id="modal-metadata"></div>
       </div>
 
-      <div id="modal-vimeo-embeds" class="modal-vimeo-embeds" style="display: none;">
-        <div class="vimeo-embeds-grid" id="vimeo-embeds-grid"></div>
+      <div id="video-info-layout" class="video-info-layout">
+        <div id="modal-vimeo-embeds" class="modal-vimeo-embeds" style="display: none;">
+          <div class="vimeo-embeds-grid" id="vimeo-embeds-grid"></div>
+        </div>
+
+        <div class="video-info-right" id="video-info-right">
+          <div id="modal-links" class="modal-links" style="display: none;">
+            <div class="links-list" id="links-list"></div>
+          </div>
+
+          <div class="modal-description" id="modal-description"></div>
+
+          <div id="modal-director-note" class="modal-director-note" style="display: none;">
+            <h3>DIRECTOR'S NOTE</h3>
+            <p id="director-note-text"></p>
+          </div>
+
+          <div id="modal-featuring" class="modal-featuring" style="display: none;">
+            <div class="featuring-label" id="featuring-label"></div>
+            <div class="featuring-names" id="featuring-names"></div>
+            <div class="featuring-laurel" id="featuring-laurel"></div>
+          </div>
+
+          <div id="modal-credits" class="modal-credits" style="display: none;">
+            <h3>CREDITS</h3>
+            <div class="credits-list" id="credits-list"></div>
+          </div>
+        </div>
       </div>
 
-      <div id="modal-links" class="modal-links" style="display: none;">
-        <div class="links-list" id="links-list"></div>
-      </div>
-
-      <div class="modal-description" id="modal-description"></div>
-
-      <div id="modal-director-note" class="modal-director-note" style="display: none;">
-        <h3>DIRECTOR'S NOTE</h3>
-        <p id="director-note-text"></p>
-      </div>
-
-      <div id="modal-featuring" class="modal-featuring" style="display: none;">
-        <div class="featuring-label" id="featuring-label"></div>
-        <div class="featuring-names" id="featuring-names"></div>
-        <div class="featuring-laurel" id="featuring-laurel"></div>
-      </div>
-
-      <div id="modal-credits" class="modal-credits" style="display: none;">
-        <h3>CREDITS</h3>
-        <div class="credits-list" id="credits-list"></div>
-      </div>
+      <div id="modal-vimeo-vertical-sections" class="modal-vimeo-vertical-sections" style="display: none;"></div>
 
       <div id="modal-awards" class="modal-awards" style="display: none;">
         <h3>AWARDS</h3>
@@ -501,6 +507,35 @@
     margin-bottom: 32px;
   }
 
+  .video-info-layout {
+    display: block;
+  }
+
+  .video-info-layout.side-by-side {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+
+  .video-info-layout.side-by-side .modal-vimeo-embeds {
+    flex: 0 0 36%;
+    margin-bottom: 0;
+  }
+
+  .video-info-layout.side-by-side.vertical-active .modal-vimeo-embeds {
+    flex: 0 0 55%;
+  }
+
+  .video-info-layout.side-by-side .vimeo-embed-item {
+    max-width: 100%;
+  }
+
+  .video-info-right {
+    flex: 1;
+    min-width: 0;
+  }
+
   .modal-vimeo-embeds {
     margin-bottom: 32px;
   }
@@ -572,6 +607,28 @@
   body.light-mode .modal-content .vimeo-switcher-btn.active {
     background: #fff;
     color: #000;
+  }
+
+  .modal-vimeo-vertical-sections {
+    margin-bottom: 32px;
+  }
+
+  .vimeo-vertical-section {
+    margin-bottom: 24px;
+  }
+
+  .vimeo-vertical-section-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.6;
+  }
+
+  .vimeo-vertical-row {
+    display: flex;
+    gap: 16px;
   }
 
   .modal-gallery h3 {
@@ -1070,20 +1127,31 @@
       // Handle vimeo embeds
       const vimeoEmbedsEl = document.getElementById('modal-vimeo-embeds');
       const vimeoEmbedsGrid = document.getElementById('vimeo-embeds-grid');
+      const videoInfoLayout = document.getElementById('video-info-layout');
       if (project.vimeoEmbeds && project.vimeoEmbeds.length > 0) {
         vimeoEmbedsEl.style.display = 'block';
         const is16x9 = project.vimeoEmbeds.some(e => e.aspectRatio === '16/9' || e.aspectRatio === '4/3');
+        const isSingleVertical = !is16x9 && project.vimeoEmbeds.length === 1;
+        if (isSingleVertical) {
+          videoInfoLayout.classList.add('side-by-side');
+        } else {
+          videoInfoLayout.classList.remove('side-by-side');
+        }
         if (is16x9) {
           // Switcher UI: one video at a time with buttons
           const firstEmbed = project.vimeoEmbeds[0];
+          const verticalSections = project.vimeoVerticalSections || [];
           vimeoEmbedsGrid.style.flexDirection = 'column';
           vimeoEmbedsGrid.innerHTML = `
             <div class="vimeo-switcher-buttons" id="vimeo-switcher-buttons">
               ${project.vimeoEmbeds.map((e, i) => `
-                <button class="vimeo-switcher-btn${i === 0 ? ' active' : ''}" data-index="${i}">▶ ${e.title}</button>
+                <button class="vimeo-switcher-btn${i === 0 ? ' active' : ''}" data-index="${i}" data-type="16x9">▶ ${e.title}</button>
+              `).join('')}
+              ${verticalSections.map((s, i) => `
+                <button class="vimeo-switcher-btn" data-index="${i}" data-type="vertical">▶ ${s.title}</button>
               `).join('')}
             </div>
-            <div class="vimeo-embed-item" style="flex:none;width:100%;">
+            <div id="vimeo-16x9-player" style="flex:none;width:100%;">
               <div class="vimeo-embed-wrapper" style="padding-bottom:${project.vimeoEmbeds[0].aspectRatio === '4/3' ? '75%' : '56.25%'};">
                 <iframe id="vimeo-switcher-iframe" src="${firstEmbed.src}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="${firstEmbed.title}" allowfullscreen></iframe>
               </div>
@@ -1091,14 +1159,51 @@
           `;
           // Wire up buttons
           const embeds = project.vimeoEmbeds;
+          const vertSectionsEl = document.getElementById('modal-vimeo-vertical-sections');
           vimeoEmbedsGrid.querySelectorAll('.vimeo-switcher-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-              const idx = parseInt(btn.getAttribute('data-index'), 10);
               vimeoEmbedsGrid.querySelectorAll('.vimeo-switcher-btn').forEach(b => b.classList.remove('active'));
               btn.classList.add('active');
-              const iframe = document.getElementById('vimeo-switcher-iframe');
-              iframe.src = embeds[idx].src;
-              iframe.title = embeds[idx].title;
+              const type = btn.getAttribute('data-type');
+              const idx = parseInt(btn.getAttribute('data-index'), 10);
+              const player16x9 = document.getElementById('vimeo-16x9-player');
+              if (type === 'vertical') {
+                // Stop 16x9 iframe and hide player
+                const iframe = document.getElementById('vimeo-switcher-iframe');
+                if (iframe) iframe.src = '';
+                player16x9.style.display = 'none';
+                videoInfoLayout.classList.remove('side-by-side');
+                videoInfoLayout.classList.remove('vertical-active');
+                // Render vertical row in place of 16x9 player
+                let inlineVert = document.getElementById('vimeo-inline-vertical');
+                if (!inlineVert) {
+                  inlineVert = document.createElement('div');
+                  inlineVert.id = 'vimeo-inline-vertical';
+                  player16x9.parentNode.insertBefore(inlineVert, player16x9.nextSibling);
+                }
+                const section = verticalSections[idx];
+                inlineVert.style.display = 'block';
+                inlineVert.innerHTML = `<div class="vimeo-vertical-row">${section.embeds.map(e => `
+                  <div class="vimeo-embed-item">
+                    <div class="vimeo-embed-wrapper">
+                      <iframe src="${e.src}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="${e.title}" allowfullscreen></iframe>
+                    </div>
+                  </div>`).join('')}
+                </div>`;
+              } else {
+                // Hide vertical inline, stop its iframes
+                const inlineVert = document.getElementById('vimeo-inline-vertical');
+                if (inlineVert) {
+                  inlineVert.querySelectorAll('iframe').forEach(f => { f.src = ''; });
+                  inlineVert.style.display = 'none';
+                }
+                videoInfoLayout.classList.remove('side-by-side');
+                videoInfoLayout.classList.remove('vertical-active');
+                player16x9.style.display = 'block';
+                const iframe = document.getElementById('vimeo-switcher-iframe');
+                iframe.src = embeds[idx].src;
+                iframe.title = embeds[idx].title;
+              }
             });
           });
         } else {
@@ -1116,6 +1221,31 @@
         }
       } else {
         vimeoEmbedsEl.style.display = 'none';
+        videoInfoLayout.classList.remove('side-by-side');
+      }
+
+      // Handle vertical video sections
+      const vimeoVerticalSectionsEl = document.getElementById('modal-vimeo-vertical-sections');
+      if (project.vimeoVerticalSections && project.vimeoVerticalSections.length > 0) {
+        // Hide by default if there are also 16x9 embeds (button-triggered), else show immediately
+        const has16x9 = project.vimeoEmbeds && project.vimeoEmbeds.some(e => e.aspectRatio === '16/9' || e.aspectRatio === '4/3');
+        vimeoVerticalSectionsEl.style.display = has16x9 ? 'none' : 'block';
+        vimeoVerticalSectionsEl.innerHTML = project.vimeoVerticalSections.map(section => `
+          <div class="vimeo-vertical-section">
+            <div class="vimeo-vertical-section-title">${section.title}</div>
+            <div class="vimeo-vertical-row">
+              ${section.embeds.map(embed => `
+                <div class="vimeo-embed-item">
+                  <div class="vimeo-embed-wrapper">
+                    <iframe src="${embed.src}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="${embed.title}" allowfullscreen></iframe>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `).join('');
+      } else {
+        vimeoVerticalSectionsEl.style.display = 'none';
       }
 
       // Handle gallery
@@ -1223,6 +1353,8 @@
       // Stop vimeo embeds
       const vimeoEmbedsGrid = document.getElementById('vimeo-embeds-grid');
       if (vimeoEmbedsGrid) vimeoEmbedsGrid.querySelectorAll('iframe').forEach(f => { f.src = f.src; });
+      const vimeoVertSections = document.getElementById('modal-vimeo-vertical-sections');
+      if (vimeoVertSections) vimeoVertSections.querySelectorAll('iframe').forEach(f => { f.src = f.src; });
     }
 
     // Event listeners

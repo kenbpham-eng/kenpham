@@ -970,6 +970,117 @@
       ]
     },
     {
+      "id": "volkswagen-walkaround",
+      "title": "Get To Know Your Volkswagen Series",
+      "year": "2024",
+      "category": "Commercial",
+      "metadata": "Commercial",
+      "description": "Agency: VML\nProduction Company: Steak+Sizzle\n\nProducing Director: Ken Pham\nCinematographer, Tiguan: Owain Parri\nCinematographer, Taos: Ben Rayner\nProduction Manager / DIT: Chris Monteiro\nKey Grip: Shane Azam\nColourist: Owain Parri\nOn-Set Recordist: Ian Reynolds\nProduction Assistant: Sam Pike",
+      "vimeoEmbeds": [
+        { "src": "https://player.vimeo.com/video/1178615547?h=859a9ca503&badge=0&autopause=0&player_id=0&app_id=58479", "title": "Taos_16x9_French_Hero", "aspectRatio": "16/9" },
+        { "src": "https://player.vimeo.com/video/1178615311?h=8162e4f105&badge=0&autopause=0&player_id=0&app_id=58479", "title": "Taos_16x9_English_Hero", "aspectRatio": "16/9" },
+        { "src": "https://player.vimeo.com/video/1178615016?h=82f6c4319a&badge=0&autopause=0&player_id=0&app_id=58479", "title": "Tiguan_16x9_French_Hero", "aspectRatio": "16/9" },
+        { "src": "https://player.vimeo.com/video/1178614964?h=913c24d46b&badge=0&autopause=0&player_id=0&app_id=58479", "title": "Tiguan_16x9_English_Hero", "aspectRatio": "16/9" }
+      ],
+      "vimeoVerticalSections": [
+        {
+          "title": "Tiguan_9x16_English_Social x3",
+          "embeds": [
+            { "src": "https://player.vimeo.com/video/1178614949?h=822fa9dce8&badge=0&autopause=0&player_id=0&app_id=58479", "title": "Tiguan Social 1" },
+            { "src": "https://player.vimeo.com/video/1178614929?h=15926423f5&badge=0&autopause=0&player_id=0&app_id=58479", "title": "Tiguan Social 2" },
+            { "src": "https://player.vimeo.com/video/1178614912?h=1e18f6ce24&badge=0&autopause=0&player_id=0&app_id=58479", "title": "Tiguan Social 3" }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "thumb": "/media/volkswagen-walkaround_static.webp",
+          "full": "/media/volkswagen-walkaround_static.webp",
+          "alt": "Get To Know Your Volkswagen Series"
+        }
+      ],
+      "video": {
+        "src": "/media/volkswagen-walkaround_hover.mp4",
+        "poster": "/media/volkswagen-walkaround_static.webp"
+      },
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          { "thumb": "/portfolio/volkswagen-walkaround/Timeline 1_01_01_42_17.webp", "full": "/portfolio/volkswagen-walkaround/Timeline 1_01_01_42_17.webp", "alt": "Get To Know Your Volkswagen Series" },
+          { "thumb": "/portfolio/volkswagen-walkaround/Timeline 1_01_02_00_19.webp", "full": "/portfolio/volkswagen-walkaround/Timeline 1_01_02_00_19.webp", "alt": "Get To Know Your Volkswagen Series" },
+          { "thumb": "/portfolio/volkswagen-walkaround/Timeline 1_01_05_51_20.webp", "full": "/portfolio/volkswagen-walkaround/Timeline 1_01_05_51_20.webp", "alt": "Get To Know Your Volkswagen Series" },
+          { "thumb": "/portfolio/volkswagen-walkaround/Timeline 1_01_08_24_14.webp", "full": "/portfolio/volkswagen-walkaround/Timeline 1_01_08_24_14.webp", "alt": "Get To Know Your Volkswagen Series" },
+          { "thumb": "/portfolio/volkswagen-walkaround/Timeline 1_01_08_38_18.webp", "full": "/portfolio/volkswagen-walkaround/Timeline 1_01_08_38_18.webp", "alt": "Get To Know Your Volkswagen Series" },
+          { "thumb": "/portfolio/volkswagen-walkaround/Timeline 1_01_10_50_13.webp", "full": "/portfolio/volkswagen-walkaround/Timeline 1_01_10_50_13.webp", "alt": "Get To Know Your Volkswagen Series" },
+          { "thumb": "/portfolio/volkswagen-walkaround/Timeline 1_01_11_14_07.webp", "full": "/portfolio/volkswagen-walkaround/Timeline 1_01_11_14_07.webp", "alt": "Get To Know Your Volkswagen Series" },
+          { "thumb": "/portfolio/volkswagen-walkaround/Timeline 1_01_16_23_08.webp", "full": "/portfolio/volkswagen-walkaround/Timeline 1_01_16_23_08.webp", "alt": "Get To Know Your Volkswagen Series" },
+          { "thumb": "/portfolio/volkswagen-walkaround/Timeline 1_01_16_25_19.webp", "full": "/portfolio/volkswagen-walkaround/Timeline 1_01_16_25_19.webp", "alt": "Get To Know Your Volkswagen Series" }
+        ]
+      }
+    },
+    {
+      "id": "toyotarav42026",
+      "title": "Toyota RAV4 2026 Launch",
+      "year": "2026",
+      "category": "Commercial",
+      "metadata": "Integrated Production | 30 Seconds | Colour",
+      "description": "Client: Toyota Motors Manufacturing Canada\nProduction Company: Steak+Sizzle\n\nDirector/Producer: Ken Pham\nDirector of Photography: Chris Monteiro\nPhotographer: Lucas Scarfone\nProduction Coordinator: Sam Pike\nEditor: Justin Dhama\nColourist: Federico Capellini",
+      "images": [
+        {
+          "thumb": "/media/toyotarav42026_static.webp",
+          "full": "/media/toyotarav42026_static.webp",
+          "alt": "Toyota RAV4 2026 Launch"
+        }
+      ],
+      "video": {
+        "src": "/media/toyotarav42026_hover.mp4",
+        "poster": "/media/toyotarav42026_static.webp"
+      },
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          { "thumb": "/portfolio/toyotarav42026/Timeline 1_01_00_03_19.webp", "full": "/portfolio/toyotarav42026/Timeline 1_01_00_03_19.webp", "alt": "Toyota RAV4 2026 Launch" },
+          { "thumb": "/portfolio/toyotarav42026/Timeline 1_01_00_07_22.webp", "full": "/portfolio/toyotarav42026/Timeline 1_01_00_07_22.webp", "alt": "Toyota RAV4 2026 Launch" },
+          { "thumb": "/portfolio/toyotarav42026/Timeline 1_01_00_08_23.webp", "full": "/portfolio/toyotarav42026/Timeline 1_01_00_08_23.webp", "alt": "Toyota RAV4 2026 Launch" },
+          { "thumb": "/portfolio/toyotarav42026/Timeline 1_01_00_31_20.webp", "full": "/portfolio/toyotarav42026/Timeline 1_01_00_31_20.webp", "alt": "Toyota RAV4 2026 Launch" }
+        ]
+      }
+    },
+    {
+      "id": "michelinguide-gailsimmons",
+      "title": "Michelin Guide x Gail Simmons",
+      "year": "2025",
+      "category": "Commercial",
+      "metadata": "Commercial",
+      "description": "Client: Michelin Guide\nProduction Company: Steak+Sizzle\n\nProducer: Jakob Pospiezynski\nDirector: Ken Pham\nDirector of Photography: Owain Parri\nEditor: Justin Dhama\nSpecial Thank You: Gail Simmons, Bravo, NBC Universal, Bar Raval, Alo Restaurant, Aloette Restaurant, Four Seasons Hotel Toronto, City of Toronto",
+      "vimeoEmbeds": [
+        { "src": "https://player.vimeo.com/video/1178589231?h=3891ee3423&badge=0&autopause=0&player_id=0&app_id=58479", "title": "Michelin Guide x Gail Simmons" }
+      ],
+      "images": [
+        {
+          "thumb": "/media/michelinguide-gailsimmons_static.webp",
+          "full": "/media/michelinguide-gailsimmons_static.webp",
+          "alt": "Michelin Guide x Gail Simmons"
+        }
+      ],
+      "video": {
+        "src": "/media/michelinguide-gailsimmons_hover.mp4",
+        "poster": "/media/michelinguide-gailsimmons_static.webp"
+      },
+      "gallery": {
+        "title": "Stills",
+        "aspectRatio": "16 / 9",
+        "images": [
+          { "thumb": "/portfolio/michelinguide-gailsimmons/Timeline 1_01_00_14_16.webp", "full": "/portfolio/michelinguide-gailsimmons/Timeline 1_01_00_14_16.webp", "alt": "Michelin Guide x Gail Simmons" },
+          { "thumb": "/portfolio/michelinguide-gailsimmons/Timeline 1_01_01_38_00.webp", "full": "/portfolio/michelinguide-gailsimmons/Timeline 1_01_01_38_00.webp", "alt": "Michelin Guide x Gail Simmons" },
+          { "thumb": "/portfolio/michelinguide-gailsimmons/Timeline 1_01_04_27_16.webp", "full": "/portfolio/michelinguide-gailsimmons/Timeline 1_01_04_27_16.webp", "alt": "Michelin Guide x Gail Simmons" },
+          { "thumb": "/portfolio/michelinguide-gailsimmons/Timeline 1_01_05_32_06.webp", "full": "/portfolio/michelinguide-gailsimmons/Timeline 1_01_05_32_06.webp", "alt": "Michelin Guide x Gail Simmons" }
+        ]
+      }
+    },
+    {
       "id": "halfwaybroken",
       "title": "Halfway Broken by Luna Elle",
       "year": "2024",
