@@ -179,7 +179,7 @@ body.light-mode .scroll-progress-bar {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.2); }
 }
-.portfolio-grid { display:grid; grid-template-columns:1fr; gap:22px; }
+.portfolio-grid { display:grid; grid-template-columns:1fr; gap:10px; }
 @media (min-width:768px){ .portfolio-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (min-width:900px){ .portfolio-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
 
@@ -219,7 +219,6 @@ body.light-mode .scroll-progress-bar {
 .hover-media video.gif { position:absolute; top:0; left:0; }
 
 @media (hover:hover){
-  .tile:hover { transform: translateY(-4px); }
   .hover-media .gif { opacity:0; transition:opacity .25s ease; }
   .tile:hover .hover-media .gif { opacity:1; }
   .tile:hover .hover-media .static { opacity:0; }
@@ -259,7 +258,10 @@ body.light-mode .cursor-bubble {
   color: var(--gunmetal, #2F2F32);
 }
 
-.caption{ margin-top:14px; color: var(--paper-white); text-align: left; }
+.caption{ color: var(--paper-white); text-align: left; opacity:0; max-height:0; overflow:hidden; transition: opacity .25s ease, max-height .3s ease, margin-top .3s ease; margin-top:0; }
+@media (hover:hover){ .tile:hover .caption { opacity: 1; max-height: 40px; margin-top: 10px; } }
+@media (hover:none){ .caption { opacity: 1; max-height: 40px; margin-top: 10px; } }
+.tile:focus-visible .caption { opacity: 1; max-height: 40px; margin-top: 10px; }
 .overlay{ pointer-events:none; color: var(--paper-white); position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .25s ease; background: rgba(47, 47, 50, 0.7); }
 @media (hover:hover){ .tile.has-overlay:hover .overlay{ opacity:1; } }
 .overlay p{ margin:0; font-size:12px; font-weight:600; letter-spacing:1px; text-align:center; padding:0 20px; }
@@ -283,8 +285,8 @@ body.light-mode .cursor-bubble {
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 img, video{ user-select:none; -webkit-user-drag:none; pointer-events:auto; box-sizing:border-box; }
-.caption h3{ margin:0; font-size:16px; font-weight:500; letter-spacing:.2px; }
-.caption h3 span{ opacity:.6; font-weight:400; }
+.caption h3{ margin:0; font-size:13px; font-weight:500; letter-spacing:.3px; text-transform:uppercase; }
+.caption h3 span{ opacity:.55; font-weight:400; text-transform:none; letter-spacing:.2px; }
 
 /* Back to Top button */
 #backToTop{
