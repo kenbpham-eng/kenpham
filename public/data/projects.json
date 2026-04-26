@@ -1098,6 +1098,13 @@
         "src": "/media/halfwaybroken_hover.mp4",
         "poster": "/media/halfwaybroken_static.jpg"
       },
+      "vimeoEmbeds": [
+        {
+          "src": "https://player.vimeo.com/video/1013020164?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+          "title": "Halfway Broken by Luna Elle",
+          "aspectRatio": "16/9"
+        }
+      ],
       "links": [
         {
           "title": "WATCH",
