@@ -14,72 +14,12 @@
   padding-bottom: 16px;
 }
 
-.filter-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: none;
-  color: var(--soft-shadow-grey);
-  padding: 0;
-  font-size: 12px;
-  font-weight: 400;
-  cursor: pointer;
-  font-family: inherit;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: color 0.2s ease;
-  align-self: flex-end;
-  position: relative;
-}
-
-.filter-toggle:hover {
-  color: var(--paper-white);
-}
-
-.filter-toggle::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--paper-white);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s ease;
-}
-
-.filter-toggle:hover::after {
-  transform: scaleX(1);
-}
-
-.filter-toggle-icon {
-  font-size: 14px;
-  font-weight: 300;
-  transition: transform 0.25s ease;
-  display: inline-block;
-}
-
-.filter-toggle[aria-expanded="true"] .filter-toggle-icon {
-  transform: rotate(45deg);
-}
-
-.filter-toggle-label em {
-  font-style: normal;
-  opacity: 0.6;
-}
-
 .filter-options {
-  display: none;
+  display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
   align-self: flex-end;
-}
-
-.filter-options.expanded {
-  display: flex;
 }
 
 .filter-btn {

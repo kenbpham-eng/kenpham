@@ -98,6 +98,52 @@ const title = "Ken Pham | About";
         }
       }
 
+      .press-section {
+        margin-top: 48px;
+      }
+
+      .press-section h3 {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin: 0 0 16px 0;
+        color: var(--text-color);
+      }
+
+      .press-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .press-list a {
+        color: var(--text-secondary, rgba(242, 242, 242, 0.7));
+        text-decoration: none;
+        font-size: 15px;
+        line-height: 1.6;
+        transition: color 0.2s ease;
+      }
+
+      .press-list a:hover {
+        color: var(--text-color);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .press-list a:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+      }
+
+      .press-list .press-source {
+        color: var(--text-color);
+        font-weight: 600;
+      }
+
       .about-image {
         position: sticky;
         top: 144px;
@@ -198,14 +244,40 @@ const title = "Ken Pham | About";
         <div class="about-text">
           <section>
             <p>
-              Ken Pham is a director and producer whose latest film, That Which Is Heard will have its World Premiere at DOC NYC 2025. Before transitioning into filmmaking, Ken built an extensive career as a choreographer and dancer, with credits including Star Trek: Strange New Worlds, SEE (Seasons 2 & 3, Apple TV+), Julie and the Phantoms, Jupiter's Legacy, Murdoch Mysteries, How to Die Alone, The Magicians, Work It, and What We Do in the Shadows.
+              Ken Pham is a director whose artistic roots began with movement. He spent years as a choreographer and dancer on productions including Star Trek: Strange New Worlds, SEE (Apple TV+), What We Do in the Shadows, and The Magicians.
             </p>
             <p>
-              His time working across major film and television productions inspired a passion for storytelling through movement and visual language. Ken further honed his craft while assisting the director and producer of The Changeling (Apple TV+), deepening his transition into directing. He has since directed work for commercial clients such as Porsche, Volkswagen, Volvo, and the Michelin Guide.
+              His practice spans narrative, documentary, commercial, and mixed media. He directs campaigns for Porsche, Toyota, Volkswagen, and the Michelin Guide, and honed his approach to storytelling while assisting the director and producer of The Changeling (Apple TV+) and shadowing director Jason Eisener on Dark Side of the Ring.
             </p>
             <p>
-              Ken's debut short film, The Hall Pass, was an official selection at the 2025 Toronto Short Film Festival, a Finalist at Canada Shorts, and a Semi-Finalist at the New Orleans International Film Awards.
+              His documentary That Which Is Heard, following a stroke survivor's return to the stage, had its World Premiere at DOC NYC 2025, North America's largest documentary festival. His debut short film, The Hall Pass, screened at the 2025 Toronto Short Film Festival and was a Finalist at Canada Shorts.
             </p>
+          </section>
+
+          <section class="press-section" aria-labelledby="press-heading">
+            <h3 id="press-heading">PRESS</h3>
+            <ul class="press-list">
+              <li>
+                <a href="https://variety.com/2025/film/news/doc-nyc-film-lineup-1236541355/" target="_blank" rel="noopener noreferrer">
+                  <span class="press-source">Variety</span> DOC NYC Unveils 16th Annual Film Lineup (Exclusive)
+                </a>
+              </li>
+              <li>
+                <a href="https://www.reelworld.ca/reelworld-directors-immersion-program" target="_blank" rel="noopener noreferrer">
+                  <span class="press-source">Reelworld</span> Directors Immersion Program in Partnership with NBCUniversal
+                </a>
+              </li>
+              <li>
+                <a href="https://thecma.ca/awards/2025-winner" target="_blank" rel="noopener noreferrer">
+                  <span class="press-source">Canadian Marketing Awards</span> 2025 Gold for Engagement, Porsche Cayenne Taste Drive
+                </a>
+              </li>
+              <li>
+                <a href="https://thecma.ca/awards/2025-winner" target="_blank" rel="noopener noreferrer">
+                  <span class="press-source">Canadian Marketing Awards</span> 2025 Gold for Customer Experience &amp; Shopper Marketing, Porsche Cayenne Taste Drive
+                </a>
+              </li>
+            </ul>
           </section>
         </div>
 

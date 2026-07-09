@@ -5,6 +5,9 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.kenpham.ca',
+  redirects: {
+    '/press': '/about'
+  },
   adapter: vercel({
     webAnalytics: { enabled: false }
   }),

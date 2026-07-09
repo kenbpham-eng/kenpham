@@ -43,7 +43,7 @@ const title = "Ken Pham | Director";
       "jobTitle": "Director",
       "url": "https://www.kenpham.ca",
       "sameAs": [
-        "https://www.imdb.com/name/nm9444848/",
+        "https://www.imdb.com/name/nm7730137/",
         "https://www.instagram.com/kennethpham/"
       ],
       "worksFor": {
@@ -64,14 +64,10 @@ const title = "Ken Pham | Director";
       <main id="main-content">
       <!-- Category Filter -->
       <div class="category-filter-wrap">
-        <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filterOptions">
-          <span class="filter-toggle-icon">+</span>
-          <span class="filter-toggle-label" id="filterToggleLabel">Filter</span>
-        </button>
         <div class="filter-options" id="filterOptions" role="group" aria-label="Filter projects by category">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="documentary">Documentary</button>
-          <button class="filter-btn" data-filter="short-film">Short Films</button>
+          <button class="filter-btn" data-filter="short-film">Narrative</button>
           <button class="filter-btn" data-filter="music-video">Music Videos</button>
           <button class="filter-btn" data-filter="commercial">Commercial</button>
         </div>
@@ -389,20 +385,8 @@ const title = "Ken Pham | Director";
     <script>
       // Category Filter Logic
       document.addEventListener('DOMContentLoaded', () => {
-        const filterToggle = document.getElementById('filterToggle');
-        const filterOptions = document.getElementById('filterOptions');
-        const filterToggleLabel = document.getElementById('filterToggleLabel');
         const filterBtns = document.querySelectorAll('.filter-btn');
         const tiles = document.querySelectorAll('.tile[data-category]');
-
-        // Toggle open/close
-        if (filterToggle && filterOptions) {
-          filterToggle.addEventListener('click', () => {
-            const isExpanded = filterToggle.getAttribute('aria-expanded') === 'true';
-            filterToggle.setAttribute('aria-expanded', !isExpanded);
-            filterOptions.classList.toggle('expanded', !isExpanded);
-          });
-        }
 
         filterBtns.forEach(btn => {
           btn.addEventListener('click', () => {
@@ -411,14 +395,6 @@ const title = "Ken Pham | Director";
             // Update active button
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
-            // Update toggle label to show active filter
-            const label = filter === 'all' ? 'Filter' : btn.textContent;
-            if (filterToggleLabel) filterToggleLabel.textContent = label;
-
-            // Close the options after selection
-            filterToggle.setAttribute('aria-expanded', 'false');
-            filterOptions.classList.remove('expanded');
 
             // Filter tiles
             tiles.forEach(tile => {
