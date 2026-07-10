@@ -156,7 +156,7 @@
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 0;
     font-size: 13px;
     z-index: 1050;
     opacity: 0;
@@ -198,7 +198,7 @@
     width: 40px;
     height: 4px;
     background: rgba(0, 0, 0, 0.3);
-    border-radius: 2px;
+    border-radius: 0;
     z-index: 1002;
     display: none;
   }
@@ -275,31 +275,6 @@
     gap: 16px;
   }
 
-  /* Light site = dark modal */
-  body.light-mode .modal-content { background: #1C1C1E; }
-  body.light-mode .modal-content .modal-close { color: #fff; }
-  body.light-mode .modal-content #modal-title { color: #fff; }
-  body.light-mode .modal-content .modal-metadata { color: rgba(255,255,255,0.7); }
-  body.light-mode .modal-content .modal-year { color: rgba(255,255,255,0.6); }
-  body.light-mode .modal-content .featuring-label { color: rgba(255,255,255,0.6); }
-  body.light-mode .modal-content .featuring-names { color: #fff; }
-  body.light-mode .modal-content .modal-description { color: #fff; }
-  body.light-mode .modal-content .modal-description .description-label { color: rgba(255,255,255,0.6) !important; }
-  body.light-mode .modal-content .modal-description .description-value { color: #fff !important; }
-  body.light-mode .modal-content .modal-credits h3,
-  body.light-mode .modal-content .modal-links h3,
-  body.light-mode .modal-content .modal-press h3,
-  body.light-mode .modal-content .modal-awards h3,
-  body.light-mode .modal-content .modal-gallery h3,
-  body.light-mode .modal-content .modal-director-note h3 { color: #fff; }
-  body.light-mode .modal-content .credits-list { color: #fff !important; }
-  body.light-mode .modal-content .credit-item { color: #fff !important; }
-  body.light-mode .modal-content .credit-role { color: rgba(255,255,255,0.6) !important; }
-  body.light-mode .modal-content .credit-name { color: #fff !important; }
-  body.light-mode .modal-content .press-link { color: #fff; }
-  body.light-mode .modal-content .press-link .underline { background: #fff; }
-  body.light-mode .modal-content .featuring-laurel img { filter: none; }
-  body.light-mode .modal-content .pull-indicator { background: rgba(255,255,255,0.3); }
 
   /* moved header spacing above */
 
@@ -432,13 +407,7 @@
     margin: 0;
   }
 
-  body.light-mode .modal-content .modal-director-note p {
-    color: #ffffff !important;
-  }
 
-  body.light-mode .modal-content .modal-director-note h3 {
-    color: #ffffff !important;
-  }
 
   .modal-credits h3,
   .modal-links h3,
@@ -446,12 +415,12 @@
   .modal-awards h3,
   .modal-director-note h3,
   .modal-gallery h3 {
-    font-size: 24px;
+    font-size: 13px;
     font-weight: 700;
     color: #000000;
-    margin: 0 0 24px 0;
+    margin: 0 0 20px 0;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.5px;
   }
 
   .modal-credits {
@@ -489,15 +458,7 @@
     color: #fff;
   }
 
-  body.light-mode .modal-content .links-list a {
-    border-color: #fff;
-    color: #fff;
-  }
 
-  body.light-mode .modal-content .links-list a:hover {
-    background: #fff;
-    color: #000;
-  }
 
   .modal-press {
     margin-bottom: 32px;
@@ -560,7 +521,7 @@
     padding-bottom: 177.78%; /* 9:16 */
     height: 0;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 0;
     background: #111;
   }
 
@@ -602,16 +563,7 @@
     color: #fff;
   }
 
-  body.light-mode .modal-content .vimeo-switcher-btn {
-    border-color: #fff;
-    color: #fff;
-  }
 
-  body.light-mode .modal-content .vimeo-switcher-btn:hover,
-  body.light-mode .modal-content .vimeo-switcher-btn.active {
-    background: #fff;
-    color: #000;
-  }
 
   .modal-vimeo-vertical-sections {
     margin-bottom: 32px;
@@ -637,10 +589,10 @@
 
   .modal-gallery h3 {
     margin: 0 0 16px 0;
-    font-size: 24px;
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.5px;
     color: #000000;
   }
 
@@ -733,7 +685,7 @@
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 4px;
+    border-radius: 0;
     cursor: zoom-in;
     margin-bottom: 16px;
   }
@@ -794,7 +746,7 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    border-radius: 8px;
+    border-radius: 0;
   }
 
   .lightbox-overlay {
@@ -848,7 +800,7 @@
     max-width: 92vw;
     max-height: 92vh;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 0;
     box-shadow: 0 8px 32px rgba(0,0,0,0.45);
   }
 

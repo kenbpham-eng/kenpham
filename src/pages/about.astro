@@ -11,7 +11,7 @@ const title = "Ken Pham | About";
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <title>{title}</title>
-    <meta name="description" content="Ken Pham is a director and producer whose latest film, That Which Is Heard will have its World Premiere at DOC NYC 2025" />
+    <meta name="description" content="Ken Pham is a director whose artistic roots began with movement. His practice spans narrative, documentary, commercial, and mixed media." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="https://www.kenpham.ca/about/" />
     <!-- Plausible Analytics -->
@@ -21,12 +21,12 @@ const title = "Ken Pham | About";
     <meta property="og:site_name" content="Ken Pham" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Ken Pham | About" />
-    <meta property="og:description" content="Ken Pham is a director and producer whose latest film, That Which Is Heard will have its World Premiere at DOC NYC 2025" />
+    <meta property="og:description" content="Ken Pham is a director whose artistic roots began with movement. His practice spans narrative, documentary, commercial, and mixed media." />
     <meta property="og:url" content="https://www.kenpham.ca/about" />
     <meta property="og:image" content="https://www.kenpham.ca/images/about-kenpham.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Ken Pham | About" />
-    <meta name="twitter:description" content="Ken Pham is a director and producer whose latest film, That Which Is Heard will have its World Premiere at DOC NYC 2025" />
+    <meta name="twitter:description" content="Ken Pham is a director whose artistic roots began with movement. His practice spans narrative, documentary, commercial, and mixed media." />
     <meta name="twitter:image" content="https://www.kenpham.ca/images/about-kenpham.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,33 +69,6 @@ const title = "Ken Pham | About";
 
       .about-text p {
         margin-bottom: 24px;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .about-text p::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--bg-color, #000000);
-        z-index: 1;
-        animation: textCurtainReveal 0.7s ease forwards;
-      }
-      
-      .about-text p:nth-child(1)::before { animation-delay: 0.1s; }
-      .about-text p:nth-child(2)::before { animation-delay: 0.25s; }
-      .about-text p:nth-child(3)::before { animation-delay: 0.4s; }
-      
-      @keyframes textCurtainReveal {
-        from { 
-          transform: translateX(0);
-        }
-        to { 
-          transform: translateX(100%);
-        }
       }
 
       .press-section {
@@ -148,36 +121,12 @@ const title = "Ken Pham | About";
         position: sticky;
         top: 144px;
         overflow: hidden;
-        border-radius: 8px;
-      }
-      
-      .about-image::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--bg-color, #000000);
-        z-index: 1;
-        border-radius: 8px;
-        animation: curtainRevealPhoto 0.8s ease forwards 0.2s;
-      }
-      
-      @keyframes curtainRevealPhoto {
-        from { 
-          transform: translateY(0);
-        }
-        to { 
-          transform: translateY(-100%);
-          opacity: 0;
-        }
       }
 
       .about-image img {
         width: 100%;
         height: auto;
-        border-radius: 8px;
+        border-radius: 0;
       }
 
       @media (max-width: 768px) {
@@ -204,7 +153,7 @@ const title = "Ken Pham | About";
         padding: 10px 14px;
         background: #fff;
         color: #000;
-        border-radius: 4px;
+        border-radius: 0;
         z-index: 100;
         text-decoration: none;
         border: 1px solid #0002;
@@ -244,10 +193,10 @@ const title = "Ken Pham | About";
         <div class="about-text">
           <section>
             <p>
-              Ken Pham is a director whose artistic roots began with movement. He spent years as a choreographer and dancer on productions including Star Trek: Strange New Worlds, SEE (Apple TV+), What We Do in the Shadows, and The Magicians.
+              Ken Pham is a director whose artistic roots began with movement. He spent a decade as a choreographer and dancer on productions including Star Trek: Strange New Worlds, SEE (Apple TV+), What We Do in the Shadows, and The Magicians.
             </p>
             <p>
-              His practice spans narrative, documentary, commercial, and mixed media. He directs campaigns for Porsche, Toyota, Volkswagen, and the Michelin Guide, and honed his approach to storytelling while assisting the director and producer of The Changeling (Apple TV+) and shadowing director Jason Eisener on Dark Side of the Ring.
+              His practice spans narrative, documentary, commercial, and mixed media. He has directed work for Porsche, Toyota, Volkswagen, and the Michelin Guide, and honed his approach to storytelling while assisting the director and producer of The Changeling (Apple TV+) and shadowing director Jason Eisener on Dark Side of the Ring.
             </p>
             <p>
               His documentary That Which Is Heard, following a stroke survivor's return to the stage, had its World Premiere at DOC NYC 2025, North America's largest documentary festival. His debut short film, The Hall Pass, screened at the 2025 Toronto Short Film Festival and was a Finalist at Canada Shorts.
@@ -289,7 +238,7 @@ const title = "Ken Pham | About";
       <SiteFooter />
     </div>
 
-    <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#000000cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
+    <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#000000cc;color:#fff;border:none;border-radius:0;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
       ↑
     </button>
     <style>

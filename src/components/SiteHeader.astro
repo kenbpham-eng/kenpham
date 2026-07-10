@@ -68,8 +68,8 @@
       <div id="project-video-preview" style="display:none;position:fixed;top:0;right:0;height:100vh;z-index:9999;justify-content:center;align-items:center;background:transparent;pointer-events:none;transition:opacity 0.2s;">
         <div id="project-video-bg" style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);"></div>
         <div id="project-video-inner" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;pointer-events:none;">
-          <video id="project-hover-video" style="max-width:40vw;max-height:80vh;border-radius:12px;background:#000;display:none;box-shadow:0 8px 32px #000a;" muted loop></video>
-          <div id="project-hover-overlay" style="display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;background:rgba(0,0,0,0.7);padding:18px 32px;border-radius:8px;font-size:1.3rem;font-weight:600;letter-spacing:1px;text-align:center;z-index:10;pointer-events:none;"></div>
+          <video id="project-hover-video" style="max-width:40vw;max-height:80vh;border-radius:0;background:#000;display:none;box-shadow:0 8px 32px #000a;" muted loop></video>
+          <div id="project-hover-overlay" style="display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;background:rgba(0,0,0,0.7);padding:18px 32px;border-radius:0;font-size:1.3rem;font-weight:600;letter-spacing:1px;text-align:center;z-index:10;pointer-events:none;"></div>
         </div>
       </div>
     </div>
@@ -83,11 +83,6 @@
       </div>
       <div class="social-section">
         <div class="social-icons">
-          <div class="site-theme-toggle" role="switch" aria-checked="false" aria-label="Toggle dark mode" tabindex="0">
-            <div class="switch">
-              <div class="thumb"></div>
-            </div>
-          </div>
           <a href="mailto:kenbpham@icloud.com" aria-label="Email">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="4" width="20" height="16" rx="2"/>
@@ -120,8 +115,7 @@
     position: sticky;
     top: 0;
     z-index: 99;
-    background: transparent;
-    backdrop-filter: none;
+    background: var(--bg-color, #000000);
     transition: opacity 0.3s ease;
   }
   .menu-toggle {
@@ -138,7 +132,7 @@
   .menu-toggle:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 4px;
-    border-radius: 4px;
+    border-radius: 0;
   }
   .menu-toggle span {
     display: block;
@@ -179,7 +173,7 @@
   .menu-close:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 4px;
-    border-radius: 4px;
+    border-radius: 0;
   }
   .main-nav {
     position: absolute;
@@ -225,7 +219,7 @@
   .main-nav a:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 4px;
-    border-radius: 2px;
+    border-radius: 0;
   }
   .main-nav a.active {
     color: var(--paper-white);
@@ -237,9 +231,6 @@
   @media (max-width: 768px) {
     .main-nav a {
       color: #fff;
-    }
-    :global(body.light-mode) .main-nav a {
-      color: #2F2F32;
     }
   }
   .site-header h1 {
@@ -262,7 +253,7 @@
   .site-header h1 a:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 4px;
-    border-radius: 4px;
+    border-radius: 0;
   }
   .header-content { display: flex; flex-direction: column; align-items: flex-start; gap: 0; width: 100%; }
   .header-row { display: flex; flex-direction: row; align-items: center; width: 100%; gap: 32px; }
@@ -281,53 +272,11 @@
   .social-icons a:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 4px;
-    border-radius: 4px;
+    border-radius: 0;
   }
   .social-icons svg { width: 20px; height: 20px; }
 
-  /* Site-wide theme toggle */
-  .site-theme-toggle {
-    cursor: pointer;
-    user-select: none;
-    margin-left: 16px;
-  }
 
-  .site-theme-toggle:focus-visible {
-    outline: 2px solid var(--paper-white);
-    outline-offset: 4px;
-    border-radius: 20px;
-  }
-
-  .site-theme-toggle .switch {
-    width: 32px;
-    height: 16px;
-    background: #F7F7F7;
-    border: 2px solid #2F2F32;
-    border-radius: 12px;
-    position: relative;
-    transition: all 0.3s ease;
-  }
-
-  .site-theme-toggle .thumb {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #2F2F32;
-    position: absolute;
-    top: 50%;
-    transform: translate(2px, -50%);
-    transition: all 0.3s ease;
-  }
-
-  :global(body.light-mode) .site-theme-toggle .switch {
-    background: #2F2F32;
-    border-color: #F7F7F7;
-  }
-
-  :global(body.light-mode) .site-theme-toggle .thumb {
-    background: #F7F7F7;
-    transform: translate(20px, -50%);
-  }
 
   :global(h1), :global(h2), :global(h3), :global(h4), :global(h5), :global(h6) {
     font-family: var(--font-heading);
@@ -577,26 +526,10 @@
     font-size: 12px;
   }
 
-  /* Light mode: white text in projects drawer (dark background) */
-  :global(body.light-mode) .projects-nav {
-    background: #1a1a1a;
-  }
 
-  :global(body.light-mode) .projects-close {
-    color: #ffffff;
-  }
 
-  :global(body.light-mode) .projects-section h3 {
-    color: rgba(255, 255, 255, 0.7);
-  }
 
-  :global(body.light-mode) .projects-section a {
-    color: #ffffff;
-  }
 
-  :global(body.light-mode) .projects-section a .status {
-    color: rgba(255, 255, 255, 0.6);
-  }
 
   @media (max-width: 768px) {
     .projects-toggle {
@@ -657,32 +590,12 @@
   #project-hover-video {
     max-width: 40vw;
     max-height: 80vh;
-    border-radius: 12px;
+    border-radius: 0;
     background: #000;
     display: none;
     pointer-events: none;
   }
 
-  .site-theme-toggle.top-right {
-    position: absolute;
-    top: 24px;
-    right: 32px;
-    z-index: 200;
-    display: block;
-  }
-  @media (max-width: 768px) {
-    .site-theme-toggle.top-right {
-      display: none;
-    }
-  }
-  .site-theme-toggle.mobile-toggle {
-    display: none;
-  }
-  @media (max-width: 768px) {
-    .site-theme-toggle.mobile-toggle {
-      display: flex;
-    }
-  }
 </style>
 
 <script is:inline>
@@ -900,42 +813,6 @@
     });
   })();
 
-  // Site-wide theme toggle
-  (function() {
-    const toggle = document.querySelector('.site-theme-toggle');
-    if (!toggle) return;
-
-    // Check for saved theme preference or default to dark
-    const savedTheme = localStorage.getItem('siteTheme');
-    if (savedTheme === 'light') {
-      document.body.classList.add('light-mode');
-      toggle.setAttribute('aria-checked', 'true');
-    }
-
-    // Toggle theme
-    function toggleTheme() {
-      const isLight = document.body.classList.toggle('light-mode');
-      toggle.setAttribute('aria-checked', isLight ? 'true' : 'false');
-      localStorage.setItem('siteTheme', isLight ? 'light' : 'dark');
-    }
-
-    toggle.addEventListener('click', toggleTheme);
-    toggle.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleTheme();
-      }
-    });
-  })();
-
-  // Apply saved theme on page load (before content paints to avoid flash)
-  (function() {
-    const savedTheme = localStorage.getItem('siteTheme');
-    if (savedTheme === 'light') {
-      document.documentElement.classList.add('light-mode');
-      document.body.classList.add('light-mode');
-    }
-  })();
 </script>
 
 

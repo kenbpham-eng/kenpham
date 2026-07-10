@@ -11,7 +11,7 @@ const title = "Ken Pham | Contact";
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <title>{title}</title>
-    <meta name="description" content="Ken Pham - Contact & Representation" />
+    <meta name="description" content="Contact Ken Pham for narrative, documentary, and commercial directing." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="https://www.kenpham.ca/contact" />
     <!-- Plausible Analytics -->
@@ -21,12 +21,12 @@ const title = "Ken Pham | Contact";
     <meta property="og:site_name" content="Ken Pham" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Ken Pham | Contact" />
-    <meta property="og:description" content="Ken Pham - Contact & Representation" />
+    <meta property="og:description" content="Contact Ken Pham for narrative, documentary, and commercial directing." />
     <meta property="og:url" content="https://www.kenpham.ca/contact" />
     <meta property="og:image" content="https://www.kenpham.ca/images/about-kenpham.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Ken Pham | Contact" />
-    <meta name="twitter:description" content="Ken Pham - Contact & Representation" />
+    <meta name="twitter:description" content="Contact Ken Pham for narrative, documentary, and commercial directing." />
     <meta name="twitter:image" content="https://www.kenpham.ca/images/about-kenpham.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,24 +46,15 @@ const title = "Ken Pham | Contact";
       }
 
       .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 0.8fr;
-        gap: 64px;
-        align-items: start;
-      }
-
-      @media (max-width: 768px) {
-        .contact-grid {
-          grid-template-columns: 1fr;
-          gap: 48px;
-        }
+        max-width: 640px;
       }
 
       .contact-info h3 {
-        font-size: 24px;
+        font-size: 14px;
         font-weight: 700;
-        margin: 0 0 32px 0;
-        letter-spacing: 0.5px;
+        margin: 0 0 20px 0;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
       }
 
       .contact-info .contact-section + .contact-card + .contact-section h3 {
@@ -110,159 +101,8 @@ const title = "Ken Pham | Contact";
       .contact-card a:focus-visible {
         outline: 2px solid #fff;
         outline-offset: 2px;
-        border-radius: 2px;
+        border-radius: 0;
         text-decoration: underline;
-      }
-
-      .contact-form-wrap {
-        background: #1a1a1a;
-        border-radius: 8px;
-        padding: 20px;
-        padding-right: 40px;
-      }
-
-      /* Light mode: keep form dark for contrast */
-      body.light-mode .contact-form-wrap {
-        background: #1a1a1a;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      }
-
-      body.light-mode .field label {
-        color: #ffffff;
-      }
-
-      body.light-mode .field input,
-      body.light-mode .field textarea {
-        background: #2a2a2a;
-        border-color: #3a3a3a;
-        color: #ffffff;
-      }
-
-      body.light-mode .field input::placeholder,
-      body.light-mode .field textarea::placeholder {
-        color: rgba(255, 255, 255, 0.5);
-      }
-
-      body.light-mode .field input:focus,
-      body.light-mode .field textarea:focus {
-        border-color: #5a5a5a;
-      }
-
-      body.light-mode .send-btn {
-        background: #ffffff;
-        color: #000000;
-      }
-
-      @media (max-width: 768px) {
-        .contact-form-wrap {
-          padding: 32px 24px;
-        }
-      }
-
-      .contact-form {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-      }
-
-      .field {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .field label {
-        font-size: 14px;
-        font-weight: 500;
-        color: #ffffff;
-        letter-spacing: 0.3px;
-      }
-
-      .field input,
-      .field textarea {
-        background: #2a2a2a;
-        border: 1px solid #3a3a3a;
-        border-radius: 6px;
-        padding: 12px 16px;
-        font-size: 15px;
-        color: #ffffff;
-        font-family: var(--font-primary);
-        transition: border-color 0.2s ease;
-      }
-
-      .field input:focus,
-      .field textarea:focus {
-        outline: none;
-        border-color: #4a4a4a;
-      }
-
-      .field input:focus-visible,
-      .field textarea:focus-visible {
-        outline: 2px solid #fff;
-        outline-offset: 2px;
-        border-color: #fff;
-      }
-
-      .field textarea {
-        min-height: 150px;
-        resize: vertical;
-      }
-
-      .actions {
-        margin-top: 8px;
-      }
-
-      .send-btn {
-        background: #f2f2f2;
-        color: #000000;
-        border: none;
-        border-radius: 6px;
-        padding: 14px 32px;
-        font-size: 15px;
-        font-weight: 600;
-        font-family: var(--font-primary);
-        cursor: pointer;
-        transition: opacity 0.2s ease;
-      }
-
-      .send-btn:hover {
-        opacity: 0.9;
-      }
-
-      .send-btn:focus-visible {
-        outline: 2px solid #fff;
-        outline-offset: 4px;
-      }
-
-      .send-btn:active {
-        transform: scale(0.98);
-      }
-
-      .form-message {
-        padding: 16px 20px;
-        border-radius: 6px;
-        font-size: 14px;
-        margin-top: 16px;
-        display: none;
-        animation: slideIn 0.3s ease;
-      }
-
-      .form-message.success {
-        background: #1a4d1a;
-        color: #90ee90;
-        border: 1px solid #2d7a2d;
-        display: block;
-      }
-
-      @keyframes slideIn {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
       }
 
       .skip-link {
@@ -282,7 +122,7 @@ const title = "Ken Pham | Contact";
         padding: 10px 14px;
         background: #fff;
         color: #000;
-        border-radius: 4px;
+        border-radius: 0;
         z-index: 100;
         text-decoration: none;
         border: 1px solid #0002;
@@ -340,96 +180,21 @@ const title = "Ken Pham | Contact";
               <p>da Costa Talent Agency</p>
               <p>Peter da Costa</p>
               <p><a href="mailto:peter@dacostatalent.com">peter@dacostatalent.com</a></p>
-              <p><a href="tel:+14163226554">+1 (416) 322-6554</a></p>
 
               <h4>TV & FILM AGENT - TALENT</h4>
               <p>da Costa Talent Agency</p>
               <p>Frank da Costa</p>
               <p><a href="mailto:frank@dacostatalent.com">frank@dacostatalent.com</a></p>
-              <p><a href="tel:+19059998350">+1 (905) 999-8350</a></p>
             </div>
           </aside>
 
-          <section class="contact-form-wrap">
-            <form class="contact-form" id="contactForm" autocomplete="on">
-              <div class="field">
-                <label for="firstName">First Name</label>
-                <input id="firstName" name="firstName" type="text" autocomplete="given-name" />
-              </div>
-
-              <div class="field">
-                <label for="lastName">Last Name</label>
-                <input id="lastName" name="lastName" type="text" autocomplete="family-name" />
-              </div>
-
-              <div class="field">
-                <label for="email">Email<span aria-hidden="true">*</span></label>
-                <input id="email" name="email" type="email" required autocomplete="email" />
-              </div>
-
-              <div class="field">
-                <label for="subject">Subject<span aria-hidden="true">*</span></label>
-                <input id="subject" name="subject" type="text" required />
-              </div>
-
-              <div class="field">
-                <label for="message">Message<span aria-hidden="true">*</span></label>
-                <textarea id="message" name="message" required></textarea>
-              </div>
-
-              <div class="actions">
-                <button type="submit" class="send-btn">Submit</button>
-              </div>
-
-              <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
-            </form>
-          </section>
         </div>
       </main>
       
       <SiteFooter />
     </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('contactForm');
-        const formMessage = document.getElementById('formMessage');
-        
-        if (form && formMessage) {
-          form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const firstName = (document.getElementById('firstName') as HTMLInputElement)?.value || '';
-            const lastName = (document.getElementById('lastName') as HTMLInputElement)?.value || '';
-            const email = (document.getElementById('email') as HTMLInputElement)?.value || '';
-            const subject = (document.getElementById('subject') as HTMLInputElement)?.value || 'Contact from website';
-            const message = (document.getElementById('message') as HTMLTextAreaElement)?.value || '';
-            
-            const fullName = `${firstName} ${lastName}`.trim() || '(not provided)';
-            const body = `Name: ${fullName}
-Email: ${email}
-
-${message}`;
-            
-            const mailtoLink = `mailto:kenbpham@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Show success message
-            formMessage.textContent = 'Message sent.';
-            formMessage.className = 'form-message success';
-            
-            // Open mailto link
-            window.location.href = mailtoLink;
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-              formMessage.className = 'form-message';
-            }, 5000);
-          });
-        }
-      });
-    </script>
-
-    <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#000000cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
+    <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#000000cc;color:#fff;border:none;border-radius:0;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
       ↑
     </button>
     <style>

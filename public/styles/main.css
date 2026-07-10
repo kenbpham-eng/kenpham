@@ -17,17 +17,6 @@
     --text-secondary: #D9D9D9;
 }
 
-/* Light Mode */
-body.light-mode {
-    --bg-color: #FCFCFC;
-    --text-color: #2F2F32;
-    --text-secondary: #555555;
-    --carbon-black: #FCFCFC;
-    --paper-white: #000000;
-    --soft-shadow-grey: #555555;
-    --gunmetal: #2F2F32;
-    --body-text: #2F2F32;
-}
 
 html, body {
     font-family: var(--font-primary);
@@ -39,7 +28,7 @@ html, body {
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 12px; }
 ::-webkit-scrollbar-track { background: var(--carbon-black); }
-::-webkit-scrollbar-thumb { background: var(--gunmetal); border-radius: 6px; border: 2px solid var(--carbon-black); }
+::-webkit-scrollbar-thumb { background: var(--gunmetal); border-radius: 0; border: 2px solid var(--carbon-black); }
 ::-webkit-scrollbar-thumb:hover { background: #3A3A3D; }
 * { scrollbar-width: thin; scrollbar-color: var(--gunmetal) var(--carbon-black); }
 /* Skip link */
@@ -48,7 +37,7 @@ html, body {
     text-decoration: none; font-weight: 600; z-index: 100;
 }
 .skip-link:focus {
-    top: 16px; left: 16px; background: #fff; color: #000; border-radius: 4px; padding: 10px 14px;
+    top: 16px; left: 16px; background: #fff; color: #000; border-radius: 0; padding: 10px 14px;
     border: 1px solid #0002; box-shadow: 0 2px 8px #0006; position: fixed; width: auto; height: auto;
 }
 /* ...existing code... */

@@ -11,7 +11,7 @@ const title = "Halfway Broken — Ken Pham";
     <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#000000" />
     <title>{title}</title>
-    <meta name="description" content="Halfway Broken - A film by Ken Pham." />
+    <meta name="description" content="Halfway Broken by Luna Elle - A music video directed by Ken Pham. Official selection at the Toronto International Music Video Festival." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="https://www.kenpham.ca/halfway-broken" />
   <!-- Plausible Analytics -->
@@ -21,11 +21,11 @@ const title = "Halfway Broken — Ken Pham";
   <meta property="og:site_name" content="Ken Pham" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Halfway Broken — Ken Pham" />
-  <meta property="og:description" content="Halfway Broken - A film by Ken Pham." />
+  <meta property="og:description" content="Halfway Broken by Luna Elle - A music video directed by Ken Pham. Official selection at the Toronto International Music Video Festival." />
   <meta property="og:url" content="https://www.kenpham.ca/halfway-broken" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Halfway Broken — Ken Pham" />
-  <meta name="twitter:description" content="Halfway Broken - A film by Ken Pham." />
+  <meta name="twitter:description" content="Halfway Broken by Luna Elle - A music video directed by Ken Pham. Official selection at the Toronto International Music Video Festival." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap">
@@ -86,8 +86,8 @@ const title = "Halfway Broken — Ken Pham";
         }
         
         .project-credits h3 {
-          font-size: 28px;
-          margin-bottom: 32px;
+          font-size: 14px;
+          margin-bottom: 20px;
         }
         
         .credits-list {
@@ -187,10 +187,10 @@ const title = "Halfway Broken — Ken Pham";
       }
 
       .project-credits h3 {
-        font-size: 32px;
+        font-size: 14px;
         font-weight: 700;
-        margin: 0 0 48px 0;
-        letter-spacing: 0.5px;
+        margin: 0 0 20px 0;
+        letter-spacing: 1.5px;
         text-align: left;
       }
 
@@ -261,10 +261,10 @@ const title = "Halfway Broken — Ken Pham";
       }
 
       .project-gallery h3 {
-        font-size: 32px;
+        font-size: 14px;
         font-weight: 700;
-        margin: 0 0 48px 0;
-        letter-spacing: 0.5px;
+        margin: 0 0 20px 0;
+        letter-spacing: 1.5px;
         color: #f2f2f2;
       }
 
@@ -291,7 +291,7 @@ const title = "Halfway Broken — Ken Pham";
         background: rgba(38, 38, 38, 0.95);
         color: #f2f2f2;
         padding: 10px 18px;
-        border-radius: 6px;
+        border-radius: 0;
         text-decoration: none;
         font-size: 10px;
         font-weight: 700;
@@ -311,7 +311,7 @@ const title = "Halfway Broken — Ken Pham";
       .back-link:focus-visible {
         outline: 2px solid #fff;
         outline-offset: 4px;
-        border-radius: 6px;
+        border-radius: 0;
         transform: translateY(-2px);
       }
       
@@ -333,7 +333,7 @@ const title = "Halfway Broken — Ken Pham";
         max-width: 90vw;
         max-height: 90vh;
         object-fit: contain;
-        border-radius: 4px;
+        border-radius: 0;
       }
       .lightbox-close,
       .lightbox-prev,
@@ -345,7 +345,7 @@ const title = "Halfway Broken — Ken Pham";
         font-size: 24px;
         width: 48px;
         height: 48px;
-        border-radius: 50%;
+        border-radius: 0;
         cursor: pointer;
         transition: background 0.2s ease;
         display: flex;
@@ -393,7 +393,7 @@ const title = "Halfway Broken — Ken Pham";
       padding: 10px 14px;
       background: #fff;
       color: #000;
-      border-radius: 4px;
+      border-radius: 0;
       z-index: 1000;
       text-decoration: none;
       border: 1px solid #0002;
@@ -544,7 +544,7 @@ const title = "Halfway Broken — Ken Pham";
 
     <!-- Menu toggle handled inside SiteHeader component -->
   </body>
-  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#000000cc;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
+  <button id="backToTop" aria-label="Back to top" tabindex="0" style="display:none;position:fixed;bottom:32px;right:32px;z-index:200;background:#000000cc;color:#fff;border:none;border-radius:0;width:48px;height:48px;box-shadow:0 2px 12px #0007;cursor:pointer;transition:opacity 0.2s;outline:none;font-size:24px;align-items:center;justify-content:center;">
     ↑
   </button>
   <style>
@@ -552,9 +552,8 @@ const title = "Halfway Broken — Ken Pham";
     #backToTop[hidden] { display: none !important; }
   </style>
   <script type="module">
-    import { initBackToTop, initProgressBar, initLightbox } from '/scripts/shared.js';
+    import { initBackToTop, initLightbox } from '/scripts/shared.js';
     initBackToTop();
-    initProgressBar();
     initLightbox();
   </script>
 </html>

@@ -18,6 +18,13 @@
         "src": "/media/bmwm4gt4_hover.mp4",
         "poster": "/media/bmwm4gt4_static.jpg"
       },
+      "vimeoEmbeds": [
+        {
+          "src": "https://player.vimeo.com/video/1073000377?h=0acdb8cd90&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+          "title": "BMW M4 GT4",
+          "aspectRatio": "16/9"
+        }
+      ],
       "gallery": {
         "title": "Stills",
         "aspectRatio": "16 / 9",
@@ -215,7 +222,14 @@
       "video": {
         "src": "/media/cayenne2024_hover.mp4",
         "poster": "/media/cayenne2024_static.jpg"
-      }
+      },
+      "vimeoEmbeds": [
+        {
+          "src": "https://player.vimeo.com/video/951649873?h=7885b51350&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+          "title": "Porsche Cayenne Campaign",
+          "aspectRatio": "16/9"
+        }
+      ]
     },
     {
       "id": "cayennetastedrive",
